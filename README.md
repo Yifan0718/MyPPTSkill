@@ -1,103 +1,60 @@
-# Gorden PPT Skill
+# MyPPTSkill
 
-> 史上最强原生PPT Skill，更适合中国宝宝。生成的效果不让你震惊，你来打我。
->
-> ⚠️ **非商业使用**：本仓库及内置模板**仅供个人学习与研究**，禁止任何商业用途。
-> 
-> **支持定制私有化模板**：如果你想要Agent能按你公司的PPT模板来生成PPT，可以加我微信**duge360**定制。
+**当前版本：1.0** · [下载 Release](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v1.0)
 
-## 交流群
+## TL;DR
 
-加我微信duge360，拉你进PPT Skill交流群，AI话题也可以讨论。
+**复杂 PPT，讲得漂亮，排得整齐。**
 
-## 几大特色
-1、能生成信息密度高、排版复杂、看起来高大上的PPT，也支持生成简约、商务风格的PPT。适合国企、互联网大厂使用。
+充分发挥多模态 AI 的视觉能力，不靠一遍直出：逐页看图、反复核验细节、修正后再检查，尽最大努力把排版打磨到完美。
 
-2、兼容所有模型，DeepSeek、小米Mimo、Claude、GPT均实测过，国产模型也能完成的非常好。
+- **摆脱 AI 味**：去掉免责声明、空洞套话、长篇赘述和小字堆砌，让表达自然、清楚、有判断。
+- **告别排版错乱**：溢出、遮挡、挤压和悬空箭头，逐项找出、修正到位。
+- **强迫症级对齐与统一**：从字形起点到图表边界，从横纵间距到跨页风格，细节逐一打磨。
+- **复杂内容照样好看**：多图表、代码、公式和科研图文混排，兼顾信息密度与可读性。
+- **你的规则，持续有效**：持续跟进上游 GordenPPTSkill 更新，自适应保留已固化的定制规则与修复。
 
-3、技能自动更新机制：如果我更新了可选用的PPT模板，使用技能时会自动更新技能。技能像软件一样可以更新
+**21 套中文模板 · 10 份实际样本 · 87 页成品展示 · 完整开发测试**
 
-## 效果展示
+[安装与使用](skill/my-ppt-skill/README.md#安装与使用) · [查看成品](examples/README.md) · [87页预览](examples/all-samples-87-pages.pdf) · [完整差异](skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md)
 
-以下是用本 Skill 生成的实际页面（信息密度高、排版复杂、商务质感）：
+## 直接看效果
 
-<p align="center">
-  <img src="./assets/showcase-1.jpg" alt="效果展示 1 - 战略定位分析" width="720" />
-</p>
+| [多图表与科学混排](examples/01_scientific-charts/README.md) | [长稿与复杂图解](examples/05_inference-scaling/README.md) | [MATLAB源码与图像](examples/10_matlab-tiledlayout/README.md) |
+|---|---|---|
+| [![科学混排](examples/01_scientific-charts/preview.png)](examples/01_scientific-charts/README.md) | [![推理扩容](examples/05_inference-scaling/showcase.png)](examples/05_inference-scaling/README.md) | [![MATLAB教学](examples/10_matlab-tiledlayout/showcase.png)](examples/10_matlab-tiledlayout/README.md) |
 
-<p align="center">
-  <img src="./assets/showcase-2.jpg" alt="效果展示 2 - 价值冰山模型" width="720" />
-</p>
+以下展示成品中的实际内容页。[点击查看完整样本](examples/README.md)。全部10份样本包含科学混排、世界模型、Do-JEPA、电力转型、推理集群、C++、LaTeX和MATLAB主题。
 
-<p align="center">
-  <img src="./assets/showcase-3.jpg" alt="效果展示 3 - 产品化闭环" width="720" />
-</p>
+## 快速开始
 
-## 使用方法
-极其简单，把这段提示词发给你的Agent即可：
+将 `skill/my-ppt-skill` 文件夹安装到工具的Skills目录，使用 `$my-ppt-skill` 调用：
 
-安装这个Skill：https://github.com/GordenSun/GordenPPTSkill
-然后使用这个Skill做一个复杂、豪华的PPT，读取本地XXX文件，来介绍XXX项目
-
-## 谁要看这个
-
-- 想给自己用的 AI 助手装一个"做 PPT"技能的人：**请读 [SKILL.md](./SKILL.md)**
-- 想看本项目目录怎么组织：继续往下看本文件
-- 想理解模板分类 / 推荐：**请读 [templates/INDEX.md](./templates/INDEX.md)**
-
-## 快速开始（命令行）
-
-```bash
-# 1. 确认依赖
-python3 -c "import pptx; print(pptx.__version__)"   # python-pptx 1.0+
-soffice --version    # LibreOffice (仅渲染预览时需要)
-which pdftoppm       # poppler   (仅渲染预览时需要)
-
-# 2. 选定模板 + 写 edits.json，跑构建
-python3 scripts/build_pptx.py \
-    templates/minimal-business-summary/template.pptx \
-    edits.json \
-    out/final.pptx \
-    --detail templates/minimal-business-summary/detail.json
-
-# 3. (可选) 渲染最终预览图
-python3 scripts/render_slides.py out/final.pptx out/preview --dpi 144
+```text
+使用 $my-ppt-skill 制作6页MATLAB教学PPT，含独立封面。
+使用数据可视化模板，包含源码与实际生成的图像。
+作者“示例作者”，逐页检查后交付PPTX和PDF。
 ```
 
-## 字体环境
+也支持用户自己的PPTX模板和完全原创设计。详细环境、需求确认与默认选项见 [Skill README](skill/my-ppt-skill/README.md)。
 
-模板大量使用 `微软雅黑`。如果你的机器没装它，配 `~/.config/fontconfig/fonts.conf` 加一条 alias：
+## 发布资源导航
 
-```xml
-<alias binding="strong">
-  <family>微软雅黑</family>
-  <accept>
-    <family>WenQuanYi Micro Hei</family>
-    <family>DengXian</family>
-    <family>Noto Sans SC</family>
-    <family>PingFang SC</family>
-  </accept>
-</alias>
-```
+| 内容 | 入口 |
+|---|---|
+| 安装目录与完整使用文档 | [Skill](skill/my-ppt-skill/README.md) |
+| 额外要求、解决的问题与上游差异 | [差异说明](skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md) |
+| 最终10份样本、87页及可用教学源码 | [样本目录](examples/README.md) |
+| 当前适用测试与统一运行入口 | [开发测试](tests/README.md) |
+| 本版验证摘要 | [验证结果](VALIDATION.md) |
+| GitHub侧边简介与Topics文案 | [GitHub About](GITHUB_ABOUT.md) |
 
-(`brew install --cask font-noto-sans-sc`，或下载 WenQuanYi Micro Hei 放进 `~/Library/Fonts/` 并 `fc-cache -f`。)
+安装时只复制Skill目录；样本与开发测试作为独立发布资源使用。资源保留当前版本适用的文件，排除旧候选、迭代快照和原始开发日志。
 
-## 目录速览
+## 开发与测试
 
-```
-SKILL.md         # AI 入口文档
-VERSION          # 1.0.0
-CHANGELOG.md     # 人读变更
-updates.json     # 机读变更
-manifest.json    # 每文件版本 + sha256
-scripts/         # 5 个面向使用者的脚本（build / render / update / manifest）
-references/      # 编辑规则、Schema、工作流参考
-templates/       # 17 个模板（每个 4 文件）
-```
+项目开发与测试使用 **GPT6-Astra**，配合官方 **ChatGPT Desktop（Codex）Harness**。实际使用建议选择长程思维能力和多模态能力都较强的高级模型，充分发挥视觉观察、复杂推理和多轮迭代能力。
 
-## 致谢与版权
+## Fork来源与许可
 
-- 本仓库没有PPT模板的版权
-- **禁止任何二次分发 / 商业使用**
-- 用到的开源工具：[LibreOffice](https://www.libreoffice.org/)、[python-pptx](https://python-pptx.readthedocs.io/)、[Poppler](https://poppler.freedesktop.org/)、[WenQuanYi Micro Hei](http://wenq.org/)
-- 感谢 [LinuxDO](https://linux.do) 社区的支持
+Fork自 **[GordenSun/GordenPPTSkill](https://github.com/GordenSun/GordenPPTSkill)**。定制维护者：**Yifan0718**（[liuyifan111111@gmail.com](mailto:liuyifan111111@gmail.com)）。新增和修改部分采用MIT，上游代码、模板与其他第三方素材按各自原许可处理。完整归属和授权范围见[许可说明](skill/my-ppt-skill/docs/LICENSE_SCOPE.md)。

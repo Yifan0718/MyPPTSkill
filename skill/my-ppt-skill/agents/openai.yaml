@@ -1,0 +1,4 @@
+interface:
+  display_name: "MyPPTSkill"
+  short_description: "中文演示文稿、复杂图表和代码混排制作，逐页渲染与独立视觉验收"
+  default_prompt: "使用 $my-ppt-skill 制作内容扎实、排版均衡且经过逐页视觉验收的演示文稿。"

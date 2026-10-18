@@ -1,0 +1,29 @@
+C++ 继承、多态与虚继承示例
+语言版本：C++17
+
+正常运行示例
+01_inheritance_dispatch.cpp  对象、引用、虚调用、显式限定与切片
+02_diamond_plain.cpp         普通菱形；两份 A 与构造日志
+03_diamond_virtual.cpp       虚继承；共享 A 与最派生类初始化
+04_final_overrider.cpp       唯一最终覆盖者与三种基类引用
+
+在 g++ 中编译任一正常示例，例如：
+g++ -std=c++17 -Wall -Wextra -pedantic-errors 01_inheritance_dispatch.cpp -o example
+Windows 运行：.\example.exe
+Linux/macOS 运行：./example
+
+以 error_ 开头的四个文件都是有意保留的编译错误反例，不能作为正常程序构建：
+error_ambiguous_base.cpp             D 到 A 的转换有歧义
+error_non_unique_overrider.cpp       共享 A::f 缺少唯一最终覆盖者
+error_reference_interface.cpp       Base& 不能通过名字查找到 Derived::score
+error_missing_virtual_base_init.cpp  最派生类 D 缺少 A(int) 初始化
+
+slide_01.cpp 至 slide_05.cpp 从最终幻灯片的可编辑代码文字提取，补齐 include/main，并加入 assert 核对相关结果。
+每个文件单独编译运行。不同示例里的 A/B/C/D 或 Base/Derived 定义用于各自独立程序，不能把这些文件合并为一个翻译单元。
+
+参考规则
+https://eel.is/c++draft/class.derived
+https://eel.is/c++draft/class.virtual
+https://eel.is/c++draft/expr.call
+https://eel.is/c++draft/class.base.init
+https://eel.is/c++draft/expr.delete

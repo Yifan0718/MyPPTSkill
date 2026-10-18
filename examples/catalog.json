@@ -1,0 +1,96 @@
+{
+  "count": 10,
+  "pages": 87,
+  "samples": [
+    {
+      "number": 1,
+      "title": "科学图表与混排",
+      "pages": 3,
+      "folder": "01_scientific-charts",
+      "pptx_sha256": "30B71CE57E87DD3E65F8F61A03160DE39A0A7A5C55FDF1378A4CBC05E69DAC07",
+      "pdf_sha256": "8A448C28A30F0ACA63BA2AE36DBF5543F94B4A5FE43D51B4A1513AA7EF56DE99",
+      "focus": "多图表、流程回路、LaTeX与科研混排"
+    },
+    {
+      "number": 2,
+      "title": "世界模型",
+      "pages": 10,
+      "folder": "02_world-models",
+      "pptx_sha256": "CE65B9426B41A5EFBDC0D8E57E12AB4EB1E92C7A334E799906C6E67590490936",
+      "pdf_sha256": "0C63105A5016E6DC783818A215FACB1D4241D46A5C95D46BF59E821B4D4AFE3F",
+      "focus": "产业资料组织与多种图解"
+    },
+    {
+      "number": 3,
+      "title": "Do-JEPA论文讲解",
+      "pages": 10,
+      "folder": "03_do-jepa",
+      "pptx_sha256": "278E414F23AC70C041277D6385C7C18BDD85C49FF3048C8F922BF5A6D2AD2116",
+      "pdf_sha256": "DE80EB047EBF92BD3D1D9B6A00A72BB527D73132C00D5F7066353D08EE101947",
+      "focus": "论文方法、公式及研究图像讲解"
+    },
+    {
+      "number": 4,
+      "title": "全球电力转型长稿",
+      "pages": 14,
+      "folder": "04_electricity-transition",
+      "pptx_sha256": "CAA1F062058B616795451E0A317E62AD1AC853B9EF28901E90E4545677FF082B",
+      "pdf_sha256": "44FDE6DD6EE072370A0B9E0F0E53885825FF563A506CA508B9A6B0E2EB67508D",
+      "focus": "大规模数据与复杂图表叙事"
+    },
+    {
+      "number": 5,
+      "title": "多彩几何推理扩容",
+      "pages": 24,
+      "folder": "05_inference-scaling",
+      "pptx_sha256": "E333E14822857FE78B9876D5EBA07A5353CD747E7DBB171B21A3C60BB01D8269",
+      "pdf_sha256": "C8F546FEE16DAB4BB21C618B27E89BDDFE9AFCBE36655A214A8D8C071F19E990",
+      "focus": "24页长稿、几何模板及复杂连线"
+    },
+    {
+      "number": 6,
+      "title": "新推理集群压力稿",
+      "pages": 5,
+      "folder": "06_inference-cluster",
+      "pptx_sha256": "EA984E24EEC8D46B902315C3BB45EF128606B518BC35D8C71446E989E2DE9717",
+      "pdf_sha256": "EC409CB34864FA9355695F684BA61686AFFDD8FBED563E8F5093AFCFCAA58208",
+      "focus": "容量、成本和性能的复杂分析"
+    },
+    {
+      "number": 7,
+      "title": "新电力替代压力稿",
+      "pages": 5,
+      "folder": "07_clean-power",
+      "pptx_sha256": "B88D9738327E05839329AED1D03C2670192F52478F984CCAF112A44222788895",
+      "pdf_sha256": "0CFA74BF544D627497B580A2B63DD78D8005BF2EBEBC04392214074E1C78CB2F",
+      "focus": "电力数据比较及替代关系"
+    },
+    {
+      "number": 8,
+      "title": "C++继承与多态",
+      "pages": 5,
+      "folder": "08_cpp-inheritance",
+      "pptx_sha256": "BA522AF92C88EA3C01C5F9146F367C0809384CD3DEB2DAAB2C092F121543F207",
+      "pdf_sha256": "E1E01C2A0669A1F74CD9366E7D07B03FF33E04E4F650A8DE13F58B95DDEE964D",
+      "focus": "继承、多态、虚继承链与代码"
+    },
+    {
+      "number": 9,
+      "title": "LaTeX数学排版",
+      "pages": 5,
+      "folder": "09_latex-amsmath",
+      "pptx_sha256": "FC03FD713E9B4F1FBB5E0FBD79A4AFEB4830BDF4EAC4C31F595962E8E26FCBC1",
+      "pdf_sha256": "91621FF1E99519B9A9C290AAFA859F8C79472906A542BA2EEA0D94D70BF82377",
+      "focus": "数学公式、LaTeX源码与效果对照"
+    },
+    {
+      "number": 10,
+      "title": "MATLAB多面板绘图",
+      "pages": 6,
+      "folder": "10_matlab-tiledlayout",
+      "pptx_sha256": "158EB280833DD010E47671D3EF6DDF9622B63174A428CA34AF18CEF75700E607",
+      "pdf_sha256": "66BA992724D4DE1C7224ADB78E0595CF2A59AB369021F8360DA558884E8DF6F4",
+      "focus": "MATLAB源码、真实多面板图与布局讲解"
+    }
+  ]
+}

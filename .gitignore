@@ -1,25 +1,5 @@
 __pycache__/
 *.pyc
-*.pyo
-.DS_Store
-.idea/
-.vscode/
-
-# Working / scratch directories from local builds
-.work/
+test-results/
 work/
-out/
-.duplicates/
-
-# Local dev: don't commit user-built PPTs from this skill
-demo-output.pptx
-demo-edits.json
-demo-renders/
-demo-grid.png
-
-# Local font caches / OS-specific
-*.swp
-*.swo
-
-# Office lock/temp files (created when a .pptx is open in PowerPoint/WPS)
-~$*
+*.metadata-*.tmp

@@ -1,0 +1,1071 @@
+{
+  "name": "MyPPTSkill current release resources",
+  "skill_archive_sha256": "925BE6BBE4E0BA31DDB7EA81BAADE512545940674E6EC80D5F0DADA54AD94857",
+  "samples": 10,
+  "sample_pages": 87,
+  "python_tests": 333,
+  "entrypoint_tests": 6,
+  "powershell_contracts": 76,
+  "real_pipeline_sample_pages": 3,
+  "files": {
+    ".gitattributes": {
+      "bytes": 95,
+      "sha256": "A3398D525A4D61E9EEF2B12554A5FCF01D66BD4E334F40FDADAAA6C6FFB20295"
+    },
+    ".gitignore": {
+      "bytes": 61,
+      "sha256": "FB7E4EE31E98D6763629C2915C1503E2341848A0D2F0CEC87382C93C4C300B2C"
+    },
+    "examples/01_scientific-charts/preview.png": {
+      "bytes": 229718,
+      "sha256": "D324F05993E981BB48A60788278FF29DB0AE3016F6DB806EA36E30DDF1A340AB"
+    },
+    "examples/01_scientific-charts/README.md": {
+      "bytes": 324,
+      "sha256": "867DA3576A47762CD34E42030B5649E25CD2D05BAD68FE9B16179A24809789E7"
+    },
+    "examples/01_scientific-charts/slides.pdf": {
+      "bytes": 470880,
+      "sha256": "8A448C28A30F0ACA63BA2AE36DBF5543F94B4A5FE43D51B4A1513AA7EF56DE99"
+    },
+    "examples/01_scientific-charts/slides.pptx": {
+      "bytes": 430861,
+      "sha256": "30B71CE57E87DD3E65F8F61A03160DE39A0A7A5C55FDF1378A4CBC05E69DAC07"
+    },
+    "examples/02_world-models/preview.png": {
+      "bytes": 34145,
+      "sha256": "97F9D6A1374468888A69DB82DD7ED0B4F978F929EE3E8A18747B1B5B98061C7D"
+    },
+    "examples/02_world-models/README.md": {
+      "bytes": 302,
+      "sha256": "C160C925D89FB417CB02B9CAF08007FB24EB46FE1993E893AB0C2B78DE066FCE"
+    },
+    "examples/02_world-models/slides.pdf": {
+      "bytes": 386409,
+      "sha256": "0C63105A5016E6DC783818A215FACB1D4241D46A5C95D46BF59E821B4D4AFE3F"
+    },
+    "examples/02_world-models/slides.pptx": {
+      "bytes": 139270,
+      "sha256": "CE65B9426B41A5EFBDC0D8E57E12AB4EB1E92C7A334E799906C6E67590490936"
+    },
+    "examples/03_do-jepa/preview.png": {
+      "bytes": 54144,
+      "sha256": "D03BECBDC163EC3A6BB457456FC6BC1221CB649F760B865CC775669B4176AB1B"
+    },
+    "examples/03_do-jepa/README.md": {
+      "bytes": 318,
+      "sha256": "6767314292B640D75CA53340D0C398FD68EEBEF2D90AE9684AA89D20CFFCC5D4"
+    },
+    "examples/03_do-jepa/slides.pdf": {
+      "bytes": 657181,
+      "sha256": "DE80EB047EBF92BD3D1D9B6A00A72BB527D73132C00D5F7066353D08EE101947"
+    },
+    "examples/03_do-jepa/slides.pptx": {
+      "bytes": 388824,
+      "sha256": "278E414F23AC70C041277D6385C7C18BDD85C49FF3048C8F922BF5A6D2AD2116"
+    },
+    "examples/04_electricity-transition/preview.png": {
+      "bytes": 36245,
+      "sha256": "F2D572C1DE01C6028B75BCD49EA6B46227B6C8E383EB0DA84D88822D2F1C363A"
+    },
+    "examples/04_electricity-transition/README.md": {
+      "bytes": 317,
+      "sha256": "36DC3B3D03764252A036B494FD17FDC229937FA4F4F667B7717DEC93A395F0B7"
+    },
+    "examples/04_electricity-transition/slides.pdf": {
+      "bytes": 288278,
+      "sha256": "44FDE6DD6EE072370A0B9E0F0E53885825FF563A506CA508B9A6B0E2EB67508D"
+    },
+    "examples/04_electricity-transition/slides.pptx": {
+      "bytes": 263763,
+      "sha256": "CAA1F062058B616795451E0A317E62AD1AC853B9EF28901E90E4545677FF082B"
+    },
+    "examples/05_inference-scaling/preview.png": {
+      "bytes": 62250,
+      "sha256": "68F9C4C5C45B3C5AB04F421CC103395CBFED31BE265AA01E31D27D4343044398"
+    },
+    "examples/05_inference-scaling/README.md": {
+      "bytes": 322,
+      "sha256": "DF1C2CB3D09263064CF024211C5B84E484F3E59FE32B260D1316859390AA3638"
+    },
+    "examples/05_inference-scaling/showcase.png": {
+      "bytes": 96513,
+      "sha256": "1CBC90CFBFBF0E987B751CC70548B8295E64A92B995BE7C0526A236DFFFA133C"
+    },
+    "examples/05_inference-scaling/slides.pdf": {
+      "bytes": 744195,
+      "sha256": "C8F546FEE16DAB4BB21C618B27E89BDDFE9AFCBE36655A214A8D8C071F19E990"
+    },
+    "examples/05_inference-scaling/slides.pptx": {
+      "bytes": 177958,
+      "sha256": "E333E14822857FE78B9876D5EBA07A5353CD747E7DBB171B21A3C60BB01D8269"
+    },
+    "examples/06_inference-cluster/preview.png": {
+      "bytes": 75796,
+      "sha256": "B3439823A1F0B316211484E8538955065CA7725C6F4359F97C19B311275BCB92"
+    },
+    "examples/06_inference-cluster/README.md": {
+      "bytes": 319,
+      "sha256": "0D4B4E7A2932CDD62DCF7FEE3FBB386C520437B618A20EB4A5FA18D79AF7BBFD"
+    },
+    "examples/06_inference-cluster/slides.pdf": {
+      "bytes": 224952,
+      "sha256": "EC409CB34864FA9355695F684BA61686AFFDD8FBED563E8F5093AFCFCAA58208"
+    },
+    "examples/06_inference-cluster/slides.pptx": {
+      "bytes": 177353,
+      "sha256": "EA984E24EEC8D46B902315C3BB45EF128606B518BC35D8C71446E989E2DE9717"
+    },
+    "examples/07_clean-power/preview.png": {
+      "bytes": 84193,
+      "sha256": "BEEB1D346FE3313E927EFE9E528442E5EAFCA50F9804434503A1EA8425EBD742"
+    },
+    "examples/07_clean-power/README.md": {
+      "bytes": 313,
+      "sha256": "048AA05F506C8B3B540E3D5D142A727888ED454162BBB590AB526F960BD0F008"
+    },
+    "examples/07_clean-power/slides.pdf": {
+      "bytes": 206926,
+      "sha256": "0CFA74BF544D627497B580A2B63DD78D8005BF2EBEBC04392214074E1C78CB2F"
+    },
+    "examples/07_clean-power/slides.pptx": {
+      "bytes": 136621,
+      "sha256": "B88D9738327E05839329AED1D03C2670192F52478F984CCAF112A44222788895"
+    },
+    "examples/08_cpp-inheritance/preview.png": {
+      "bytes": 78174,
+      "sha256": "B8AB0D591154C900A2B9798CBEF26F4B28DEDEC6A7FE0EB17CC03C601144D312"
+    },
+    "examples/08_cpp-inheritance/README.md": {
+      "bytes": 394,
+      "sha256": "9CAD7717A487F73295E162FB57ED0B4045463281230D07EDF369C27326DC9D9F"
+    },
+    "examples/08_cpp-inheritance/slides.pdf": {
+      "bytes": 276828,
+      "sha256": "E1E01C2A0669A1F74CD9366E7D07B03FF33E04E4F650A8DE13F58B95DDEE964D"
+    },
+    "examples/08_cpp-inheritance/slides.pptx": {
+      "bytes": 105197,
+      "sha256": "BA522AF92C88EA3C01C5F9146F367C0809384CD3DEB2DAAB2C092F121543F207"
+    },
+    "examples/08_cpp-inheritance/sources/01_inheritance_dispatch.cpp": {
+      "bytes": 863,
+      "sha256": "706D3CB1B7042E100442A1AC1321FA8A006AF06952C1AF1552E74E09D1A4A2D5"
+    },
+    "examples/08_cpp-inheritance/sources/02_diamond_plain.cpp": {
+      "bytes": 510,
+      "sha256": "7F105AF85C96C1A073C61E194F2715E430E8E521AAA52669624EF662B25FEFBF"
+    },
+    "examples/08_cpp-inheritance/sources/03_diamond_virtual.cpp": {
+      "bytes": 578,
+      "sha256": "908722DD32889B720AE6B101370FFEC974825EC6198903E03CA5D70A97C08090"
+    },
+    "examples/08_cpp-inheritance/sources/04_final_overrider.cpp": {
+      "bytes": 586,
+      "sha256": "3403931C1E7E51E1D7FADAD0441E0DE86C1D3AE103DD2E9A81B4C286309ECA65"
+    },
+    "examples/08_cpp-inheritance/sources/error_ambiguous_base.cpp": {
+      "bytes": 176,
+      "sha256": "64B2812BBE14B2B96E3E34188B57E54A5B6978C9893C4AD9653F9745EC019E64"
+    },
+    "examples/08_cpp-inheritance/sources/error_missing_virtual_base_init.cpp": {
+      "bytes": 229,
+      "sha256": "81BDB59270342EAE8578398200A4E4FDCC138E54ED6A01621DBAFB87EAF78B64"
+    },
+    "examples/08_cpp-inheritance/sources/error_non_unique_overrider.cpp": {
+      "bytes": 239,
+      "sha256": "B46EF4489FFE49A45349E95C4A3FD4407613316511D14CE8A92C26D99A5C8CAE"
+    },
+    "examples/08_cpp-inheritance/sources/error_reference_interface.cpp": {
+      "bytes": 195,
+      "sha256": "80C165D84144C506B5477825BE833E01F43AD915E4B76A305CCEBBCC11C9260E"
+    },
+    "examples/08_cpp-inheritance/sources/slide_01.cpp": {
+      "bytes": 526,
+      "sha256": "AA1C6B14E8BBA096384A20B9068B7126CDCBFDD296614E103A554F725C2709FB"
+    },
+    "examples/08_cpp-inheritance/sources/slide_02.cpp": {
+      "bytes": 683,
+      "sha256": "2E31EAA6A75C7FDCA6D4BD1680BFA8B98BBAD029DA9D96C7108A519BBFE86C8B"
+    },
+    "examples/08_cpp-inheritance/sources/slide_03.cpp": {
+      "bytes": 396,
+      "sha256": "A43E9D0B7D786817534A285DDA86F7FA92FB7D114637547A2D7ED3503B54FA24"
+    },
+    "examples/08_cpp-inheritance/sources/slide_04.cpp": {
+      "bytes": 466,
+      "sha256": "6DFBA98C288A3D65C91FF25D6B4F48B0688CB9B1FA0D91DE12E81A9B4DBAE46D"
+    },
+    "examples/08_cpp-inheritance/sources/slide_05.cpp": {
+      "bytes": 599,
+      "sha256": "B43C747AD5FC3A1C5C6CA587CBD10598EB99E2F382609BC1C9EC99B92A699B75"
+    },
+    "examples/08_cpp-inheritance/sources/阅读说明.txt": {
+      "bytes": 1488,
+      "sha256": "8117FAE742D99A9E608BDD3392B2BDF517D3B27D488CB79CB5DE9DEE7208B308"
+    },
+    "examples/09_latex-amsmath/preview.png": {
+      "bytes": 77718,
+      "sha256": "276413DB0BEF2BEB55A78EBA98E1B3684FA1CA6680084155D2E44D53CAFEBD5B"
+    },
+    "examples/09_latex-amsmath/README.md": {
+      "bytes": 395,
+      "sha256": "6C55B2F04BFDED35610F3660F9F37B6ADE080687979DD2AB45B168FA26EAE14F"
+    },
+    "examples/09_latex-amsmath/slides.pdf": {
+      "bytes": 340114,
+      "sha256": "91621FF1E99519B9A9C290AAFA859F8C79472906A542BA2EEA0D94D70BF82377"
+    },
+    "examples/09_latex-amsmath/slides.pptx": {
+      "bytes": 280490,
+      "sha256": "FC03FD713E9B4F1FBB5E0FBD79A4AFEB4830BDF4EAC4C31F595962E8E26FCBC1"
+    },
+    "examples/09_latex-amsmath/sources/01-definition.tex": {
+      "bytes": 251,
+      "sha256": "F70679112D398B9795A47F3699D895725B31B2558622012EAE95EC092FF5E66E"
+    },
+    "examples/09_latex-amsmath/sources/02-align.tex": {
+      "bytes": 201,
+      "sha256": "66037DC9B1F00C12FE14702A71EC08A4FA3D3E15BADDA3EA5F15D7515B4C2C34"
+    },
+    "examples/09_latex-amsmath/sources/03-split.tex": {
+      "bytes": 256,
+      "sha256": "25834001C6C132DCD1A8B64256BBD35314C49383CDAF7906350369F56F75FDE6"
+    },
+    "examples/09_latex-amsmath/sources/04-cases.tex": {
+      "bytes": 221,
+      "sha256": "0D4B6BFE36B1A63613127A136E8D189E3D5DD440863CB37685FA9D4E43DD59B7"
+    },
+    "examples/09_latex-amsmath/sources/05-references.tex": {
+      "bytes": 309,
+      "sha256": "766911B9BFE205BC77EEBCA8DB362F6A012D1487374FCC5915DC6041851A3ECD"
+    },
+    "examples/09_latex-amsmath/sources/compiled-example.pdf": {
+      "bytes": 71319,
+      "sha256": "B61D1F587F765BB1C129F9F8091DB5EA0FCB1CEB9C70DDF46BAC5AF4902402C5"
+    },
+    "examples/09_latex-amsmath/sources/main.tex": {
+      "bytes": 378,
+      "sha256": "EAB749A8448767E33513566A340434F94BACC6BE78EE84815C257795935551F8"
+    },
+    "examples/09_latex-amsmath/sources/README.txt": {
+      "bytes": 1203,
+      "sha256": "5DC8769F9D23A452B9839BDC250C37946AB14DA3F34F89B1CB0F9CA4A4846DE0"
+    },
+    "examples/10_matlab-tiledlayout/preview.png": {
+      "bytes": 103692,
+      "sha256": "312A3FFF155D3BCCF2A9F5C206BBBDE736B13C9F791E4012E940386A74AFE275"
+    },
+    "examples/10_matlab-tiledlayout/README.md": {
+      "bytes": 406,
+      "sha256": "11BD55338A3EC673027ADB45818549FA9199205BF3B02FBA00C0094510AF2956"
+    },
+    "examples/10_matlab-tiledlayout/showcase.png": {
+      "bytes": 114947,
+      "sha256": "45077FECDB7631E0F1ED837DA1D860D87FB83CE6AE12E7ECA19CC82698EEFEA0"
+    },
+    "examples/10_matlab-tiledlayout/slides.pdf": {
+      "bytes": 563548,
+      "sha256": "66BA992724D4DE1C7224ADB78E0595CF2A59AB369021F8360DA558884E8DF6F4"
+    },
+    "examples/10_matlab-tiledlayout/slides.pptx": {
+      "bytes": 950493,
+      "sha256": "158EB280833DD010E47671D3EF6DDF9622B63174A428CA34AF18CEF75700E607"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/01_grid.fig": {
+      "bytes": 28852,
+      "sha256": "686EDAFA32725138A1A1714B76C05F00B1622CFD32E2CD5275AFA645B65883E6"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/01_grid.pdf": {
+      "bytes": 17146,
+      "sha256": "6C2F3174C67467DD4190C024FE4A50DE638E1E8D48CA6F2C5A6AE24E1416CF7B"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/01_grid.png": {
+      "bytes": 114475,
+      "sha256": "52BD12C177A365B27D55DA0B5954A1B2A30C685717E81557FF20ABAE62D44360"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/02_handles.fig": {
+      "bytes": 18624,
+      "sha256": "5BA457418B6C9D6DC46898119292D41A889C11D74B33BA9B66740CA056EAA25C"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/02_handles.pdf": {
+      "bytes": 14784,
+      "sha256": "53F29DD6F68CD12E47D008ABC83819329CCF959CFDDE07D1FAD2CCD1AABD9CE7"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/02_handles.png": {
+      "bytes": 76306,
+      "sha256": "BB239B004BD64A96C680DA653E50BFC44C1A2BEFCCDF5E7F193ED521E9C92863"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/03_span.fig": {
+      "bytes": 28294,
+      "sha256": "C220D2A41B30A8A984F31831E08A0C4CA66DD724EA107A1E4B8F32F26C411AB1"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/03_span.pdf": {
+      "bytes": 33913,
+      "sha256": "851E849F345168ABFC67CF905CD7D3F493C5ECFF603564E13E8CBCB5F83F3819"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/03_span.png": {
+      "bytes": 114203,
+      "sha256": "5F8C7DB7DFEC13EA4F53A97E710CCD2BC83F481194930A98B752FB9B46614DDE"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/04_shared.fig": {
+      "bytes": 17233,
+      "sha256": "E26814C1303AD03DAA5656AFC74DAB1925169873D0A5C0D6063998B24941E831"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/04_shared.pdf": {
+      "bytes": 14624,
+      "sha256": "5B5A85C6253D76417FC4EA9510ED93ECD480A3CA4A820104D348381948BA5886"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/04_shared.png": {
+      "bytes": 95759,
+      "sha256": "6BC553596B30394D4AE7007B363BB959D780D6F09C3A383D5A885CDC0CCFA433"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/whole_layout.pdf": {
+      "bytes": 14624,
+      "sha256": "77524ED1237E9EEFAFED8B55279260B952C9B9F01D2CD2FF482B3726E3545B50"
+    },
+    "examples/10_matlab-tiledlayout/sources/figures/whole_layout.png": {
+      "bytes": 170736,
+      "sha256": "F99378582CB608106647AF3527E4EBDB12C4A6A9D15F74D7B698D03F1CD04D47"
+    },
+    "examples/10_matlab-tiledlayout/sources/README.md": {
+      "bytes": 187,
+      "sha256": "25C21D451CBA005B0E1265DE53A98EBC27A2B1C3989CF85D9CE6C7E9B6A15B9F"
+    },
+    "examples/10_matlab-tiledlayout/sources/tiledlayout_demo.m": {
+      "bytes": 2939,
+      "sha256": "B4CAAAE1B076E81183CFD59A64976FCFAC6962D558B755C2FD9404037EAF9E53"
+    },
+    "examples/all-samples-87-pages.pdf": {
+      "bytes": 3705245,
+      "sha256": "C3170300868ECD743E1BF31E118768E1CCF918D1D455B748516FE8D0172E4E5F"
+    },
+    "examples/catalog.json": {
+      "bytes": 3773,
+      "sha256": "A1653676DCD67F19CD3D70607BC8B9E34E37F8BB8378C7D77D9D62E3A6329CB8"
+    },
+    "examples/README.md": {
+      "bytes": 2004,
+      "sha256": "77A039AC23E60E165ACA02A7CC3C996FDC9ACC04E9BEABD9300D79BAD9614434"
+    },
+    "GITHUB_ABOUT.md": {
+      "bytes": 708,
+      "sha256": "A2298234FDB76A10785381E1DD21238A45B59B94D95BC6A677695C3B86E23B14"
+    },
+    "LICENSE": {
+      "bytes": 1417,
+      "sha256": "6F52F1BAED8C393758FF6E8BF9C515EDD6FD377187AE38A64165A330573B7829"
+    },
+    "LICENSE-MODIFICATIONS": {
+      "bytes": 1114,
+      "sha256": "746B9444E8C529F31295197CD6BB916C8AF19CFC116EB721D16754CAF0FA1E0E"
+    },
+    "licenses/LICENSE-MODIFICATIONS": {
+      "bytes": 1114,
+      "sha256": "746B9444E8C529F31295197CD6BB916C8AF19CFC116EB721D16754CAF0FA1E0E"
+    },
+    "licenses/LICENSE-UPSTREAM": {
+      "bytes": 1417,
+      "sha256": "6F52F1BAED8C393758FF6E8BF9C515EDD6FD377187AE38A64165A330573B7829"
+    },
+    "licenses/NOTICE-TEMPLATES.md": {
+      "bytes": 2145,
+      "sha256": "F495A2A5D809C3B72F5095CDF9C951EAAB09BD81652ED04037A12189ACE220C2"
+    },
+    "NOTICE.md": {
+      "bytes": 2145,
+      "sha256": "F495A2A5D809C3B72F5095CDF9C951EAAB09BD81652ED04037A12189ACE220C2"
+    },
+    "README.md": {
+      "bytes": 3973,
+      "sha256": "A3FC172808E029750D5E8B21EDCC2DC48ED056B51BDA616E39B8ACE593514E7A"
+    },
+    "RELEASE.md": {
+      "bytes": 865,
+      "sha256": "DA398BC4612565E8A2A8DA922ED1264D6AC89C550776ADCBDD33DA766B99AB1B"
+    },
+    "skill/my-ppt-skill/agents/openai.yaml": {
+      "bytes": 274,
+      "sha256": "F0A994B7867F2EB59C6EE0574AC09FF23334DD7281AC3D54A76E4BCDFEA1C0BB"
+    },
+    "skill/my-ppt-skill/docs/LICENSE_SCOPE.md": {
+      "bytes": 4434,
+      "sha256": "6723D8253A8562973C43F8B93C747D7C688E64FBA4022DF5E549BF70AE9DCD96"
+    },
+    "skill/my-ppt-skill/docs/SOURCE_MAP.md": {
+      "bytes": 14064,
+      "sha256": "C7C6FC9628B3CDDA4E84A7E081CE3E89065BE501D364B853CBCA6924B9114C39"
+    },
+    "skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md": {
+      "bytes": 13644,
+      "sha256": "654F8B1844BC15DFF344C9694D944D1BC4CFA9DAB40B21E4FDBE0A76E94DB186"
+    },
+    "skill/my-ppt-skill/LICENSE": {
+      "bytes": 1417,
+      "sha256": "6F52F1BAED8C393758FF6E8BF9C515EDD6FD377187AE38A64165A330573B7829"
+    },
+    "skill/my-ppt-skill/LICENSE-MODIFICATIONS": {
+      "bytes": 1114,
+      "sha256": "746B9444E8C529F31295197CD6BB916C8AF19CFC116EB721D16754CAF0FA1E0E"
+    },
+    "skill/my-ppt-skill/local-overrides/registry.json": {
+      "bytes": 7198,
+      "sha256": "A9331732A88A0CB4DE9331B312D0363A7515AB3AC104DFC65D199341F8A8C294"
+    },
+    "skill/my-ppt-skill/manifest.json": {
+      "bytes": 24113,
+      "sha256": "85119F07CB979EC0FFE5A97681AB66312DCB5FEA1B8F1D7DDF7F38CFF295EE0D"
+    },
+    "skill/my-ppt-skill/NOTICE.md": {
+      "bytes": 2145,
+      "sha256": "F495A2A5D809C3B72F5095CDF9C951EAAB09BD81652ED04037A12189ACE220C2"
+    },
+    "skill/my-ppt-skill/README.md": {
+      "bytes": 12372,
+      "sha256": "4FF2A7C10CB78D2810ADB0CA1544A526B65A7897B0CE677DF84E80554975E909"
+    },
+    "skill/my-ppt-skill/references/chart-editing.md": {
+      "bytes": 4468,
+      "sha256": "59BD460E54DD9882B8265CF0E638A0E3C5996C04567DC46B046A337C15876788"
+    },
+    "skill/my-ppt-skill/references/connector-integrity.md": {
+      "bytes": 8198,
+      "sha256": "86ADBC05D2179F16F9495F22DF47FA7B997C6D81FE98293CA4D7B51AC0E800B1"
+    },
+    "skill/my-ppt-skill/references/custom-template-workflow.md": {
+      "bytes": 3791,
+      "sha256": "D979A51FD3B54B71B728BCFCA10B7F8C9E031D5215E9500CA430A8594BBAE222"
+    },
+    "skill/my-ppt-skill/references/delivery-shell.md": {
+      "bytes": 6145,
+      "sha256": "7CFC3DD671BE0FD8E1B563A5AE83EB97CD82F574FDEF1762FD5768878CE93805"
+    },
+    "skill/my-ppt-skill/references/evidence-schema.md": {
+      "bytes": 17564,
+      "sha256": "5928FE395099893BCB7E29929F45D7E90DA923489A9232084E3F714C87931BAF"
+    },
+    "skill/my-ppt-skill/references/layout-integrity.md": {
+      "bytes": 39368,
+      "sha256": "E31BD08CA213ACA4A3EE715978B1E600C537CE14619CB75DDFCD6DC04BBEE83D"
+    },
+    "skill/my-ppt-skill/references/local-delivery-quality.md": {
+      "bytes": 46732,
+      "sha256": "7213879602584E6C9B74FB144E7F0F231CA5EA82942426CE7F661471573F0627"
+    },
+    "skill/my-ppt-skill/references/narrative-reference.md": {
+      "bytes": 4584,
+      "sha256": "09A119BDB9C8134459FFCC81CBB1780872FF090FACF6CC84FE8936ED21A13102"
+    },
+    "skill/my-ppt-skill/references/original-design-guide.md": {
+      "bytes": 5237,
+      "sha256": "6486390B43FED940CA6AAB3F33A0333980AE987AA97930CB6B27DF54B6E2103D"
+    },
+    "skill/my-ppt-skill/references/pptx-edit-schema.md": {
+      "bytes": 6658,
+      "sha256": "BF80F69D11D2E519D7222F3124FB0809B0BD62142B2FBF2484F456AF0EA5A342"
+    },
+    "skill/my-ppt-skill/references/scientific-visualization.md": {
+      "bytes": 6083,
+      "sha256": "9D2E57023EE83A844254BFFAFC32E7D355678B4F94A88066336E910EBB2BB89F"
+    },
+    "skill/my-ppt-skill/references/signoff-workflow.md": {
+      "bytes": 13617,
+      "sha256": "CEC9F08A1D7E17488634EBF790F77FF827E1F47FFBD50C643D0B0A2846B37548"
+    },
+    "skill/my-ppt-skill/references/workflow.md": {
+      "bytes": 8473,
+      "sha256": "E010F2779864FA0026784AE3AE781DA9455C7BA958B34B74EC66377E61D37196"
+    },
+    "skill/my-ppt-skill/scripts/apply_update.py": {
+      "bytes": 189,
+      "sha256": "C4F5EF19830F7E6B2D4EAD2E6B2FF6F38B84AE9234179CE512570B42E633F7B8"
+    },
+    "skill/my-ppt-skill/scripts/audit_layout_coverage.py": {
+      "bytes": 35253,
+      "sha256": "988480E34227B82FEB32F68521650D036FFF38B6F70418DD9C9EC5EAB6F39E49"
+    },
+    "skill/my-ppt-skill/scripts/audit_layout_gaps.py": {
+      "bytes": 5829,
+      "sha256": "BA5990D6DF7775DF568DC5DA2FAEE05327B1BFEAA70FB3FA06DA6DA3F19BDB62"
+    },
+    "skill/my-ppt-skill/scripts/audit_presentation_text.py": {
+      "bytes": 3025,
+      "sha256": "708487DB10D314CCEA759CF51C3DC57FEB7F0693C8A057DF66540AF10017A8DE"
+    },
+    "skill/my-ppt-skill/scripts/build_manifest.py": {
+      "bytes": 3900,
+      "sha256": "9151966D9573E6EB2C681BA6B74B238F439F772EF0C2B199F93F54C2D05263FA"
+    },
+    "skill/my-ppt-skill/scripts/build_pptx.py": {
+      "bytes": 17384,
+      "sha256": "D5A635931181BAF544C8048B526F9AA6189A815140DB62CE739A48E031FEE31A"
+    },
+    "skill/my-ppt-skill/scripts/center_alignment.py": {
+      "bytes": 13411,
+      "sha256": "653372C28E61626316B75D0330307395B489C5BE07F759F42A4092AD8C2DE7E8"
+    },
+    "skill/my-ppt-skill/scripts/check_signoff_scope.py": {
+      "bytes": 5530,
+      "sha256": "E66793764D0EAC0EE853C87BA911F7DA47B99D1020DD0E5E54373CBD6CD6675C"
+    },
+    "skill/my-ppt-skill/scripts/check_update.py": {
+      "bytes": 7817,
+      "sha256": "824702E4CADFD626512ACCB397E09AF1810EA4FC20DD98F71B5634A79B83C733"
+    },
+    "skill/my-ppt-skill/scripts/compute_capacity.py": {
+      "bytes": 11702,
+      "sha256": "09008B34E81A8F9952F4DFEEC6FF8EED4D6BC711F940CE7FEE9532D05C442CA9"
+    },
+    "skill/my-ppt-skill/scripts/connector_integrity.py": {
+      "bytes": 29975,
+      "sha256": "6B4D6C6D51A7907FF9D39F9098DC32995B3ED02D7B58FAC5F7BCEC304E2D9A5E"
+    },
+    "skill/my-ppt-skill/scripts/font_evidence.py": {
+      "bytes": 5752,
+      "sha256": "3730FA8203E54F39E4BEF4BA5CACD04FFF6BC9FC940617695CB444F76212C98D"
+    },
+    "skill/my-ppt-skill/scripts/interstitial_spacing.py": {
+      "bytes": 9969,
+      "sha256": "FFD5E2F84CA64395E51F6CEAAD205ADDEB8B2019CDB9E1096F7E918515058D59"
+    },
+    "skill/my-ppt-skill/scripts/layout_visual_review.py": {
+      "bytes": 12680,
+      "sha256": "13580550DE37A8CE76F9E267FFD3C35C462F46144E2E93CBEE4FB8AE681E60CB"
+    },
+    "skill/my-ppt-skill/scripts/local_update_guard.py": {
+      "bytes": 12300,
+      "sha256": "4CFCDC1AC99E7DBF25F6016DED573F86F19F4938177F6F5B42A0310F04393CF3"
+    },
+    "skill/my-ppt-skill/scripts/measurement_fallback.py": {
+      "bytes": 22072,
+      "sha256": "5A250AC0F10EC9D8AC3AB933AD01669044CCAEA690B1E0D138B91DADE4DD75BF"
+    },
+    "skill/my-ppt-skill/scripts/pptx_delivery_shell.py": {
+      "bytes": 17345,
+      "sha256": "5FACB5FFC7EE27FDF82C2C2AAFB52ED20724BA1B3472F3CCD2C7C0DE5426F623"
+    },
+    "skill/my-ppt-skill/scripts/prepare_pptx_delivery.ps1": {
+      "bytes": 3835,
+      "sha256": "C9833D344BEA592F481F343604ED168781E50B871209ACCA48BA2EB90B866AB2"
+    },
+    "skill/my-ppt-skill/scripts/render_evidence.py": {
+      "bytes": 23320,
+      "sha256": "774FC06C73C2B466647A02E595102D8B4A356F3888F73933C04A40A3E1221680"
+    },
+    "skill/my-ppt-skill/scripts/render_powerpoint_audit.ps1": {
+      "bytes": 20293,
+      "sha256": "A6D2FE58F7479EF29FD3B0090760C5F9AF057ED43574A9925EA3898E3F844C32"
+    },
+    "skill/my-ppt-skill/scripts/render_slides.py": {
+      "bytes": 2609,
+      "sha256": "C5412C4EA9417C5389E849D11A29C45B3CC977635B9453F6C61AEC946EF072A2"
+    },
+    "skill/my-ppt-skill/scripts/skill_state.py": {
+      "bytes": 2160,
+      "sha256": "E2729051D4A20AB56FD679B8C7C008D318ADD2D8B80F9328F03904852E8BEFD3"
+    },
+    "skill/my-ppt-skill/scripts/strip_pptx_metadata.py": {
+      "bytes": 4401,
+      "sha256": "7CA24444C57C40B3E29615A4DD845CC9C119B3846CD35D328D41A7FE08C6E0A5"
+    },
+    "skill/my-ppt-skill/scripts/verify_coverage_review.py": {
+      "bytes": 42168,
+      "sha256": "AAEF3E8843D32E0250C64D02CF7DC8C1D1284D76F10032F083EEDCE77CEDB89C"
+    },
+    "skill/my-ppt-skill/scripts/visible_chart_spacing.py": {
+      "bytes": 22921,
+      "sha256": "EE2CA52E570E26AFB4BA966F53DBF44AF975C649C71C0EC3B149324244D6E906"
+    },
+    "skill/my-ppt-skill/SKILL.md": {
+      "bytes": 17005,
+      "sha256": "89B265C444520D2DE7BD0AE0226A9F7BA80F1B2B018C5FFD5C57F5487319D5CB"
+    },
+    "skill/my-ppt-skill/templates/architecture-deck/detail.json": {
+      "bytes": 1253352,
+      "sha256": "989EA9AC587DFE37470094AB455F71512F995DD22E75B627441519B2D34CCEF0"
+    },
+    "skill/my-ppt-skill/templates/architecture-deck/intro.md": {
+      "bytes": 2078,
+      "sha256": "724E6CF6E14376DF6B3CB0D27691D6A8CDCDEC3F35B4E98189A8E163ED5FC78C"
+    },
+    "skill/my-ppt-skill/templates/architecture-deck/preview.png": {
+      "bytes": 114343,
+      "sha256": "78722ECC608EC025A11D25150DEB5F67A2DCE029CC937DA7E65022CCFC4523A9"
+    },
+    "skill/my-ppt-skill/templates/architecture-deck/template.pptx": {
+      "bytes": 1023509,
+      "sha256": "6469C261695E0543E02047BBED6513257B30ED33689F5736C173EC9FCEB165F7"
+    },
+    "skill/my-ppt-skill/templates/competition-speech/detail.json": {
+      "bytes": 1503781,
+      "sha256": "CFB224DB899E67E5DD2B35BBB79C7436EDE5701FEE0CD3C1C97BF0B50575EF03"
+    },
+    "skill/my-ppt-skill/templates/competition-speech/intro.md": {
+      "bytes": 2205,
+      "sha256": "073A09F30E526541460088B3065BC10CB5146BDE928A9E9298950EC9372FA528"
+    },
+    "skill/my-ppt-skill/templates/competition-speech/preview.png": {
+      "bytes": 148948,
+      "sha256": "D08649BE7AE4A2AE9379D069080790D4DA60A65968E1C2A7757D16092BF2C7C6"
+    },
+    "skill/my-ppt-skill/templates/competition-speech/template.pptx": {
+      "bytes": 1184062,
+      "sha256": "B3AFC784EAD70174B4B515B9EBF0C498FAD1721077C91ABE6D8E6EAC14D1AB88"
+    },
+    "skill/my-ppt-skill/templates/cute-orange-class/detail.json": {
+      "bytes": 80101,
+      "sha256": "16689CF289995EF35FB632EC5B17F1568839A870082A51421D24DF5CD40133DA"
+    },
+    "skill/my-ppt-skill/templates/cute-orange-class/intro.md": {
+      "bytes": 3041,
+      "sha256": "A4C3EEDCC588DFED02E4C1AF0A09AB17B2CEBAF528DF116DCA188522E976B684"
+    },
+    "skill/my-ppt-skill/templates/cute-orange-class/preview.png": {
+      "bytes": 619805,
+      "sha256": "87AF3E670CF76EEE1FC5AE6545FCA9740F83009B73120EF79F60F2433AB3ADF9"
+    },
+    "skill/my-ppt-skill/templates/cute-orange-class/template.pptx": {
+      "bytes": 3174128,
+      "sha256": "44C41296D7800A275FA712E443EB867860D571BDC71DB62EBC7347734ABA8EDD"
+    },
+    "skill/my-ppt-skill/templates/data-viz-deck/detail.json": {
+      "bytes": 1059214,
+      "sha256": "0E369F968D88CF7B730CC85B1A002ABAC9FCB1E4C6ED4E91BB576381AF4066D5"
+    },
+    "skill/my-ppt-skill/templates/data-viz-deck/intro.md": {
+      "bytes": 3454,
+      "sha256": "A8F7201E36554371598A2EF070951D41968A62FBE2E6E0D36AA840FA547F28EB"
+    },
+    "skill/my-ppt-skill/templates/data-viz-deck/preview.png": {
+      "bytes": 209410,
+      "sha256": "F68F3D7D81177BDFA09A1A57827F28F4E75BE145AFF32EE161BEA3E01D84BD22"
+    },
+    "skill/my-ppt-skill/templates/data-viz-deck/template.pptx": {
+      "bytes": 2484410,
+      "sha256": "6885348E3439FE48F6CCD4C339DA3B495F58FC6890AA0452053D688B549B4970"
+    },
+    "skill/my-ppt-skill/templates/geometric-summary/detail.json": {
+      "bytes": 189998,
+      "sha256": "E7172F7C525BC1555391F6DACBC9576968E1CC22C0E34CC71CB070BD1B68C4D1"
+    },
+    "skill/my-ppt-skill/templates/geometric-summary/intro.md": {
+      "bytes": 2558,
+      "sha256": "854E0817F9088804D06C8F703DE530C3C9F68CA0838BF852F2CCFD296FEF3826"
+    },
+    "skill/my-ppt-skill/templates/geometric-summary/preview.png": {
+      "bytes": 71392,
+      "sha256": "27E6D85DFE9EDA01AD41C12EB76FBE1E6BAF91AC49FC80B69FA3E8590C5CE0DB"
+    },
+    "skill/my-ppt-skill/templates/geometric-summary/template.pptx": {
+      "bytes": 10213123,
+      "sha256": "BB7D5CF7ADBCFE50BE2C3D643975900FC6C465D7DC3940DD14F52F5151E2426C"
+    },
+    "skill/my-ppt-skill/templates/INDEX.md": {
+      "bytes": 7894,
+      "sha256": "9CB3495827C8D41F69482B7F8492647356855343D71A0DF072104C9D4E086026"
+    },
+    "skill/my-ppt-skill/templates/mckinsey-style/detail.json": {
+      "bytes": 1065881,
+      "sha256": "9B96AC43249307DC43CB5B991EDEFFC45408EC044C9635C6F437815FD74F6493"
+    },
+    "skill/my-ppt-skill/templates/mckinsey-style/intro.md": {
+      "bytes": 3089,
+      "sha256": "EA79EAF2A7D4397E7E35999E7DCD98CD47816405561532DFF1CAA361B7B06ACC"
+    },
+    "skill/my-ppt-skill/templates/mckinsey-style/preview.png": {
+      "bytes": 217093,
+      "sha256": "6EE1D3C69E50AAC159A011B2A5B235483BECD2B23F325D609E53359E0CA070C3"
+    },
+    "skill/my-ppt-skill/templates/mckinsey-style/template.pptx": {
+      "bytes": 615388,
+      "sha256": "DDE2D3ED55DF34BC69D8DBFBE87C66D4690F9F9ADA6D0DCC05683B5888557E65"
+    },
+    "skill/my-ppt-skill/templates/minimal-business-summary/detail.json": {
+      "bytes": 113538,
+      "sha256": "0510DD4D653756F90A1E4937B1642C1CBA93ED7E2B450CFAF9B9A49D29EA39F0"
+    },
+    "skill/my-ppt-skill/templates/minimal-business-summary/intro.md": {
+      "bytes": 2272,
+      "sha256": "8F3E4055786D5968B2BAA1288E001F1F9CAC42430311BB2FD2F7DBCEC44CDBE0"
+    },
+    "skill/my-ppt-skill/templates/minimal-business-summary/preview.png": {
+      "bytes": 85944,
+      "sha256": "CD42E2DA297B035B0F563BCCF23B1AA03067F120851404C9AC1694C883E63BEA"
+    },
+    "skill/my-ppt-skill/templates/minimal-business-summary/template.pptx": {
+      "bytes": 3807423,
+      "sha256": "A5DB8C0F5F87460D87CE786E2A8E55577E947F7A7819DD23976A5A2F34A58D8D"
+    },
+    "skill/my-ppt-skill/templates/operations-deck/detail.json": {
+      "bytes": 1166909,
+      "sha256": "8C3EC6CC1B0E1555158BCF032F7FA7E1F39C9013279C48A03D2777D033CC99B6"
+    },
+    "skill/my-ppt-skill/templates/operations-deck/intro.md": {
+      "bytes": 2731,
+      "sha256": "D8500D7233C29BF5FDA226B6939B557C9F0E41BF268456E559B554ABB7943FFC"
+    },
+    "skill/my-ppt-skill/templates/operations-deck/preview.png": {
+      "bytes": 105390,
+      "sha256": "BBE9CE6854995A4653D2598DFB8F46BCD1428A526BEA6BF05DE4FCF12745E7EB"
+    },
+    "skill/my-ppt-skill/templates/operations-deck/template.pptx": {
+      "bytes": 2728520,
+      "sha256": "BDF4C47FF57C9FFD00AD9FBE0E0DD23CAC13F3397B381CC44BF957380CBAA358"
+    },
+    "skill/my-ppt-skill/templates/premium-corp/detail.json": {
+      "bytes": 882598,
+      "sha256": "11F1F59F81EECDF8EC3D084BFAEA38E55E4D2C33E200AB901C4D1F691323298C"
+    },
+    "skill/my-ppt-skill/templates/premium-corp/intro.md": {
+      "bytes": 3428,
+      "sha256": "C252DA9F12EAEA795B29FE2F5813B8DB8A3A5AFAC42A851B5B7AF20427B58EA3"
+    },
+    "skill/my-ppt-skill/templates/premium-corp/preview.png": {
+      "bytes": 218269,
+      "sha256": "C9D54A8D632EF98AF60733C28BBF0E5FBA99A3A732B81C651CE7FC37CA3A0F3E"
+    },
+    "skill/my-ppt-skill/templates/premium-corp/template.pptx": {
+      "bytes": 779540,
+      "sha256": "77973DFFC58172A2DEABE5A3D2FC27B05F32D945795DD1E8FFE7405093C3B2B3"
+    },
+    "skill/my-ppt-skill/templates/quarterly-illust/detail.json": {
+      "bytes": 144389,
+      "sha256": "131371B8FBFFC4BE868D8CB5C3E6B3CBDC8CE7F1EB9A80E0BEE731AB479FDBF3"
+    },
+    "skill/my-ppt-skill/templates/quarterly-illust/intro.md": {
+      "bytes": 2795,
+      "sha256": "D17388A69788E3F9574AD5299B435A87836ED0626A68DA0979570AF63C1E63F5"
+    },
+    "skill/my-ppt-skill/templates/quarterly-illust/preview.png": {
+      "bytes": 206215,
+      "sha256": "9F5784F240CC6AC18055F0A4ABC333A33B694D2CE3528824DC29E63A62E7DF4A"
+    },
+    "skill/my-ppt-skill/templates/quarterly-illust/template.pptx": {
+      "bytes": 13930826,
+      "sha256": "FAA47E156F6A86788C8F24C9D9F58693D9D79A672C11CBD65F3A0CA0955EFFF0"
+    },
+    "skill/my-ppt-skill/templates/red-patriot-general/detail.json": {
+      "bytes": 174472,
+      "sha256": "179DCD12192546A5608DF5DB1D0F3DB9A50948B4E0910225C9151054514E3074"
+    },
+    "skill/my-ppt-skill/templates/red-patriot-general/intro.md": {
+      "bytes": 2962,
+      "sha256": "DB38395152DB2B7F90957BA562CDE74A10E96978E610094BAC8F54AFFB6D5F0F"
+    },
+    "skill/my-ppt-skill/templates/red-patriot-general/preview.png": {
+      "bytes": 1433041,
+      "sha256": "A7DC484D431D0B085373B93B4D7390130AA4DEE40544936ABFAE29937A829C28"
+    },
+    "skill/my-ppt-skill/templates/red-patriot-general/template.pptx": {
+      "bytes": 9295213,
+      "sha256": "F4EC1B360BE1B7CF2B67C4F092E40682EFB1583E2E193CF49A421F99BA93B3E4"
+    },
+    "skill/my-ppt-skill/templates/red-patriot-youth/detail.json": {
+      "bytes": 111058,
+      "sha256": "2492DDA340AE493CD7DE00B2388C6D1435D6D0518ACBC4DB8F15FBAE415B074E"
+    },
+    "skill/my-ppt-skill/templates/red-patriot-youth/intro.md": {
+      "bytes": 3063,
+      "sha256": "6E9512E3F5BF1025FE01F316872BA0AF66966B8AD1830B777311F333B9D5D4C4"
+    },
+    "skill/my-ppt-skill/templates/red-patriot-youth/preview.png": {
+      "bytes": 397155,
+      "sha256": "2634A68C4740361FA897671A9408854532D3ABD1423E75272D07A5BA51B7CCB9"
+    },
+    "skill/my-ppt-skill/templates/red-patriot-youth/template.pptx": {
+      "bytes": 6780499,
+      "sha256": "B747D11B5215BA5FE5DC6062744CE922DB37B33EF5712E3BAA062D3214FBE492"
+    },
+    "skill/my-ppt-skill/templates/red-teaching-framework/detail.json": {
+      "bytes": 819919,
+      "sha256": "324C63E3BFB2883F79F35E7A876180E283A29A9C8B72ACA388FFF20DD87717B4"
+    },
+    "skill/my-ppt-skill/templates/red-teaching-framework/intro.md": {
+      "bytes": 3762,
+      "sha256": "93EDA9D42A810A1F5EAEB7252BE65CE8926AA9548B6D1AFCEAAED0A6DFD0FF04"
+    },
+    "skill/my-ppt-skill/templates/red-teaching-framework/preview.png": {
+      "bytes": 240824,
+      "sha256": "9C899A142F0A0D3D58E2FAB97E3593CD677F33E87691C59271CD5B194A6EC4B6"
+    },
+    "skill/my-ppt-skill/templates/red-teaching-framework/template.pptx": {
+      "bytes": 6744844,
+      "sha256": "3E44ADB44780A2F3C1BF6AA58F07C5883FDC6BAA58B8935BE116130A729FB945"
+    },
+    "skill/my-ppt-skill/templates/red-teaching-models/detail.json": {
+      "bytes": 815856,
+      "sha256": "C74B78C45B9F4635DD077D138547D86EC2BB14227F9D07FE391D7D0B1A9C049F"
+    },
+    "skill/my-ppt-skill/templates/red-teaching-models/intro.md": {
+      "bytes": 3744,
+      "sha256": "A507EFABEFF5379B1A5D1F6BAEA2E7FC7ACD936FCDF6B5B644A62033B559052C"
+    },
+    "skill/my-ppt-skill/templates/red-teaching-models/preview.png": {
+      "bytes": 237164,
+      "sha256": "4A3FBC37687013D78CCC249EF965742E50EBBD30812C5580FF78ED70D1BF1F80"
+    },
+    "skill/my-ppt-skill/templates/red-teaching-models/template.pptx": {
+      "bytes": 2627704,
+      "sha256": "E3073CE11616A2D1EA4CA62F222E3BB46E48A01339C9F72A9C84E9F5698819AD"
+    },
+    "skill/my-ppt-skill/templates/report-massive-charts/detail.json": {
+      "bytes": 1058278,
+      "sha256": "536F293563F937747E5F7CD8F1F2445B9CC1534F78B1AC076E1F2D535B9E32CC"
+    },
+    "skill/my-ppt-skill/templates/report-massive-charts/intro.md": {
+      "bytes": 1933,
+      "sha256": "5E87B04A87E9D0D4CA79C0433C82389CF988655BCBE29052FF1C1E6431F0EC19"
+    },
+    "skill/my-ppt-skill/templates/report-massive-charts/preview.png": {
+      "bytes": 122280,
+      "sha256": "AD6B0C85A72B9C2331AB8BD399DBA8C5F4BC1425939381F3936F7781111369DD"
+    },
+    "skill/my-ppt-skill/templates/report-massive-charts/template.pptx": {
+      "bytes": 1759363,
+      "sha256": "9DEC26CDCAF4C8383A36F3A0C1008CEF5BB681FF42F0C54CFC80E73FAD1CBD39"
+    },
+    "skill/my-ppt-skill/templates/report-massive-models/detail.json": {
+      "bytes": 1040028,
+      "sha256": "1EE21E573F0FBB07B365A6E4F63BC3BD4981DF52E43AD365594BD86BE0AFE6B1"
+    },
+    "skill/my-ppt-skill/templates/report-massive-models/intro.md": {
+      "bytes": 1866,
+      "sha256": "05CCB3F021035E6C2DB1E14C4AE8E46EC7DD84CC04507D574F2445FEE67F35FA"
+    },
+    "skill/my-ppt-skill/templates/report-massive-models/preview.png": {
+      "bytes": 137788,
+      "sha256": "F55CB083CA6C44EBD2831D37C63F4E9D9F6A1BA15E56AE88A3622F508F65B8DE"
+    },
+    "skill/my-ppt-skill/templates/report-massive-models/template.pptx": {
+      "bytes": 1556335,
+      "sha256": "200ED234060EA8348E157150D70ADADCBF02134A04F43B4839FBD0A1EB19EC0F"
+    },
+    "skill/my-ppt-skill/templates/report-massive-reports/detail.json": {
+      "bytes": 866876,
+      "sha256": "FE587B10D8D51A66D922CAA2FAB80E2CC95DFAAB89C7FA885636359DE6D18424"
+    },
+    "skill/my-ppt-skill/templates/report-massive-reports/intro.md": {
+      "bytes": 1964,
+      "sha256": "F9322518F11662F1D5C44557F3E1EABFF5FEA0C48FB26CD9EC66C8DD968012FE"
+    },
+    "skill/my-ppt-skill/templates/report-massive-reports/preview.png": {
+      "bytes": 90981,
+      "sha256": "B642B084A3CB47DD2ED91C059A6974A50C54DFEEE8F26A0E411B1AF6343C8A4C"
+    },
+    "skill/my-ppt-skill/templates/report-massive-reports/template.pptx": {
+      "bytes": 1195183,
+      "sha256": "3B6623A65E1E9B1E326D05F0501ECDDFAC02C43B58F297AE6D51CAB5CED72358"
+    },
+    "skill/my-ppt-skill/templates/report-savior/detail.json": {
+      "bytes": 1098271,
+      "sha256": "CFE26657B7D70F5E7DD881EC874E2BB054491F612B4C4DC545165714ADB2744B"
+    },
+    "skill/my-ppt-skill/templates/report-savior/intro.md": {
+      "bytes": 2998,
+      "sha256": "4AD091C3E25EC5CF0E2015DA8627A66B8390A74F18FFDD0F181D4BA8EDF6C059"
+    },
+    "skill/my-ppt-skill/templates/report-savior/preview.png": {
+      "bytes": 201922,
+      "sha256": "231EF33EF803C2852C9579ED66A37456625980127B0D525018CCE0EC7F64A662"
+    },
+    "skill/my-ppt-skill/templates/report-savior/template.pptx": {
+      "bytes": 1853976,
+      "sha256": "5C50018B5C97C084A0DEBEC484A856EBD96CAC16272F6A5DB318C35751D638D4"
+    },
+    "skill/my-ppt-skill/templates/thesis-formula/detail.json": {
+      "bytes": 343366,
+      "sha256": "6E56BC0B8B9C480FDA00A277726E65B63ED13DDDA8B1CB3738F0F26033DCBB3B"
+    },
+    "skill/my-ppt-skill/templates/thesis-formula/intro.md": {
+      "bytes": 2840,
+      "sha256": "63C45CC67D071147652391AA5F52D4976A09939A331007F0D1C2F89DFDD2921B"
+    },
+    "skill/my-ppt-skill/templates/thesis-formula/preview.png": {
+      "bytes": 7205,
+      "sha256": "E065921827B22EE714D577E3360BE24EE371BF978DF0DE45F10DE13D8FF89295"
+    },
+    "skill/my-ppt-skill/templates/thesis-formula/template.pptx": {
+      "bytes": 1119943,
+      "sha256": "69155924FA1471AD866338DF5BDFEF73CCD9B958686F4DD9D2E3515008777EA2"
+    },
+    "skill/my-ppt-skill/templates/thesis-novice/detail.json": {
+      "bytes": 285947,
+      "sha256": "5A55232BBAAE94BCC60210E82578FED95B6729D3C8A4FDE281249543C0E9E271"
+    },
+    "skill/my-ppt-skill/templates/thesis-novice/intro.md": {
+      "bytes": 3313,
+      "sha256": "38F778F8C9F57815749C566E2DF40A6396D8592C27EBF82D52241448D472704E"
+    },
+    "skill/my-ppt-skill/templates/thesis-novice/preview.png": {
+      "bytes": 106076,
+      "sha256": "96E57D0047E48DE8FDC40ACFBF9F3EE6CBEE8AC0DBB905B0E12F939EC173B039"
+    },
+    "skill/my-ppt-skill/templates/thesis-novice/template.pptx": {
+      "bytes": 1423225,
+      "sha256": "0F95EFA0BBC0FA6139FDA57D687A1068CC27B9086E648B82D1332302A5CF6823"
+    },
+    "skill/my-ppt-skill/templates/top-thesis/detail.json": {
+      "bytes": 335259,
+      "sha256": "425D46AF8960646C9C88DA134FAB02DB72F13833FE6121D5F362D3AB80CC98CF"
+    },
+    "skill/my-ppt-skill/templates/top-thesis/intro.md": {
+      "bytes": 2183,
+      "sha256": "6E5DA774989C22ECBF81BF6E6C631ACA72FCFB7F5681848F4F73D09F53D7CC43"
+    },
+    "skill/my-ppt-skill/templates/top-thesis/preview.png": {
+      "bytes": 13130,
+      "sha256": "870BCC814A6B713686CD625451EFC1168523DC48913D9A660D3EE69EABD73683"
+    },
+    "skill/my-ppt-skill/templates/top-thesis/template.pptx": {
+      "bytes": 1126742,
+      "sha256": "E01303292F29EF3670219D284F8FF533B17D417C4B1565B1E4406D4B67500F42"
+    },
+    "skill/my-ppt-skill/updates.json": {
+      "bytes": 18984,
+      "sha256": "8BAA2D306D6252E39AA3C4B7D2206AE9A40070262D1CA1843AD28359698A325B"
+    },
+    "skill/my-ppt-skill/VERSION": {
+      "bytes": 7,
+      "sha256": "975801ABE1AF6FC1709ED2CD5B0680A4EA1DACA7A5862E78B4FF941BB1420191"
+    },
+    "tests/cases/test_axis_region_scope.py": {
+      "bytes": 2974,
+      "sha256": "F98AA3FB6A1918B36E9DDF3C1FCC57CC30218F3C9ACCC59A80B709152BC2A0D5"
+    },
+    "tests/cases/test_builder_console.py": {
+      "bytes": 2290,
+      "sha256": "D1AD3F660347D5A15424CCA83A2192D9225369D8AA370DF52D03190E13E85642"
+    },
+    "tests/cases/test_center_alignment.py": {
+      "bytes": 7081,
+      "sha256": "3EEC15365813CDDFE31B3CA5FC39CE1E73EEE430E4EA14886266F4BA40BE6726"
+    },
+    "tests/cases/test_center_review_gate.py": {
+      "bytes": 2678,
+      "sha256": "3F80DB8E3A2FD0ABF5FC026B1DC47323BD20AFF12CD262F0558772AA81AADDE9"
+    },
+    "tests/cases/test_complex_visuals.py": {
+      "bytes": 9185,
+      "sha256": "30F4501DEE3090A074111E68853BA685279ACA0E65A7D1919A2F1FAB301688F2"
+    },
+    "tests/cases/test_connector_integrity.py": {
+      "bytes": 8118,
+      "sha256": "6FDF70339A29CE90A606BE6330AFB70FB4396B746852566F7820EB47FB336865"
+    },
+    "tests/cases/test_delivery_render_warmup.ps1": {
+      "bytes": 3696,
+      "sha256": "C6D389AE6B2919F385884C3793094E155DFF74A6B76EDEBD94BFB381C84AA4F9"
+    },
+    "tests/cases/test_exit_regressions.py": {
+      "bytes": 3390,
+      "sha256": "34A5957A64836639F2FBF7066CCE8557F04A49A2945352F4CFE831F8B94C9891"
+    },
+    "tests/cases/test_gap_audit_gate.py": {
+      "bytes": 5502,
+      "sha256": "3D6190F926817DF391781E942F016B6065AD7EAC11D2BD3FB76BAB7D8431DE08"
+    },
+    "tests/cases/test_gate_visual_resolution.py": {
+      "bytes": 16277,
+      "sha256": "9A1CDE4920F3E1F265E5D43434D386D6E58251D1FECD825E9E0C5429BFB9FBB0"
+    },
+    "tests/cases/test_interstitial_spacing.py": {
+      "bytes": 11038,
+      "sha256": "8CC106D04AA0F45F058EE35D7A8E16EE771E017BDCDE1C9960AE72A54FD8EFDB"
+    },
+    "tests/cases/test_layout_safety.py": {
+      "bytes": 5008,
+      "sha256": "658065801F5DFFB6F1BDD5715D8DFE4941A6DFA2A557E6ADC0BBFF78ED2EA5B0"
+    },
+    "tests/cases/test_layout_visual_review.py": {
+      "bytes": 14391,
+      "sha256": "44C6026C687C1DBE2FFA21AE3BD5D61F79D2D90B352FF6C7DA9F20AFCB61020C"
+    },
+    "tests/cases/test_measurement_fallback.py": {
+      "bytes": 13428,
+      "sha256": "D9CE96E1103616F39B82227957330DFF5C8D7545DD983663546790479F79D750"
+    },
+    "tests/cases/test_pptx_delivery_shell.py": {
+      "bytes": 13673,
+      "sha256": "8978F9651297B6031F2C644DB4FC63FD95F924D9EDC13C72E389B588CB2868A0"
+    },
+    "tests/cases/test_relation_contracts.py": {
+      "bytes": 10045,
+      "sha256": "602159E7611ACC7419384E4173FCADCA87316310C88E6D41DF5654E449096771"
+    },
+    "tests/cases/test_release_exclusions.py": {
+      "bytes": 1503,
+      "sha256": "AEE3E72992D09DB690746F902C135F012001009241EE462919A908267F7723F7"
+    },
+    "tests/cases/test_render_evidence.py": {
+      "bytes": 10575,
+      "sha256": "376719E1FFF1CD688198573CED4942D5644A9B067C817C5A86556143243FF564"
+    },
+    "tests/cases/test_render_powerpoint_background.ps1": {
+      "bytes": 8429,
+      "sha256": "072F4E84437E7D1B4D86B536C25898AE324D51F2DECFE4BFBECAAAECDE36D2F8"
+    },
+    "tests/cases/test_shell_update_guard.py": {
+      "bytes": 3470,
+      "sha256": "A34D2FE9BEB59C62F4A1185651E01FCF969783934E4807AE6270F724D89E83F2"
+    },
+    "tests/cases/test_static_safety.py": {
+      "bytes": 10600,
+      "sha256": "E4717EDD3D974884BE7EAC70F519BE5BFC2386265B87CED871CFFA4AB42054D8"
+    },
+    "tests/cases/test_transaction_recovery.py": {
+      "bytes": 9909,
+      "sha256": "1A127BED215435FD5B638A97D83F8C01E076E562891D4DE2DE32F12465C4374E"
+    },
+    "tests/cases/test_uniform_picture.py": {
+      "bytes": 11358,
+      "sha256": "42C5F6A8712EB2E47B8FD1227D04F5DD5758C8FF77F55EF491111B5605C10D56"
+    },
+    "tests/cases/test_update_safety.py": {
+      "bytes": 10728,
+      "sha256": "3B062DAEE38E0252034E725CAB456EAFCABF9562AA3D5E093383C6CC04FCF447"
+    },
+    "tests/cases/test_visible_chart_spacing.py": {
+      "bytes": 12580,
+      "sha256": "94868F6960A6EF6CA8F247603B3DF29801202467CC645B08005CBD3C231B958B"
+    },
+    "tests/cases/test_white_container.py": {
+      "bytes": 3025,
+      "sha256": "2F5A79B8D94B007927580C9EAA79484277D30DA62B4E5C794DA3E68A7B5C07B3"
+    },
+    "tests/README.md": {
+      "bytes": 3114,
+      "sha256": "8FCA15D45350C7A6564DF780CA09E5E002370A52ACB7E615ECB9465325812081"
+    },
+    "tests/requirements-test.txt": {
+      "bytes": 49,
+      "sha256": "A2F89D4410F4DB5D6BCFB60A628E56416E3C2771E7CCA352102CED148541D5D8"
+    },
+    "tests/run_integration.py": {
+      "bytes": 4958,
+      "sha256": "E620B1C5A5C00EF933566D3ACABF70E99A8FBD0DD15827532B3350C7A5D37E65"
+    },
+    "tests/run_tests.py": {
+      "bytes": 6736,
+      "sha256": "9264902DAE1CE94C880D49BF3D0570FEBBD4BBF9F4520BE5DF2F4438126B8110"
+    },
+    "tests/test_entrypoints.py": {
+      "bytes": 3477,
+      "sha256": "63588B57BFBD6940F9E81FF95E0294FFCD882BDF2497AFE7B68570A0B217FE39"
+    },
+    "tests/TEST_MATRIX.md": {
+      "bytes": 2769,
+      "sha256": "F85AADECB24913382D58E9D8F114B894E9BA97583E10A6BBB51E87EC21C69F09"
+    },
+    "VALIDATION.md": {
+      "bytes": 1351,
+      "sha256": "7074313B3CDB44B6BB2B65E4B9320F69CF08C13D353FF62A322744FD0AD0F582"
+    },
+    "VERSION": {
+      "bytes": 5,
+      "sha256": "8A4434489576DE41F28A2D1D6E9D15E53DEAC6B48C2A4F416A52B7584A92964F"
+    }
+  },
+  "release_version": "1.0",
+  "repository": "https://github.com/Yifan0718/MyPPTSkill",
+  "upstream": "https://github.com/GordenSun/GordenPPTSkill"
+}
