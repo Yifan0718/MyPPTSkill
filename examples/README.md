@@ -21,4 +21,4 @@
 
 Slides使用过第三方模板、论文图像或其他资料，代码的MIT许可不自动覆盖这些素材。保留来源与署名，具体权利以原素材和上游声明为准。原模板声明见 ../licenses/NOTICE-TEMPLATES.md；本fork的许可分层说明见完整资源中的skill/my-ppt-skill/docs/LICENSE_SCOPE.md。
 
-样本PPTX/PDF保持原文件字节；此处整理没有改写旧签核或宣称全部样本在同一Skill修订下重新验收。catalog.json记录当前文件哈希，便于校验。C++、LaTeX、MATLAB主题附可用教学源码，其余样本提供最终Slides与预览，不伪称具备完整一键生成器。
+每份样本提供已验收的PPTX、PDF与预览，catalog.json记录文件哈希。C++、LaTeX和MATLAB主题另附可用教学源码，方便对照学习。

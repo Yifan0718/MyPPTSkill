@@ -18,6 +18,18 @@
 
 [安装与使用](skill/my-ppt-skill/README.md#安装与使用) · [查看成品](examples/README.md) · [87页预览](examples/all-samples-87-pages.pdf) · [完整差异](skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md)
 
+## 四页看懂 MyPPTSkill
+
+[下载这份宣传 PPTX](MyPPTSkill-Promo.pptx) · 点击图片查看高清原图 · 欢迎 **Star / Fork / 提出意见**
+
+[![摆脱 AI 味：观点清楚、语言自然、重点突出](assets/promo/01.jpg)](assets/promo/01.jpg)
+
+[![精细对齐：横向拉齐、纵向匀称、边界统一、跨页一致](assets/promo/02.jpg)](assets/promo/02.jpg)
+
+[![四种绘图工具：Python、MATLAB、LaTeX 与 PPT 原生图形](assets/promo/03.jpg)](assets/promo/03.jpg)
+
+[![模板选择、视觉迭代与上游更新后的定制规则保护](assets/promo/04.jpg)](assets/promo/04.jpg)
+
 ## 直接看效果
 
 | [多图表与科学混排](examples/01_scientific-charts/README.md) | [长稿与复杂图解](examples/05_inference-scaling/README.md) | [MATLAB源码与图像](examples/10_matlab-tiledlayout/README.md) |
@@ -45,6 +57,7 @@
 | 安装目录与完整使用文档 | [Skill](skill/my-ppt-skill/README.md) |
 | 额外要求、解决的问题与上游差异 | [差异说明](skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md) |
 | 最终10份样本、87页及可用教学源码 | [样本目录](examples/README.md) |
+| 4页宣传PPTX与4张4K JPG | [宣传PPTX](MyPPTSkill-Promo.pptx) · [完整宣传包](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.0/MyPPTSkill-1.0-promo.zip) |
 | 当前适用测试与统一运行入口 | [开发测试](tests/README.md) |
 | 本版验证摘要 | [验证结果](VALIDATION.md) |
 | GitHub侧边简介与Topics文案 | [GitHub About](GITHUB_ABOUT.md) |

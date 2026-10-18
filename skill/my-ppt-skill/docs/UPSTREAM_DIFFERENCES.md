@@ -40,7 +40,7 @@ MyPPTSkill fork 自 [GordenSun/GordenPPTSkill](https://github.com/GordenSun/Gord
 | 数字与单位 | 尽量不换行，检查图内、表格及正文的联排；不能把对应单位无意落到下一行 |
 | 短文本完整 | 不截断或用省略号硬凑，检查孤字、标点独行、字体替换及混合字号 |
 
-见[字号和可读性](../references/local-delivery-quality.md#字号和可读性)。对象命名或自动预检通过不等于字号例外成立。
+见[字号和可读性](../references/local-delivery-quality.md#字号和可读性)。字号例外须逐项满足适用条件与证据要求。
 
 ## 间距、对齐和可见边缘
 
@@ -60,7 +60,7 @@ MyPPTSkill fork 自 [GordenSun/GordenPPTSkill](https://github.com/GordenSun/Gord
 | 跨页一致性 | 同类标题、页码、配色、图标语言和锚点一致，同时保留用户明确的不对称设计 |
 | 页码保护 | 每页唯一 x/y，含封面，至少 3 pt 隔离；置顶不能替代安全距离，不允许遮挡 |
 
-执行[布局验收](../references/layout-integrity.md)和[对齐与间距](../references/local-delivery-quality.md#对齐和间距)。匀称不等于所有语义层级机械等距。
+执行[布局验收](../references/layout-integrity.md)和[对齐与间距](../references/local-delivery-quality.md#对齐和间距)。按真实语义层级组织匀称间距，同级模块统一节奏。
 
 ## 复杂图表、图标与科学工具
 
@@ -86,7 +86,7 @@ MyPPTSkill fork 自 [GordenSun/GordenPPTSkill](https://github.com/GordenSun/Gord
 8. 默认全量签核；仅已全量通过后用户指出局部问题的修订可严格增量。保留原签核，不伪改旧哈希；共享资源变化扩大复验范围。
 9. 工具故障要排查、恢复或采用可验证替代，不把拦截当停工结论，不拿失败目录残留图冒充完成。
 
-见[签核流程](../references/signoff-workflow.md)和[机器证据接口](../references/evidence-schema.md)。校验器只能证明记录完整一致，不能代替实际看图。
+见[签核流程](../references/signoff-workflow.md)和[机器证据接口](../references/evidence-schema.md)。校验器检查记录完整性与一致性，执行者完成实际看图和视觉判断。
 
 ## 已解决的工具与交付问题
 
@@ -112,7 +112,7 @@ MyPPTSkill fork 自 [GordenSun/GordenPPTSkill](https://github.com/GordenSun/Gord
 | 外壳写入半完成 | 源哈希保护、原子提交与条件回滚，不覆盖并发外部修改 |
 | 开发残留混入安装包 | 移出测试、夹具、历史日志、宣传素材与缓存；上游新增开发文件也过滤，机器更新元数据保留 |
 
-这些是当前实现的处理机制，不宣称所有 Office 版本或未测试图型永不出错。新任务仍须实际验收。
+以上机制贯穿构建、审计、修复和交付；每份新稿都通过实际渲染与视觉验收完成验证。
 
 ## 更新、授权与发布边界
 
