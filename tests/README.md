@@ -33,7 +33,7 @@ python tests/run_integration.py --output test-results/powerpoint-01
 
 单独下载测试包时同时指定 `--skill-root` 和 `--input`。需要Windows PowerShell与已安装的PowerPoint。工具链完成后返回 `pipeline_checks_passed_visual_review_pending`，接着逐页／局部视觉复核。版式预检问题返回非零并保留报告，随后按Skill进行复核、修复或独立视觉闭环。
 
-完整自动套件包含333项Skill Python测试、6项发布入口控制流测试，以及76项PowerShell契约检查。覆盖构建、图表、间距和像素对齐、连接、字号证据、独立视觉兜底、签核完整性、更新保护、错误传播、事务回滚、缩略图与后台准备。分组详见 [TEST_MATRIX.md](TEST_MATRIX.md)。
+完整自动套件包含439项Skill Python测试、6项发布入口控制流测试，以及76项PowerShell契约检查。覆盖构建、图表、间距和像素对齐、连接、字号证据、独立视觉兜底、签核完整性、更新保护、错误传播、事务回滚、缩略图与后台准备。分组详见 [TEST_MATRIX.md](TEST_MATRIX.md)。
 
 可同时生成两页可编辑复杂图表夹具：
 
@@ -46,3 +46,19 @@ python tests/run_tests.py --output test-results/run-02 --visual-fixture test-res
 最终十份真实样本见完整资源中的examples目录，其文件与已验收稿保持一致。测试套件自行生成所需夹具，样本可直接用于学习和效果对照。
 
 测试代码中包含有意构造的失败输入和反例，例如路径拒绝、错误状态、布局冲突、异常中断；这些负向测试用于验证当前版本的拦截与恢复行为。版权和许可参见资源根目录licenses。
+
+## 实际使用反馈的回归
+
+`test_usage_components.py` 覆盖表格同类列/数字列差异、合并单元格及未知继承、图例与标签缺测/间距、连续模块、深浅底字色、首次阅读证据、案例来源、用户反馈、局部裁剪范围及错误传导。
+
+使用全新工作目录生成八页正反视觉夹具：
+
+```text
+python tests/generate_usage_visual_fixture.py <fresh-directory>
+powershell -NoProfile -File tests/prepare_usage_visual_fixture.ps1 -InputPptx <fresh-directory>/fixture.pptx
+powershell -NoProfile -File skill/my-ppt-skill/scripts/render_powerpoint_audit.ps1 -InputPptx <fresh-directory>/fixture.pptx -OutputDir <fresh-directory>/render
+```
+
+夹具包含有意的反例和对应修复页。逐页及局部实际查看后回整页，记录具体发现；同时运行coverage比对候选，自动无报错也检查审美、裁图和首次理解。不要把含反例的测试稿签核为成品。
+
+故障注入还覆盖八个CLI入口的输入/报告路径碰撞、间接引用保护、文件/像素在检查期间变化、极端裁剪、输出写入失败、异常子检查、超时进程树及运行记录拒绝。正常新路径、完整证据与合法预检复核保持可继续。

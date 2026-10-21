@@ -16,6 +16,7 @@ from interstitial_spacing import validate_interstitial_spacing
 from measurement_fallback import eligible_code, validate_visual_fallback
 from layout_visual_review import CODE as LAYOUT_VISUAL_CODE, validate_layout_visual_review
 from pptx_delivery_shell import verify_shell
+from audit_visual_components import REASONS as COMPONENT_REASONS
 
 def verify_plot_table_pixels(finding, disposition, image_path, slide, scale):
     """Cross-check scanlines against the actual PNG, not supplied edge numbers."""
@@ -436,7 +437,9 @@ def verify(pptx, coverage_path, review, render_dir):
             if error:
                 error=resolve_measurement('center',error)
                 if error:layout_fail(error)
-        if not generic_visual and (reason in ('rendered_text_rectangles_overlap','connector_crosses_or_touches_text',
+        if reason in ('table_alignment_consistency_review','chart_legend_clearance_review','interstitial_module_spacing_review'):
+            layout_fail('Component geometry/style discrepancy requires repair or independent local/full-page visual reconciliation')
+        if not generic_visual and (reason in COMPONENT_REASONS or reason in ('rendered_text_rectangles_overlap','connector_crosses_or_touches_text',
                       'nonstraight_connector_path_requires_review','connector_geometry_unavailable',
                       'multiline_or_mixed_font_row_alignment_requires_review','glyph_ink_alignment_requires_review',
                       'mixed_typography_optical_review','text_region_relation_requires_review',
@@ -521,7 +524,9 @@ def main():
     a=ap.parse_args()
     try:r=verify(a.pptx,a.coverage,json.loads(a.review.read_text(encoding='utf-8-sig')),a.render_dir)
     except Exception as exc:r={'status':'failed','issues':[{'reason':str(exc)}]}
-    a.report.parent.mkdir(parents=True,exist_ok=True);a.report.write_text(json.dumps(r,ensure_ascii=False,indent=2),encoding='utf8')
+    from report_io import emit_report
+    report_error=emit_report(a.report,r,inputs=(a.pptx,a.coverage,a.review),frozen_dirs=(a.render_dir,))
+    if report_error:return report_error
     print(r['status']);return 2 if r['issues'] else 0
 
 if __name__=='__main__':raise SystemExit(main())

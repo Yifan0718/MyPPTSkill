@@ -109,3 +109,25 @@ exit 2 表示发现待核查关系，含可靠测量结果或未知项；数值�
 - 增量：`mode:amendment,sha256,checked_slides,baseline_pptx,baseline_signoff,baseline_signoff_sha256,user_reported_issue`。基线记录须已 `status:signed_off,mode:full,unresolved:[]`，有实际基线文件哈希、完整checked_slides和带时区signed_at。用户指正含 `source:user,reference,quote,reported_at`，时间必须在全量签核之后；引用须核对真实用户消息，不能自行编造。
 - 工具追踪前后包成员及关系依赖，母版/布局/主题/共享资源和页序变化扩大范围；未复查任何受影响页都失败。无法确定的外部视觉资源或未知全局变更不能缩小范围。
 - 范围检查不校验视觉质量，不可替代受影响页的预检、规则、内容遍/版式遍、语言及局部证据。当前全量coverage校验器只接受完整v2报告；若采用增量，必须保留有效基线并提供可验证的逐页证据组合，不能把局部图片塞入旧全量报告或改旧哈希。缺少等效验证时不得签核。
+
+## 首次阅读与反馈证据
+
+`audience-review.json` 顶层为 `schema:audience-review/v1, sha256, audience, expression_mode, chapter_navigation, pages, definitions, examples, feedback, unresolved:[]`。
+
+- `expression_mode`：`advantages / advantage_led / academic / objective`；`chapter_navigation` 含 `mode:none / section_first / divider / persistent`、`basis:user / inferred / delegated`、具体 `description`。任务要求以真实用户输入为准，字段不能冒充用户同意。
+- `pages` 精确覆盖最终全部页面，各项含 `slide,image_sha256,kind:general / result / comparison / example,purpose,plain_language,operation_or_reading,metrics_or_symbols,evidence_to_conclusion,evidence,result:pass,unresolved:[]`。五段文字写实际复述；通用页面也解释页面职责和符号读法，不填空或通用pass。
+- `evidence` 引用当前真实渲染对象：`{slide,audit_path,quote}`，quote必须出现在渲染text_records对应对象；图片内说明使用 `{slide,image_sha256,crop_path,crop_sha256,crop_box_px,observation}` 原像素裁剪。每页至少一项当前页证据，前置定义可额外引用此前页，不能以作者聊天替代。
+- `definitions` 仅追踪需要解释的概念，含 `term,display_name,introduced_on,used_on,evidence`；首次介绍在使用之前或同页。列表为空须经过实际术语检查，不表示通用符号也必须逐一登记。
+- `examples` 与标为example的页对应，含 `slide,purpose,selection_scope,source_path,source_sha256,source_locator,why_representative,what_visible,claim_check,alternatives_considered`。最后字段是实际比较过的候选说明列表；只有一份来源则写清具体情况及适用判断。所有判断必须来自研究和实际查看，不以填写文件证明代表性。
+- `feedback` 含 `id,category,issue,affected_slides,similar_checked_slides,changes,observation,status:resolved`。changes使用与evidence相同格式，覆盖受影响页；即使检查后无需修改，也指向现有正确对象并说明理由。内容反馈改到成品并重读后关闭；无反馈可为空列表。
+- 每页的复述、案例判断、实际问题关闭由真实阅读完成；校验器检查一致性和遗漏，不能替代语义判断。记录独立阅读者及实际结论到工作目录，严禁虚构；通用版式兜底继续绑定原独立复核协议。
+
+`verify_readability_review.py candidate.pptx render audience-review.json audience-check.json` 成功返回 `audience_evidence_complete_pending_semantic_signoff`；失败返回非零并列出遗漏。最终统一运行 `verify_delivery.py`，两个子检查均执行并保留原错误，任一失败/未知均非零。新入口不自动补通过、不忽略异常；补齐有效证据或修复成品后重试。
+
+组件审计新增表格单元格对齐/内距、图例与数据标签、表格—说明—后续模块间距及色块文字配色候选。前3类实际几何/样式冲突须修复或通用独立视觉闭环；未知测量与配色候选须当前局部证据和整页观察。配色是审美候选，不将比率或彩色文字当成必然缺陷。渲染报告可附 `chart_legend_records` 与带audit_path、页面坐标bounds_pt的chart_label_records，无法取得时继续局部复核。
+
+每页另填 `visual_checks:{content_reading,layout,local_detail,full_page_return,cross_page,palette}` 的具体看图观察，`visual_targets_reviewed` 完整覆盖当前页原生表格、图表、图片和组合（递归audit_path），`local_views` 使用上述图像证据结构，复杂对象至少有实际局部图。局部图须来自当前页且不是整页；检查记录与既有coverage局部证据可复用，避免重复生成。此处记录所有阶段的视觉判断，包括灰色说明、色块底色和字色；不能只抄自动测量值。纯文字页也记录实际观察，可无复杂对象局部裁剪。
+
+格式校验会定位非法页码、对象路径类型、术语名称及反馈类别，并保留同轮已收集的哈希等错误。文字证据与图片证据使用各自完整字段；局部图须联合覆盖对应原生组件范围。色块文字对比度4.5及RGB通道差32是提示复核的内部启发值，实际审美判断按局部和整页效果完成。
+
+有界渲染可附`bounded_run_id`，与渲染目录tool-run.json中的`schema:bounded-run/v1,run_id,status,exit_code`匹配。status必须finished；允许exit_code=0，或exit_code=2且原渲染状态为failed_preflight并继续独立视觉闭环。缺失、运行中、超时、取消、其他退出码或身份不匹配均需修复执行链后重跑。旧的无运行标记证据保持原协议，新任务按有界执行入口操作。报告输出保护和恢复见签核规范。

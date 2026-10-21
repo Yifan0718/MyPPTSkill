@@ -79,6 +79,8 @@ def main():
     a=ap.parse_args()
     try:r=check(a.pptx,json.loads(a.scope.read_text(encoding='utf-8-sig')));code=0
     except Exception as e:r={'status':'failed','error':str(e)};code=2
-    a.report.parent.mkdir(parents=True,exist_ok=True);a.report.write_text(json.dumps(r,ensure_ascii=False,indent=2),encoding='utf8')
+    from report_io import emit_report
+    report_error=emit_report(a.report,r,inputs=(a.pptx,a.scope),frozen_dirs=())
+    if report_error:return report_error
     print(r['status']);return code
 if __name__=='__main__':raise SystemExit(main())

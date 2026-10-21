@@ -1,5 +1,9 @@
 # MyPPTSkill
 
+**MyPPTSkill 发布版本：1.1** · [发布与更新日志](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v1.1)
+
+本目录的 `VERSION`、`manifest.json` 与 `updates.json` 记录上游模板 Skill 的更新基线，供自适应更新使用；MyPPTSkill 的发布版本由仓库根目录 `VERSION` 和 GitHub Release 标识。
+
 ## TL;DR
 
 **复杂 PPT，讲得漂亮，排得整齐。**
@@ -59,7 +63,7 @@ README 和差异说明面向使用者，不建立另一套验收标准。精确�
 
 实际使用时，建议选择**长程思维能力和多模态能力都较强的高级模型**：任务需要持续跟踪约束、理解复杂图表与代码、观察真实渲染、定位细微版式问题，并在多轮修改后保持内容与证据一致。执行环境还需要支持本地文件、脚本、图像查看及相应渲染工具。
 
-这是开发测试配置与使用建议，不是对某个模型或平台的硬性绑定。切换模型或 Harness 后，仍须完成同样的规则与逐页视觉验收，不能将原环境的测试结果直接当作当前任务通过。
+可选用具备上述能力的模型与 Harness；每个任务均按统一流程完成规则检查与逐页视觉验收。
 
 ## 环境要求
 
@@ -67,7 +71,7 @@ README 和差异说明面向使用者，不建立另一套验收标准。精确�
 |---|---|
 | PPTX 构建和审计 | Python；依赖包括 python-pptx、Pillow、lxml，其他依赖按所用工具检测。优先使用已有运行时 |
 | Windows 渲染 | 优先使用已安装的桌面 PowerPoint 和 PowerShell；默认后台无窗口运行 |
-| 其他渲染 | 可用 LibreOffice／Poppler 等实际渲染，但完整签核仍需等效的对象、字体与图像证据，签核包含PNG及配套审计证据 |
+| 其他渲染 | 可用 LibreOffice／Poppler 等实际渲染，签核同时提交对象、字体、PNG及配套审计证据 |
 | 科学图 | 按需调用已安装的 Python／Matplotlib、MATLAB、LaTeX、R、Julia、Octave、Graphviz 等；Windows 同时考虑已有 WSL |
 | 字体 | 检查可用中文／英文字体，代码可采用 Consolas 等宽字体；字体替换后重新渲染检查 |
 
@@ -95,12 +99,12 @@ README 和差异说明面向使用者，不建立另一套验收标准。精确�
 ## 从制作到签核
 
 1. 确认需求、选模板、检查更新；记录本次规则和素材版本。
-2. 组织内容，选择有论证职责的图表，统一页面网格和对齐锚点。
+2. 确定表达档位与章节导航；逐页安排论证职责，按代表性与论证任务选择案例，统一页面网格和对齐锚点。
 3. 构建候选，检查文字、数据、字体和元数据；准备首图缩略图和普通视图。
 4. 从稳定快照实际渲染全稿，执行间距、覆盖、连接、语言和证据检查。
-5. 每页分别做内容遍和版式遍；复杂区域放大查看，再回到正常整页。不能只看 contact sheet。
+5. 每页分别做内容遍和版式遍；按首次阅读视角复述，检查术语、操作、指标及证据。复杂区域放大查看，再回到正常整页，并核对跨页一致性与色调。
 6. 修正后重新渲染复查，必要时多轮迭代；不为凑轮次制造无意义修改。
-7. 问题全部关闭、证据与候选一致后签核，核对交付文件哈希，再交付成品。
+7. 通过 `verify_delivery.py` 汇总版式与首次阅读证据；问题全部关闭、证据与候选一致后实际签核，核对交付文件哈希，再交付成品。
 
 首次签核必须覆盖全稿。仅已全量签核后用户指出局部问题的修订，才可凭影响范围证据复验全部受影响页；共享资源、页数或规则变化可能要求重新全量检查。
 
@@ -144,3 +148,14 @@ python scripts/apply_update.py apply --stage <同一个暂存目录>
 Fork 来源：**[GordenSun/GordenPPTSkill](https://github.com/GordenSun/GordenPPTSkill)**；差异对照基线为上游 **1.0.20**。保留 GordenSun 的原版权声明。
 
 本 fork 由 **Yifan0718** 维护（[liuyifan111111@gmail.com](mailto:liuyifan111111@gmail.com)），有权许可的新增代码、规则和文档采用 [MIT](LICENSE-MODIFICATIONS)。上游代码、结构化资料与第三方模板不是同一个授权范围，混合文件和素材的归属见[许可与来源说明](docs/LICENSE_SCOPE.md)。上游 [LICENSE](LICENSE) 与 [NOTICE.md](NOTICE.md) 保留，模板素材不会因为 fork 或代码许可而获得新的授权。
+
+## 首次阅读、案例与修订
+
+- [首次阅读与案例](references/audience-and-evidence.md)：术语及数字层级、训练/评测流程、指标方向与带符号变化、来源和代表性、陌生读者复述。
+- [表达档位](references/narrative-reference.md#表达档位与逐页职责)：优势展示、优势主导、学术论证、客观比较；按任务推断，实质不清楚才问。
+- [修订闭环](references/revision-control.md)：用户纠错扩查同类对象，修正进入成品，重排联动章节、术语首次定义与讲稿。
+- [视觉检查](references/layout-integrity.md#新增检查贯穿实际看图的全部环节)：内容遍、版式遍、局部放大、整页回看及跨页一致性均覆盖新要求。色块底色和字色一起判断，同类模块尽量统一字色方案；黄／橙强调色优先干净明亮，避免偏棕发闷。需要统一白字时协调调整底色，代码高亮及数据语义等有用途的颜色区别保持一致。
+
+最终证据命令：`python scripts/verify_delivery.py candidate.pptx coverage.json coverage-review.json render audience-review.json delivery-check.json`。记录字段及异常处理见[证据接口](references/evidence-schema.md#首次阅读与反馈证据)。内容准备任务按其阶段执行，正式成品完整执行渲染与签核。
+
+准备和渲染使用[有界执行](references/signoff-workflow.md#有界执行与报告写入恢复)，卡住时可定位、换目录重试或切换工具。审计报告原子写入，路径检查保护输入与原始证据；超时及失败运行保留可恢复状态。

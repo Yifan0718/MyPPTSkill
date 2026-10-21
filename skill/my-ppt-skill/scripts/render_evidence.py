@@ -243,6 +243,18 @@ def validate_preflight_dispositions(render, review, render_dir, prs, inv):
     return results
 
 
+def validate_bounded_run(render,render_dir):
+    path=Path(render_dir)/'tool-run.json';expected=render.get('bounded_run_id')
+    if not expected and not path.exists():return
+    require(path.is_file(),'Missing bounded tool-run evidence; use a fresh render run')
+    record=json.loads(path.read_text(encoding='utf-8-sig'))
+    require(isinstance(record,dict) and record.get('schema')=='bounded-run/v1','Invalid bounded tool-run evidence')
+    require(isinstance(expected,str) and bool(expected) and record.get('run_id')==expected,'Bounded run identity mismatch')
+    require(record.get('status')=='finished','Render invocation timed out, was cancelled, or is incomplete; rerender in a fresh directory')
+    code=record.get('exit_code')
+    require(type(code)==int and (code==0 or (code==2 and render.get('status')=='failed_preflight')),'Render invocation failed; inspect its exit status before retrying')
+
+
 def validate_render_evidence(pptx, render, render_dir, *, diagnostic_attempt=False, review=None, resolutions=None):
     """Raises ValueError on stale, incomplete, duplicate, or unsupported evidence.
 
@@ -251,6 +263,7 @@ def validate_render_evidence(pptx, render, render_dir, *, diagnostic_attempt=Fal
     """
     pptx, render_dir = Path(pptx), Path(render_dir).resolve()
     require(isinstance(render, dict) and render.get('schema') == SCHEMA, 'Require render-evidence/v2; rerender with the current renderer')
+    validate_bounded_run(render,render_dir)
     fallback_requested = review is not None and not diagnostic_attempt
     require(render.get('status') in (('rendered_pending_visual_review','failed_preflight') if diagnostic_attempt or fallback_requested else ('rendered_pending_visual_review',)), 'Rendering is not complete')
     require(isinstance(render.get('issues'),list) and all(isinstance(i,dict) for i in render['issues']) and

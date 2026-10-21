@@ -1,9 +1,9 @@
 {
-  "name": "MyPPTSkill current release resources",
-  "skill_archive_sha256": "7F87DC525380469793F37C3525F9C907ED4501DC4199D769DFED8AA7D30C3608",
+  "name": "MyPPTSkill 1.1 release resources",
+  "skill_archive_sha256": "9a3335b2b4997700117b351e1663284bb5bac476386b3c79939ac21e0bee1410",
   "samples": 10,
   "sample_pages": 87,
-  "python_tests": 333,
+  "python_tests": 439,
   "entrypoint_tests": 6,
   "powershell_contracts": 76,
   "real_pipeline_sample_pages": 3,
@@ -15,6 +15,10 @@
     ".gitignore": {
       "bytes": 61,
       "sha256": "FB7E4EE31E98D6763629C2915C1503E2341848A0D2F0CEC87382C93C4C300B2C"
+    },
+    "CHANGELOG.md": {
+      "bytes": 5167,
+      "sha256": "59B25DE4B6F79D5173045AF21DEEDE4DB7346DF32BABCB4B893492D851016F49"
     },
     "GITHUB_ABOUT.md": {
       "bytes": 708,
@@ -29,44 +33,44 @@
       "sha256": "746B9444E8C529F31295197CD6BB916C8AF19CFC116EB721D16754CAF0FA1E0E"
     },
     "MyPPTSkill-Promo.pptx": {
-      "bytes": 7863693,
-      "sha256": "4E2F27A536FD2BA1AEEEFFF6B1D2F44CFD2265C5B2E0D3C2BDDAD10107F2A272"
+      "bytes": 7864286,
+      "sha256": "DEE596A783B4FAB1870025931B2A704CBBA923AE4CDB717744EEB24995155D05"
     },
     "NOTICE.md": {
-      "bytes": 2145,
-      "sha256": "F495A2A5D809C3B72F5095CDF9C951EAAB09BD81652ED04037A12189ACE220C2"
+      "bytes": 2470,
+      "sha256": "2142FB005A5C4AD73059DF7D95263D911FC84563816F48BDC0235746A721E751"
     },
     "README.md": {
-      "bytes": 4703,
-      "sha256": "1B19AA07173273B49B9CEC0A2C5F298FB57FC9A724FC148BD671A37D40B68396"
+      "bytes": 6834,
+      "sha256": "B53BC0C9B8C6CCD658CE0C501D5852DBECEDA19D5EE84BD45E30132B4A756CFE"
     },
     "RELEASE.md": {
-      "bytes": 965,
-      "sha256": "1999D9FF24AA9FFDBCB23636BA2E4F5E87C83E4DB3D1D399A2D01FB3CA3C1D6E"
+      "bytes": 2992,
+      "sha256": "C710B6DEE342BC9E697B8C929F4F3DA487FE54128B7781A85486BB574D33A785"
     },
     "VALIDATION.md": {
-      "bytes": 1230,
-      "sha256": "E5D6BC231D7D7EBE6214058930B59AAEB0EDB80A62A41A60E8CA592F38E693D8"
+      "bytes": 2676,
+      "sha256": "3BE4578D42D688CB2F389BB413A3C9FC82A20781CEF686B32DC9D9280E282635"
     },
     "VERSION": {
       "bytes": 5,
-      "sha256": "8A4434489576DE41F28A2D1D6E9D15E53DEAC6B48C2A4F416A52B7584A92964F"
+      "sha256": "D8BB74080A94AA97D78E90F9A656C6A75216E55736F53D5433A0812C5DBC2EC4"
     },
     "assets/promo/01.jpg": {
-      "bytes": 931140,
-      "sha256": "27D981A14607A621A520F07FF1ABE1D2E08705697BDF0E969DA2A6D07FDA0AAE"
+      "bytes": 725711,
+      "sha256": "F69345F9F6F8FEC1ECAB1D48138AD73CC8866E6F5B5AA1817C4D0E19A44048E8"
     },
     "assets/promo/02.jpg": {
-      "bytes": 1610018,
-      "sha256": "FB5CEE63D7171356B677E77AC0C7E4001CCEE8EEACD9AD68B3E772865ACFEF10"
+      "bytes": 717345,
+      "sha256": "95A846C52740F664D7EF323198AC93545CC2EBF964E8CF6EFB9AAC969558149A"
     },
     "assets/promo/03.jpg": {
-      "bytes": 954677,
-      "sha256": "E031EBF553CA0F2A45330BB28ED0FEC7D609F5E8047C2C6B544A485A1E4AE5D5"
+      "bytes": 730590,
+      "sha256": "735B86CA85C436BEFD0655F86559FFB1DF7E7029A509216399B8CBF64BC41444"
     },
     "assets/promo/04.jpg": {
-      "bytes": 1446956,
-      "sha256": "3D5469C09107245A3026D2464DDA3FFCF7A8DC473E9BC9ADFAD5FF0871F3AE88"
+      "bytes": 939480,
+      "sha256": "FDA3CCB38F7425B08B183D209E9831A681BC8649B3BC220E7CFD1E0EEBCACAE6"
     },
     "examples/01_scientific-charts/README.md": {
       "bytes": 324,
@@ -412,6 +416,42 @@
       "bytes": 2145,
       "sha256": "F495A2A5D809C3B72F5095CDF9C951EAAB09BD81652ED04037A12189ACE220C2"
     },
+    "showcases/issue-4-image-to-editable/README.md": {
+      "bytes": 3417,
+      "sha256": "A26A1B5E45FE880088FBC0921D1A5D60942E1CA4AFCA238E57D8C43533030865"
+    },
+    "showcases/issue-4-image-to-editable/SOURCES.md": {
+      "bytes": 1052,
+      "sha256": "89DD6C272B23E23447F2345DF78530AE956AC380C77582B6E60BA14905B19B15"
+    },
+    "showcases/issue-4-image-to-editable/editable-proof.png": {
+      "bytes": 7681,
+      "sha256": "BDEC4AF09BE50C038F8E4324E6C83152258E3123F8610E1ADC2A68CA3DBA0444"
+    },
+    "showcases/issue-4-image-to-editable/mypptskill-result.png": {
+      "bytes": 485514,
+      "sha256": "A2ECF2B58985B7EE2942008503886D14D74D7670EF780740D8C25A5D6D4CECA9"
+    },
+    "showcases/issue-4-image-to-editable/slides.pdf": {
+      "bytes": 121418,
+      "sha256": "583B910CC52AD5CDA881ADE5540D2B0206AED997E95A43FBAC051A72A8129C87"
+    },
+    "showcases/issue-4-image-to-editable/slides.pptx": {
+      "bytes": 86057,
+      "sha256": "D816138C85ADE70BBB13050E4F6088A0544B9D7DEF2C352DAB35709AD4CCC77C"
+    },
+    "showcases/issue-4-image-to-editable/source.png": {
+      "bytes": 3882781,
+      "sha256": "9AC02DE0E2C2574110FC2EA993EE956B0A5134C379D97E1DCFF3A1AA1243891F"
+    },
+    "showcases/issue-4-image-to-editable/upstream-result.png": {
+      "bytes": 3365497,
+      "sha256": "DAA2732FA14825DCECF1C64613D985CABF2AAECAFBED0E3F0EC1EEA934F60F76"
+    },
+    "showcases/issue-4-image-to-editable/validation.json": {
+      "bytes": 1612,
+      "sha256": "2B1D987E71FBC34F35D0FA7D5362269E540A036EF65235BE6BC9D745BB5A2DEF"
+    },
     "skill/my-ppt-skill/LICENSE": {
       "bytes": 1417,
       "sha256": "6F52F1BAED8C393758FF6E8BF9C515EDD6FD377187AE38A64165A330573B7829"
@@ -425,12 +465,12 @@
       "sha256": "F495A2A5D809C3B72F5095CDF9C951EAAB09BD81652ED04037A12189ACE220C2"
     },
     "skill/my-ppt-skill/README.md": {
-      "bytes": 12319,
-      "sha256": "62CCCCFBA55120F9DFB6CD4A27CA53F8CE78B5AB7D0D21706442216A52A7FAE6"
+      "bytes": 14341,
+      "sha256": "1F89B8E07C1AFB079E1EAF8DFBB01B7DBBB8F519FA6E49B9D8A9F152B289B747"
     },
     "skill/my-ppt-skill/SKILL.md": {
-      "bytes": 17005,
-      "sha256": "89B265C444520D2DE7BD0AE0226A9F7BA80F1B2B018C5FFD5C57F5487319D5CB"
+      "bytes": 17610,
+      "sha256": "CDD24ADD5230F18A790BCF28E78A5A45E3CCC4EB529F5B225A6614233FFDB1AF"
     },
     "skill/my-ppt-skill/VERSION": {
       "bytes": 7,
@@ -449,16 +489,20 @@
       "sha256": "C7C6FC9628B3CDDA4E84A7E081CE3E89065BE501D364B853CBCA6924B9114C39"
     },
     "skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md": {
-      "bytes": 13666,
-      "sha256": "54866AA92E8FBC2889E110F4A08AE20443F8F39604A46FAB3A61692B1325C2F0"
+      "bytes": 15313,
+      "sha256": "9DE7F9A856257BA97DA39FC47C7D86BF24B3FD0182CD76D22D2C5856AE594CF5"
     },
     "skill/my-ppt-skill/local-overrides/registry.json": {
-      "bytes": 7198,
-      "sha256": "A9331732A88A0CB4DE9331B312D0363A7515AB3AC104DFC65D199341F8A8C294"
+      "bytes": 7457,
+      "sha256": "8B9965A8D710BAA9514F4295FF5B9367C97592125B3F734D1A567851DF4D613A"
     },
     "skill/my-ppt-skill/manifest.json": {
       "bytes": 24113,
       "sha256": "85119F07CB979EC0FFE5A97681AB66312DCB5FEA1B8F1D7DDF7F38CFF295EE0D"
+    },
+    "skill/my-ppt-skill/references/audience-and-evidence.md": {
+      "bytes": 6730,
+      "sha256": "D6BAFEE2098105407EF4CDE5323C9C527CD297A61E7E75F9935BD27024A97EA1"
     },
     "skill/my-ppt-skill/references/chart-editing.md": {
       "bytes": 4468,
@@ -473,24 +517,24 @@
       "sha256": "D979A51FD3B54B71B728BCFCA10B7F8C9E031D5215E9500CA430A8594BBAE222"
     },
     "skill/my-ppt-skill/references/delivery-shell.md": {
-      "bytes": 6145,
-      "sha256": "7CFC3DD671BE0FD8E1B563A5AE83EB97CD82F574FDEF1762FD5768878CE93805"
+      "bytes": 6344,
+      "sha256": "9FCEEE83E29DD3ABF686E2373578A8FD5DE2C1EC4EEB4F9A0D87B2E52CEB12E6"
     },
     "skill/my-ppt-skill/references/evidence-schema.md": {
-      "bytes": 17564,
-      "sha256": "5928FE395099893BCB7E29929F45D7E90DA923489A9232084E3F714C87931BAF"
+      "bytes": 22373,
+      "sha256": "E95506A80DA7465F8168913DF2F28E775E4DEECE92EF060AE9F5B0BFF3105144"
     },
     "skill/my-ppt-skill/references/layout-integrity.md": {
-      "bytes": 39368,
-      "sha256": "E31BD08CA213ACA4A3EE715978B1E600C537CE14619CB75DDFCD6DC04BBEE83D"
+      "bytes": 41043,
+      "sha256": "4068ABABD4C2CA270175E965F5DEF8AC4F010AD251B6469441E34EE783BA2DC8"
     },
     "skill/my-ppt-skill/references/local-delivery-quality.md": {
-      "bytes": 46732,
-      "sha256": "7213879602584E6C9B74FB144E7F0F231CA5EA82942426CE7F661471573F0627"
+      "bytes": 51972,
+      "sha256": "DC21AC3B453364498BEBE3BD69639A6BDE577F02A2BC326D85DA9323A7AB84C1"
     },
     "skill/my-ppt-skill/references/narrative-reference.md": {
-      "bytes": 4584,
-      "sha256": "09A119BDB9C8134459FFCC81CBB1780872FF090FACF6CC84FE8936ED21A13102"
+      "bytes": 6552,
+      "sha256": "D1B44130C93ED04BA96C05675214FF88C5283507BB73A75335BF6DEC7983A777"
     },
     "skill/my-ppt-skill/references/original-design-guide.md": {
       "bytes": 5237,
@@ -500,13 +544,17 @@
       "bytes": 6658,
       "sha256": "BF80F69D11D2E519D7222F3124FB0809B0BD62142B2FBF2484F456AF0EA5A342"
     },
+    "skill/my-ppt-skill/references/revision-control.md": {
+      "bytes": 2656,
+      "sha256": "B63CCAD09F4DD1ABEEB9E8EBED84F918273B8885DBC934BB5FA4878C64BFAB78"
+    },
     "skill/my-ppt-skill/references/scientific-visualization.md": {
       "bytes": 6070,
       "sha256": "95FA486F12ABF91ED3FFCFBF946248B6BE15D49B01C835A28258B4BD520459A0"
     },
     "skill/my-ppt-skill/references/signoff-workflow.md": {
-      "bytes": 13592,
-      "sha256": "86F61D12415B5D7B74EEFFF8596995434848EA478C913CC50E43EBA1966A0033"
+      "bytes": 17137,
+      "sha256": "2AC6BFAFB29C1705A39F419F7AC9D59CDE984B69BEE3F15924C21FB871647440"
     },
     "skill/my-ppt-skill/references/workflow.md": {
       "bytes": 8473,
@@ -517,16 +565,20 @@
       "sha256": "C4F5EF19830F7E6B2D4EAD2E6B2FF6F38B84AE9234179CE512570B42E633F7B8"
     },
     "skill/my-ppt-skill/scripts/audit_layout_coverage.py": {
-      "bytes": 35253,
-      "sha256": "988480E34227B82FEB32F68521650D036FFF38B6F70418DD9C9EC5EAB6F39E49"
+      "bytes": 35670,
+      "sha256": "F3ADA73409B373944753719E50ABEA25ADD75A7E94D5D8230ADE909AA2407086"
     },
     "skill/my-ppt-skill/scripts/audit_layout_gaps.py": {
-      "bytes": 5829,
-      "sha256": "BA5990D6DF7775DF568DC5DA2FAEE05327B1BFEAA70FB3FA06DA6DA3F19BDB62"
+      "bytes": 5862,
+      "sha256": "947CC66EC9C9BEB28198D00D2A9B7AACE44F57E80C8720603F5EAC7AEEEBC5A9"
     },
     "skill/my-ppt-skill/scripts/audit_presentation_text.py": {
-      "bytes": 3025,
-      "sha256": "708487DB10D314CCEA759CF51C3DC57FEB7F0693C8A057DF66540AF10017A8DE"
+      "bytes": 3043,
+      "sha256": "A67F5E7DF72FC706D938C15956B5EA56D6EF802A3B3330A767C3A442802160D3"
+    },
+    "skill/my-ppt-skill/scripts/audit_visual_components.py": {
+      "bytes": 8646,
+      "sha256": "9F7AFAF1707BD188CF1CD6C8FC98A2B461DE436B020C0CBEF21BE3F323678B8A"
     },
     "skill/my-ppt-skill/scripts/build_manifest.py": {
       "bytes": 3900,
@@ -541,16 +593,16 @@
       "sha256": "653372C28E61626316B75D0330307395B489C5BE07F759F42A4092AD8C2DE7E8"
     },
     "skill/my-ppt-skill/scripts/check_signoff_scope.py": {
-      "bytes": 5530,
-      "sha256": "E66793764D0EAC0EE853C87BA911F7DA47B99D1020DD0E5E54373CBD6CD6675C"
+      "bytes": 5555,
+      "sha256": "B8FCFD1B0F293A04066CD53E301B50E361127FFC9B462E73030C3C171C8B4376"
     },
     "skill/my-ppt-skill/scripts/check_update.py": {
       "bytes": 7817,
       "sha256": "824702E4CADFD626512ACCB397E09AF1810EA4FC20DD98F71B5634A79B83C733"
     },
     "skill/my-ppt-skill/scripts/compute_capacity.py": {
-      "bytes": 11702,
-      "sha256": "09008B34E81A8F9952F4DFEEC6FF8EED4D6BC711F940CE7FEE9532D05C442CA9"
+      "bytes": 12119,
+      "sha256": "ADFB719F69BA8E751EC0FC31BCBDE090A20B1E37144657036FBAA71A79EF0F49"
     },
     "skill/my-ppt-skill/scripts/connector_integrity.py": {
       "bytes": 29975,
@@ -569,8 +621,8 @@
       "sha256": "13580550DE37A8CE76F9E267FFD3C35C462F46144E2E93CBEE4FB8AE681E60CB"
     },
     "skill/my-ppt-skill/scripts/local_update_guard.py": {
-      "bytes": 12300,
-      "sha256": "4CFCDC1AC99E7DBF25F6016DED573F86F19F4938177F6F5B42A0310F04393CF3"
+      "bytes": 12728,
+      "sha256": "82C36F7EBF54F6E927C9E85E09F73188F174B94D6AD30E26135874D67CA8F7C5"
     },
     "skill/my-ppt-skill/scripts/measurement_fallback.py": {
       "bytes": 22072,
@@ -585,16 +637,24 @@
       "sha256": "C9833D344BEA592F481F343604ED168781E50B871209ACCA48BA2EB90B866AB2"
     },
     "skill/my-ppt-skill/scripts/render_evidence.py": {
-      "bytes": 23320,
-      "sha256": "774FC06C73C2B466647A02E595102D8B4A356F3888F73933C04A40A3E1221680"
+      "bytes": 24283,
+      "sha256": "7FA2BE2E35D1AB79756D5D58B2822CA64885E4C7F18EF0A7A19F82A6B023F40C"
     },
     "skill/my-ppt-skill/scripts/render_powerpoint_audit.ps1": {
-      "bytes": 20293,
-      "sha256": "A6D2FE58F7479EF29FD3B0090760C5F9AF057ED43574A9925EA3898E3F844C32"
+      "bytes": 21455,
+      "sha256": "07552D66360C3144A254316E0941146811BD451125F58ADF437B6B129263CD1D"
     },
     "skill/my-ppt-skill/scripts/render_slides.py": {
-      "bytes": 2609,
-      "sha256": "C5412C4EA9417C5389E849D11A29C45B3CC977635B9453F6C61AEC946EF072A2"
+      "bytes": 4748,
+      "sha256": "65E9AEF6A96A0AB397E5F0C2BCC3A062CB7DA39F510DAC390B660F7A4F592B75"
+    },
+    "skill/my-ppt-skill/scripts/report_io.py": {
+      "bytes": 4247,
+      "sha256": "D43439B7B4AF3E2CF369DBB6189CF3DA998614DC71500208331D934D6CA5F069"
+    },
+    "skill/my-ppt-skill/scripts/run_bounded.py": {
+      "bytes": 3808,
+      "sha256": "BAA5657CF0C397204840B077755E0585BDF2731E422AFF8338E3EE2986110A31"
     },
     "skill/my-ppt-skill/scripts/skill_state.py": {
       "bytes": 2160,
@@ -605,12 +665,20 @@
       "sha256": "7CA24444C57C40B3E29615A4DD845CC9C119B3846CD35D328D41A7FE08C6E0A5"
     },
     "skill/my-ppt-skill/scripts/verify_coverage_review.py": {
-      "bytes": 42168,
-      "sha256": "AAEF3E8843D32E0250C64D02CF7DC8C1D1284D76F10032F083EEDCE77CEDB89C"
+      "bytes": 42582,
+      "sha256": "E43DDEA3C90B78344D8E2A10D8081B76860FDF708AAF3736C9B6B83034B0B3C4"
+    },
+    "skill/my-ppt-skill/scripts/verify_delivery.py": {
+      "bytes": 3355,
+      "sha256": "3B7BC05A137C3D5167AF95598168261538A76862F919FDDB2D84F5DF283E0175"
+    },
+    "skill/my-ppt-skill/scripts/verify_readability_review.py": {
+      "bytes": 13121,
+      "sha256": "BDCED977AEDB7833EE3AB78F6C3DCB0EA36FCCEE55E27D6808E935BD34EAFF40"
     },
     "skill/my-ppt-skill/scripts/visible_chart_spacing.py": {
-      "bytes": 22921,
-      "sha256": "EE2CA52E570E26AFB4BA966F53DBF44AF975C649C71C0EC3B149324244D6E906"
+      "bytes": 22951,
+      "sha256": "E3987844AC744CB6275245CD2EB82237EFAF54FBB1AF2F9C3D853DA69DCF59AA"
     },
     "skill/my-ppt-skill/templates/INDEX.md": {
       "bytes": 7894,
@@ -957,16 +1025,20 @@
       "sha256": "8BAA2D306D6252E39AA3C4B7D2206AE9A40070262D1CA1843AD28359698A325B"
     },
     "tests/README.md": {
-      "bytes": 3102,
-      "sha256": "81067B3B425CECE16D3E6E2404CD242692FFC0B3998B61B252738FE2CDD948C6"
+      "bytes": 4287,
+      "sha256": "C7430F9DFC40FE9B897D69084692F468E0BF3F43FB698CF8ECF9F81BE3558926"
     },
     "tests/TEST_MATRIX.md": {
-      "bytes": 2769,
-      "sha256": "F85AADECB24913382D58E9D8F114B894E9BA97583E10A6BBB51E87EC21C69F09"
+      "bytes": 3182,
+      "sha256": "11C0EA1A1ED9921B5F7E5DEA5624A815C7DC3F10204F93331F56420D1D280FA8"
     },
     "tests/cases/test_axis_region_scope.py": {
       "bytes": 2974,
       "sha256": "F98AA3FB6A1918B36E9DDF3C1FCC57CC30218F3C9ACCC59A80B709152BC2A0D5"
+    },
+    "tests/cases/test_bounded_rendering.py": {
+      "bytes": 6928,
+      "sha256": "202F9624F744E521A87007D15CE637ECD933595F47E82E5D8DCC6BCFBB479FD4"
     },
     "tests/cases/test_builder_console.py": {
       "bytes": 2290,
@@ -1040,6 +1112,10 @@
       "bytes": 8429,
       "sha256": "072F4E84437E7D1B4D86B536C25898AE324D51F2DECFE4BFBECAAAECDE36D2F8"
     },
+    "tests/cases/test_report_io.py": {
+      "bytes": 5549,
+      "sha256": "86E7C2D32F669297F74C391FDB0AA2E4C80E59F7FD6ADD332922828D1228B700"
+    },
     "tests/cases/test_shell_update_guard.py": {
       "bytes": 3470,
       "sha256": "A34D2FE9BEB59C62F4A1185651E01FCF969783934E4807AE6270F724D89E83F2"
@@ -1060,6 +1136,14 @@
       "bytes": 10728,
       "sha256": "3B062DAEE38E0252034E725CAB456EAFCABF9562AA3D5E093383C6CC04FCF447"
     },
+    "tests/cases/test_upstream_issue_regressions.py": {
+      "bytes": 4718,
+      "sha256": "9F728940827D8C77C4D9ABDF7A4AD97164E8F158EF379D33A5641D8028863E5A"
+    },
+    "tests/cases/test_usage_components.py": {
+      "bytes": 26083,
+      "sha256": "62ED7DB6D189FED723C64BD819A5AE2E429B9E2ADCC3E60E615ED8BE6A40775E"
+    },
     "tests/cases/test_visible_chart_spacing.py": {
       "bytes": 12580,
       "sha256": "94868F6960A6EF6CA8F247603B3DF29801202467CC645B08005CBD3C231B958B"
@@ -1067,6 +1151,14 @@
     "tests/cases/test_white_container.py": {
       "bytes": 3025,
       "sha256": "2F5A79B8D94B007927580C9EAA79484277D30DA62B4E5C794DA3E68A7B5C07B3"
+    },
+    "tests/generate_usage_visual_fixture.py": {
+      "bytes": 5979,
+      "sha256": "0579940D9E2D2DBD8EAD7B12E08A63B270864DCAFF04F5B195F7AF189BF46207"
+    },
+    "tests/prepare_usage_visual_fixture.ps1": {
+      "bytes": 1090,
+      "sha256": "494019C0860E94131FDA0B73BFD7262DF4E2D854C611052FEE39AF868491E799"
     },
     "tests/requirements-test.txt": {
       "bytes": 97,
@@ -1085,7 +1177,7 @@
       "sha256": "63588B57BFBD6940F9E81FF95E0294FFCD882BDF2497AFE7B68570A0B217FE39"
     }
   },
-  "release_version": "1.0",
+  "release_version": "1.1",
   "repository": "https://github.com/Yifan0718/MyPPTSkill",
   "upstream": "https://github.com/GordenSun/GordenPPTSkill",
   "promotion_pages": 4,
@@ -1093,5 +1185,12 @@
   "promotion_jpg_resolution": [
     3840,
     2160
-  ]
+  ],
+  "usage_component_regressions": 64,
+  "fault_recovery_regressions": 35,
+  "added_regressions": 106,
+  "showcase_count": 1,
+  "showcase_pages": 1,
+  "issue4_case_pptx_sha256": "D816138C85ADE70BBB13050E4F6088A0544B9D7DEF2C352DAB35709AD4CCC77C",
+  "upstream_issue_regressions": 7
 }

@@ -19,12 +19,13 @@ Capacity is measured in "visual width units" (vw): a CJK glyph = 1.0,
 latin/digit ≈ 0.5, space ≈ 0.35. 1 vw unit ≈ 1 em ≈ font_size_pt wide.
 
 Usage:
-  python3 compute_capacity.py <detail.json> <template.pptx> [--in-place|-o out.json]
+  python3 compute_capacity.py <detail.json> <template.pptx> [-o out.json]
 """
 from __future__ import annotations
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
 
 from pptx import Presentation
@@ -290,5 +291,14 @@ def main() -> int:
     return 0
 
 
+def cli() -> int:
+    try:
+        return main()
+    except Exception as exc:
+        print(json.dumps({'status':'failed','reason':type(exc).__name__+': '+str(exc),
+                          'recovery':'Check the detail JSON and PPTX text structure, repair invalid slot addresses or missing paragraphs, then rerun capacity estimation before building.'},ensure_ascii=True),file=sys.stderr)
+        return 3
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(cli())

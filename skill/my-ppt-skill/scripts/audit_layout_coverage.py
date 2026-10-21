@@ -16,6 +16,7 @@ from pptx.enum.text import PP_ALIGN
 from connector_integrity import inventory as connection_inventory
 from center_alignment import scan_doughnut_centers
 from render_evidence import native_inventory
+from audit_visual_components import scan as scan_components
 
 
 def sha(path):
@@ -103,6 +104,8 @@ def audit(pptx, render):
         findings.append({'id': f'p{n}-{kind}-{len(findings)+1}', 'slide': n,
                          'reason': kind, **detail})
     for n, slide in enumerate(prs.slides, 1):
+        for candidate in scan_components(slide,n,render,scale):
+            kind=candidate.pop("reason");flag(n,kind,candidate)
         for connection in connection_inventory(slide):
             flag(n, 'connector_endpoint_review_required', connection)
         raster=None;pixel_bounds={};raster_error=None;raster_path=None
@@ -487,14 +490,16 @@ def audit(pptx, render):
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('pptx',type=Path);ap.add_argument('render',type=Path);ap.add_argument('report',type=Path)
-    a=ap.parse_args()
+    a=ap.parse_args();render_data={}
     try:
-        result=audit(a.pptx,json.loads(a.render.read_text(encoding='utf-8-sig')))
+        render_data=json.loads(a.render.read_text(encoding='utf-8-sig'))
+        result=audit(a.pptx,render_data)
         code=2 if result['findings'] else 0
     except Exception as exc:
         result={'status':'failed','error':str(exc)};code=3
-    a.report.parent.mkdir(parents=True,exist_ok=True)
-    a.report.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8')
+    from report_io import emit_report
+    report_error=emit_report(a.report,result,inputs=(a.pptx,a.render),frozen_dirs=((Path(render_data['snapshot']).parent,) if isinstance(render_data,dict) and isinstance(render_data.get('snapshot'),str) and render_data['snapshot'] else ()))
+    if report_error:return report_error
     print(result['status']);return code
 
 if __name__=='__main__':raise SystemExit(main())

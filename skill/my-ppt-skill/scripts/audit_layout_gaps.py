@@ -68,8 +68,11 @@ def audit(pptx,spec,only=None):
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('pptx',type=Path);ap.add_argument('spec',type=Path);ap.add_argument('report',type=Path);ap.add_argument('--slides',type=int,nargs='+');a=ap.parse_args()
     try:
-        result=audit(a.pptx,json.loads(a.spec.read_text(encoding='utf8')),a.slides)
+        result=audit(a.pptx,json.loads(a.spec.read_text(encoding='utf-8-sig')),a.slides)
     except Exception as exc:
         result={'status':'failed','issues':[{'reason':'audit_exception','detail':str(exc)}]}
-    a.report.parent.mkdir(parents=True,exist_ok=True);a.report.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8');print(result['status'],len(result['issues']));return 2 if result['issues'] else 0
+    from report_io import emit_report
+    report_error=emit_report(a.report,result,inputs=(a.pptx,a.spec),frozen_dirs=())
+    if report_error:return report_error
+    print(result['status'],len(result['issues']));return 2 if result['issues'] else 0
 if __name__=='__main__':raise SystemExit(main())

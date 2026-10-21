@@ -46,3 +46,7 @@ The `intro.md`, `detail.json` and skill scripts in this repository are original
 work by the maintainer and are released under the MIT License (see `LICENSE`).
 You may freely reuse the metadata structure, scripts, and documentation in
 commercial projects — only the **template visual assets** are restricted.
+
+## 同图重建对照案例
+
+`showcases/issue-4-image-to-editable` 中的原图与上游转换截图来自 liumingjian 在 GordenSun/GordenPPTSkill issue #4 的公开提交，用于结果对照；具体链接、原始文件哈希和图像归属见该目录的 [SOURCES.md](showcases/issue-4-image-to-editable/SOURCES.md)。

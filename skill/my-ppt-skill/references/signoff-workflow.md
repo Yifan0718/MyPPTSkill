@@ -16,10 +16,10 @@
 1. **固定候选与规则。** 最后保存后清理生成程序元数据并 `--check`，按 [冻结规则](layout-integrity.md#冻结skill后再迭代和签核) 检查 Skill 锁；输入、模板和素材各记哈希。布局前确定完整内容、安全区与可读字号，真实数字需有来源或可复算依据，模拟/演算保留标记。
 2. **真实渲染。** 先按 [交付外壳](delivery-shell.md) 从稳定候选生成真实第一页缩略图并保存普通视图，再进行本步骤的只读全页渲染；默认后台不弹窗。 Windows 有 PowerPoint 时优先 `scripts/render_powerpoint_audit.ps1`；否则用可用真实渲染器并补足等效审计证据。使用锁定的唯一稳定快照，记录打开前及完成后哈希；源文件或快照变化则整轮作废。不能用模板预览、代码截图、坐标重画或旧图替代成品。渲染不可用时尝试替代，仍不可用则不得签核。
 3. **规则检查。** 执行元数据、渲染预检、layout gaps、独立 coverage、连线、全文语言与最终证据校验，逐项解决所有报告、人工检查项和视觉新增发现。最终 review 绑定原始 layout/gap 报告；独立发现的原生图表—图注—结论关系另核对真实像素边界，即使框距通过也不省略。详见 [间距证据接口](evidence-schema.md#原始间距报告与可见图表边界)。仅字符容量预警不证明溢出，但任何真实溢出、过小字、错位或不当换行必须修复。检查代码、表格、图内标签、母版与备注，不只普通文本框。
-4. **内容遍。** 按页码顺序独立打开规定范围的每页真实 PNG，以正常展示尺寸阅读完整内容，检查可读性、图表语义/数值/轴单位/数字格式、语言、跨页逻辑和信息完整性。禁止只看 contact sheet、缩略图、抽样或自动报告；contact sheet 仅补充跨页一致性。
+4. **内容遍。** 按页码顺序独立打开规定范围的每页真实 PNG，以正常展示尺寸阅读完整内容，检查可读性、图表语义/数值/轴单位/数字格式、语言、跨页逻辑和信息完整性。按[首次阅读与案例](audience-and-evidence.md)逐页复述，并确认案例职责、指标读法及必要解释已经进入成品。禁止只看 contact sheet、缩略图、抽样或自动报告；contact sheet 仅补充跨页一致性。
 5. **版式遍。** 同一未变候选逐页检查 [完整布局范围](layout-integrity.md#版式遍逐页检查范围)，可倒序减少惯性。检查断字、孤行、字体替换、同行/同列/跨栏、光学边缘、图表与图片内部、四边留白、外边距、横纵均衡、全部连线与页码保护。强制局部场景按对应规范执行，所有发现逐项对照；两遍可复用同一份未变真实渲染，不为凑轮次重复导出。
 6. **局部与迭代。** 复杂、密集或自动无法可靠测量的区域，裁取当前真实渲染放大检查文字、笔画、箭头、图例、节点和冲突；随后回到正常整页，检查清晰度、间距、整体协调及页码。不能用原 SVG、旧局部图代替。每次内容、字号、位置、尺寸或样式改变后，重渲染受影响页，核对原问题并找新增问题；最终重新完成本文件规定范围的全部检查，不设放行轮数上限，也不制造无意义修改。
-7. **签核。** 每页记录页码、真实图路径及哈希、实际查看、最紧/最松留白、横纵均衡、问题/动作/复验结果；缺失、未知、待处理或疑点均未通过。运行 `verify_coverage_review.py` 并核对当前全部证据；`evidence_complete_pending_visual_signoff` 不是自动发布许可。完成语义与实际视觉验收后，签核记录执行者、时间、最终文件哈希、总页数、范围/有效基线、逐页证据、所有 8 pt exception_id（无则空列表）及零未解决项。8 pt 必须有真实 10 pt 试验链，见 [字号规则](local-delivery-quality.md#8-pt-的逐项论证与局部适用)。禁止提前批量填通过或仅凭记录存在自证看过图。
+7. **签核。** 每页记录页码、真实图路径及哈希、实际查看、最紧/最松留白、横纵均衡、问题/动作/复验结果；缺失、未知、待处理或疑点均未通过。运行 `verify_delivery.py` 汇总 `verify_coverage_review.py` 与 `verify_readability_review.py` 并核对当前全部证据；`evidence_complete_pending_visual_signoff` 不是自动发布许可。完成语义与实际视觉验收后，签核记录执行者、时间、最终文件哈希、总页数、范围/有效基线、逐页证据、所有 8 pt exception_id（无则空列表）及零未解决项。8 pt 必须有真实 10 pt 试验链，见 [字号规则](local-delivery-quality.md#8-pt-的逐项论证与局部适用)。禁止提前批量填通过或仅凭记录存在自证看过图。
 8. **交付。** 签核后才复制/导出/上传成品或提供最终链接，复制后核对 PPTX 哈希一致。任何后续修改撤销对应签核并重新按本文件判断全量/增量范围。用户明确索要草稿可提供标明未验收的草稿；不能称成品。验收记录只放工作目录或聊天，禁止放 PPT 正文或备注。Signoff 是执行者真实验收记录，不额外要求用户审批。
 
 ## 错误传导与状态
@@ -53,7 +53,7 @@
 ## 渲染器使用与检查边界
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File '<skill-root>/scripts/render_powerpoint_audit.ps1' -InputPptx '<candidate.pptx>' -OutputDir '<work>/fresh-render' -ExportPdf
+python -X utf8 '<skill-root>/scripts/run_bounded.py' --timeout 300 --status-report '<work>/fresh-render/tool-run.json' -- powershell -NoProfile -ExecutionPolicy Bypass -File '<skill-root>/scripts/render_powerpoint_audit.ps1' -InputPptx '<candidate.pptx>' -OutputDir '<work>/fresh-render' -ExportPdf
 $renderExit = $LASTEXITCODE
 # 非零须读取 audit.json 分类：执行/证据失败先修复；完整渲染的版式失败进入视觉闭环，不能忽略后直接签核。
 ```
@@ -61,3 +61,26 @@ $renderExit = $LASTEXITCODE
 脚本生成 PNG、可选 PDF 与 audit.json，检查有效字号、文字边界、左右/底部安全区、短标签换行、标点独行、原生数据标签重叠和页码。取不到原生标签/组合内部几何、混合或未知字号等进入人工检查；轴刻度、曲线、图例、位图文字、阴影、语义换行与实际遮挡均纳入局部和整页视觉检查，逐项记录结果。
 
 自建对象可命名 title:/subtitle:/short:/page-number: 辅助识别；仅真正出血背景可命名 background:。命名、未标记对象或底部 10% 自动识别不是合格依据；页尾与母版残留仍须视觉检查。规则所需全页对象/文字清单与版本哈希必须保全。
+
+## 统一交付证据入口
+
+最终运行：
+
+```text
+python scripts/verify_delivery.py candidate.pptx coverage.json coverage-review.json render audience-review.json delivery-check.json
+```
+
+`audience-review.json` 格式见[机器证据接口](evidence-schema.md#首次阅读与反馈证据)。缺文件、缺页、旧哈希、未闭环反馈均需补全后重试；语义发现通过修正文稿、真实渲染及复述关闭，不作为版式数值误报豁免。工具非零必须读取报告并继续解决具体问题，不能直接停工。完整通过状态为 `evidence_complete_pending_visual_signoff`，最终签核仍由执行者完成真实内容和视觉判断。此入口补充证据职责，不改变全量/严格增量范围；旧任务原版本签核保留，新任务使用当前入口。
+
+## 有界执行与报告写入恢复
+
+- Windows首图准备与PowerPoint渲染通过 `run_bounded.py` 执行，默认每次命令300秒；按稿件规模设置合适上限。渲染时把 `--status-report` 设为该次全新渲染目录下的 `tool-run.json`。脚本绑定运行标识，校验器核对最终退出状态；超时、取消、尚未结束或身份不匹配时，保留失败证据并重新渲染。
+- 退出码2且原报告为failed_preflight，继续原规则与局部/整页视觉复核。执行超时退出3后检查运行环境及任务自有资源，在全新目录延长等待或使用其他可用渲染器；不复用半完成图片。超时或取消时仅终止本任务启动的命令及其后代，阻止它们继续写文件；不强行结束用户共享的Office实例。用户取消时停止本轮，按用户后续指令恢复。
+- LibreOffice备用链每个转换阶段使用独立配置目录及有限等待；`--timeout`可调。输出核对页数、页序及图像文件有效性；修复工具问题后在新目录重试。
+- 独立诊断及最终校验的report参数使用输入文件和渲染目录之外的JSON路径；渲染器自己的audit.json与外层tool-run.json仍保存在该次新渲染目录中。报告写入采用临时文件与原子替换，递归保护review/scope等引用的局部图、基线、源数据和其他证据，拒绝覆盖直接或间接输入（包括别名/硬链接）。目录不可写、替换失败等返回3，并在stderr保留结构化错误、原检查结果和恢复步骤；换一个可写报告路径重试即可，原文件保持不变。
+- 最终入口核对候选、coverage、review、audience、渲染目录及引用证据的完整文件集合和前后哈希，检查期间新增/删除证据也进入失败状态；两个子检查结束后再次核对Skill锁，分别保留各阶段错误。子检查异常或返回无效结构时仍执行另一项；输入在检查期间变化时，以稳定候选重新运行，不能把部分结果记为通过。
+
+```text
+python -X utf8 scripts/run_bounded.py --timeout 300 --status-report work/render/tool-run.json -- powershell -NoProfile -ExecutionPolicy Bypass -File scripts/render_powerpoint_audit.ps1 -InputPptx candidate.pptx -OutputDir work/render -Width 1600
+python -X utf8 scripts/render_slides.py candidate.pptx work/alternate-render --timeout 300
+```

@@ -18,9 +18,9 @@
 ```powershell
 python -X utf8 scripts/strip_pptx_metadata.py candidate.pptx --author "已确认的作者"
 if ($LASTEXITCODE -ne 0) { throw '先解决元数据清理失败' }
-powershell -NoProfile -ExecutionPolicy Bypass -File scripts/prepare_pptx_delivery.ps1 -InputPptx candidate.pptx -OutputDir work/shell-prep -PythonExe "当前可用Python路径" -Width 1600
+python -X utf8 scripts/run_bounded.py --timeout 300 --status-report work/shell-tool-run.json -- powershell -NoProfile -ExecutionPolicy Bypass -File scripts/prepare_pptx_delivery.ps1 -InputPptx candidate.pptx -OutputDir work/shell-prep -PythonExe "当前可用Python路径" -Width 1600
 if ($LASTEXITCODE -ne 0) { throw '读取失败记录并修复后重试首图准备' }
-powershell -NoProfile -ExecutionPolicy Bypass -File scripts/render_powerpoint_audit.ps1 -InputPptx candidate.pptx -OutputDir work/final-render -Width 1600 -ExportPdf
+python -X utf8 scripts/run_bounded.py --timeout 300 --status-report work/final-render/tool-run.json -- powershell -NoProfile -ExecutionPolicy Bypass -File scripts/render_powerpoint_audit.ps1 -InputPptx candidate.pptx -OutputDir work/final-render -Width 1600 -ExportPdf
 # 保留渲染返回码与原报告，按签核流程分类、交叉检查和闭环。
 ```
 

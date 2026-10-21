@@ -27,16 +27,20 @@
 | `test_update_safety.py` | 14 | 更新计划、冲突、删除项、失败与回滚 |
 | `test_visible_chart_spacing.py` | 27 | 图表实际可见边界和邻接间距 |
 | `test_white_container.py` | 8 | 白色容器与真实边界 |
+| `test_usage_components.py` | 64 | 表格/图例/间距/配色与JSON往返、首次阅读/案例/反馈证据、防绕过、更新保护 |
+| `test_report_io.py` | 13 | 原子报告、直接/间接输入保护、硬链接、写入失败与BOM |
+| `test_bounded_rendering.py` | 22 | 超时、进程树、运行记录、备用渲染隔离与恢复 |
+| `test_upstream_issue_regressions.py` | 7 | 更新源空值/类型、快照PDF选择、容量工具异常输入及正常空框 |
 
-Python合计333项，全部通过。
+Python合计439项，全部通过。
 
 | PowerShell脚本 | 检查数 | 覆盖重点 |
 |---|---:|---|
 | `test_render_powerpoint_background.ps1` | 35 | 背景、页码保护和对象边界契约 |
 | `test_delivery_render_warmup.ps1` | 41 | 后台预热、失败清理及错误传递 |
 
-`test_complex_visuals.py` 是两页可编辑视觉夹具生成器，不冒充自动视觉验收。真实样本的局部和整页观察不能由上述自动计数替代。
+`test_complex_visuals.py` 生成两页可编辑视觉夹具；生成后按实际渲染逐页检查，并记录局部与整页观察。
 
-发布入口另有6项控制流测试（tests/test_entrypoints.py），验证缺输入、禁止写入安装目录、执行失败不被完整报告遮掩、预检待复核及不冒充视觉签核；统一入口会同时运行。
+发布入口另有6项控制流测试（tests/test_entrypoints.py），验证缺输入、禁止写入安装目录、执行失败不被完整报告遮掩、预检待复核与实际视觉签核的状态区分；统一入口会同时运行。
 
 run_integration.py提供真实PowerPoint端到端检查，本版实际完成3页输入的元数据→首图→后台渲染→快照／外壳校验，仍明确保留视觉复核待办状态。

@@ -323,8 +323,9 @@ def main():
         code=2 if records else 0
     except Exception as exc:
         result={'schema':'visible-chart-spacing/v1','status':'failed','error':str(exc),'relations':[]};code=3
-    args.report.parent.mkdir(parents=True,exist_ok=True)
-    args.report.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8')
+    from report_io import emit_report
+    report_error=emit_report(args.report,result,inputs=(args.pptx,),frozen_dirs=(args.render_dir,))
+    if report_error:return report_error
     print(result['status'],len(result['relations']))
     return code
 

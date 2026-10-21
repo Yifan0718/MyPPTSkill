@@ -55,6 +55,16 @@ def prepare(root,stage,candidate=None):
     if candidate and (stage.is_relative_to(candidate.resolve()) or candidate.resolve().is_relative_to(stage)):
         raise ValueError('Candidate and stage directories must not overlap')
     if stage.exists():raise ValueError('Stage must be a fresh directory')
+    source=None
+    if candidate is None:
+        metadata=read(root/'updates.json',{})
+        if not isinstance(metadata,dict):raise ValueError('Local updates.json must be an object')
+        source=metadata.get('update_source')
+        if source is None or source=='':
+            raise ValueError('update_source is unset; configure a git+ source or use --candidate for a reviewed local mirror')
+        if not isinstance(source,str):raise ValueError('update_source must be a string or null')
+        if not source.startswith('git+'):
+            raise ValueError('Automatic staging requires a git+ update_source; use --candidate for a reviewed local mirror')
     stage.mkdir(parents=True)
     live=files(root);protected=protection(root,live)
     for rel in protected:
@@ -65,9 +75,6 @@ def prepare(root,stage,candidate=None):
     incoming=stage/'incoming'
     if candidate:shutil.copytree(candidate,incoming,ignore=shutil.ignore_patterns('.git','__pycache__','local-overrides'))
     else:
-        source=read(root/'updates.json',{}).get('update_source','')
-        if not source.startswith('git+'):
-            raise ValueError('Automatic staging requires a git+ update_source; use --candidate for a reviewed local mirror')
         url,_,branch=source[4:].partition('#')
         env=os.environ.copy();env.update(GIT_TERMINAL_PROMPT='0',GCM_INTERACTIVE='Never')
         subprocess.run(['git','clone','--depth','1','--branch',branch or 'main',url,str(incoming)],check=True,timeout=180,env=env)

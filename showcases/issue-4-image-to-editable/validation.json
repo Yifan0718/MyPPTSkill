@@ -1,0 +1,47 @@
+{
+  "case": "GordenPPTSkill issue #4",
+  "reference_url": "https://github.com/GordenSun/GordenPPTSkill/issues/4",
+  "slide_count": 1,
+  "candidate_sha256": "D816138C85ADE70BBB13050E4F6088A0544B9D7DEF2C352DAB35709AD4CCC77C",
+  "render_size_px": [
+    3840,
+    2160
+  ],
+  "native_objects": 276,
+  "top_level_objects": 182,
+  "text_boxes": 42,
+  "raster_pictures_in_slide": 0,
+  "heat_cells": 42,
+  "star_positions": 30,
+  "bound_connectors": 6,
+  "render_iterations": 4,
+  "preflight_issues": 0,
+  "gap_issues": 0,
+  "coverage_findings_reviewed": 116,
+  "independent_visual_resolutions": 14,
+  "status": "signed_off",
+  "editability_test": {
+    "status": "passed",
+    "test": "edit native industry label and first heat cell, reopen and render in PowerPoint",
+    "changes": [
+      "党政→政务（文字对象）",
+      "第一热度格→青绿（原生填充）"
+    ],
+    "changed_pixel_bbox": [
+      288,
+      652,
+      606,
+      720
+    ],
+    "all_other_rendered_pixels_unchanged": true,
+    "final_candidate_unchanged": true
+  },
+  "files": {
+    "editable-proof.png": "bdec4af09be50c038f8e4324e6c83152258e3123f8610e1adc2a68ca3dba0444",
+    "mypptskill-result.png": "a2ecf2b58985b7ee2942008503886d14d74d7670ef780740d8c25a5d6d4ceca9",
+    "slides.pdf": "583b910cc52ad5cda881ade5540d2b0206aed997e95a43fbac051a72a8129c87",
+    "slides.pptx": "d816138c85ade70bbb13050e4f6088a0544b9d7def2c352dab35709ad4ccc77c",
+    "source.png": "9ac02de0e2c2574110fc2ea993ee956b0a5134c379d97e1dcff3a1aa1243891f",
+    "upstream-result.png": "daa2732fa14825dcecf1c64613d985cabf2aaecafbed0e3f0ec1eea934f60f76"
+  }
+}

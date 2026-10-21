@@ -16,11 +16,11 @@ description: >-
 
 1. **确认需求与选模板。** 制作整套前，未明确的封面、篇幅必须询问；大纲仅在实质不清楚时询问，已知信息不重复问。执行下文三模式与 [本地交付标准](references/local-delivery-quality.md) 的需求、内容、字号、边距和元数据规则。不得删关键内容或机械增页规避排版。
 2. **检查更新并冻结版本。** 本会话首次使用执行 `python scripts/check_update.py`；失败不得称“已是最新”。更新仅用保护入口，规则冲突显式向用户确认；参见 [更新保护](references/local-delivery-quality.md#更新时保留本地规则)。最终迭代前按 [冻结流程](references/layout-integrity.md#冻结skill后再迭代和签核) 建立版本锁。
-3. **规划内容和布局。** 叙事按用途参照 [叙事选择流程](references/narrative-reference.md)，不机械写成宣传稿。执行 [全页覆盖与反规避验收](references/layout-integrity.md)：统一锚点、真实间距、所有位置可见字形边缘、混合字体局部检查；不得自授免检。分析型多页稿搭配多种有任务的图表和图标，科研绘图按需读 [工具选择](references/scientific-visualization.md)。
+3. **规划内容和布局。** 先按[首次阅读与案例](references/audience-and-evidence.md)建立读者可理解的术语、指标和代表性示例，并用[修订闭环](references/revision-control.md)追踪用户反馈及影响范围。 叙事按用途参照 [叙事选择流程](references/narrative-reference.md)，不机械写成宣传稿。执行 [全页覆盖与反规避验收](references/layout-integrity.md)：统一锚点、真实间距、所有位置可见字形边缘、混合字体局部检查；不得自授免检。分析型多页稿搭配多种有任务的图表和图标，科研绘图按需读 [工具选择](references/scientific-visualization.md)。
 4. **渲染、修复、反复核验。** 最终渲染前按 [第一页缩略图与普通视图](references/delivery-shell.md) 准备交付外壳；PowerPoint默认后台无窗口运行。 所有页面初始 `suspected_unverified`。必须规则与视觉交叉检查；所有原生连线、箭头及图内连接按 [连接完整性](references/connector-integrity.md) 逐根逐端检查。自动通过不能代替局部和整页可视化。版式规则未通过或测不准时，保留原结果，执行 [局部＋整页独立视觉兜底](references/signoff-workflow.md#版式规则未通过时的视觉兜底)；真实视觉合格且独立复核完成可以关闭对应拦截，不要求所有版式数值机械通过。实际可见缺陷须修正，未解决项不得签核；拦截必须接续复核、修复或替代流程，不能作为停工理由。
-5. **签核后交付。** 按 [签核范围与证据流程](references/signoff-workflow.md) 处理错误、版本、全量双遍视觉检查及发布。默认必须全量所有页；仅已全量签核后用户指出局部问题的修订可按该文件的严格增量条件处理。缺证据、未解决项、失败或未知状态均不得发布。
+5. **签核后交付。** 最终使用 `scripts/verify_delivery.py` 同时汇总版式证据和首次阅读证据；原 `verify_coverage_review.py` 继续作为版式证据检查器。 按 [签核范围与证据流程](references/signoff-workflow.md) 处理错误、版本、全量双遍视觉检查及发布。默认必须全量所有页；仅已全量签核后用户指出局部问题的修订可按该文件的严格增量条件处理。缺证据、未解决项、失败或未知状态均不得发布。
 
-以上引用是必读执行规范，不是可选附录；技术能力说明不改变质量门槛。字号 12/10/8 pt 的适用范围及 8 pt 先实际尝试 10 pt 的证据链，统一以 [字号和可读性](references/local-delivery-quality.md#字号和可读性) 为准。验收日志仅留工作目录，不能写入 PPT 或备注。
+以上引用按对应阶段开始前读取并执行；仅调研、讨论或生成待确认大纲时，执行需求/叙事/读者准备规范，暂不启动依赖最终PPTX的渲染与签核。实际制作交付时完整执行全部阶段，不能以准备阶段例外跳过成品检查。技术能力说明不改变质量门槛。字号 12/10/8 pt 的适用范围及 8 pt 先实际尝试 10 pt 的证据链，统一以 [字号和可读性](references/local-delivery-quality.md#字号和可读性) 为准。验收日志仅留工作目录，不能写入 PPT 或备注。
 
 > **模板素材许可**：内置 PPT 模板视觉素材仅供上游许可范围内的个人学习和研究，禁止未经授权的商业使用；分发须遵守上游及原作者限制。代码、规则与文档按各自 MIT 许可处理，不能把代码许可扩展到模板素材。Fork 来源及许可分层见 [许可说明](docs/LICENSE_SCOPE.md)。
 

@@ -1,6 +1,6 @@
 # MyPPTSkill
 
-**当前版本：1.0** · [下载 Release](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v1.0)
+**当前版本：1.1** · [下载 Release](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v1.1) · [更新日志](CHANGELOG.md)
 
 ## TL;DR
 
@@ -14,11 +14,31 @@
 - **复杂内容照样好看**：多图表、代码、公式和科研图文混排，兼顾信息密度与可读性。
 - **你的规则，持续有效**：持续跟进上游 GordenPPTSkill 更新，自适应保留已固化的定制规则与修复。
 
-**21 套中文模板 · 10 份实际样本 · 87 页成品展示 · 完整开发测试**
+**21 套中文模板 · 10 份实际样本 · 87 页成品展示 · 图片重建实测对照 · 完整开发测试**
 
 [安装与使用](skill/my-ppt-skill/README.md#安装与使用) · [查看成品](examples/README.md) · [87页预览](examples/all-samples-87-pages.pdf) · [完整差异](skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md)
 
+<a id="issue4-comparison"></a>
+
+## 同图实测：原版 GordenPPTSkill issue #4 vs MyPPTSkill
+
+**把错位、截断的复杂图，重建成读得清、改得动的 PPT。**
+
+[上游 issue #4](https://github.com/GordenSun/GordenPPTSkill/issues/4) 展示了图片转 PPT 时行业文字堆叠、场景标签错位、台阶编号丢失和底部总结被截断的结果。我们使用同一张原图，以原生对象重建并反复看图修正：**六行业与六场景逐项对应，L1—L5 完整呈现，文字与总结清晰可读。**
+
+| 原版 GordenPPTSkill：issue #4 展示的转换结果 | MyPPTSkill：同图可编辑重建 |
+|---|---|
+| [![上游 issue #4 转换截图](showcases/issue-4-image-to-editable/upstream-result.png)](showcases/issue-4-image-to-editable/upstream-result.png) | [![MyPPTSkill 重建结果](showcases/issue-4-image-to-editable/mypptskill-result.png)](showcases/issue-4-image-to-editable/mypptskill-result.png) |
+
+**276 个原生对象（含分组） · 42 个文本框 · 6 条绑定连接 · 正文图片对象为 0**
+
+提升来自完整流程：**原生对象拆解 → 四轮真实渲染 → 局部视觉与整页交叉检查 → 独立复核 → 实际编辑验证**。在副本里改文字、改色格后重新渲染，变化准确落在对应对象区域。
+
+[查看原图、完整对照与方法](showcases/issue-4-image-to-editable/README.md) · [下载可编辑 PPTX](showcases/issue-4-image-to-editable/slides.pptx) · [下载整组案例](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.1/MyPPTSkill-1.1-issue4-case.zip)
+
 ## 四页看懂 MyPPTSkill
+
+**v1.1 新增**：首次阅读理解检查、先研究再选择代表性案例、按用途组织叙事、连续模块与图例检查、色块配色优化，以及超时恢复和验收证据保护。新增 106 项回归测试，完整套件通过 439 项 Python 测试、6 项入口测试与 76 项 PowerShell 检查。[查看本轮改进](CHANGELOG.md)。
 
 [下载这份宣传 PPTX](MyPPTSkill-Promo.pptx) · 点击图片查看高清原图 · 欢迎 **Star / Fork / 提出意见**
 
@@ -57,7 +77,8 @@
 | 安装目录与完整使用文档 | [Skill](skill/my-ppt-skill/README.md) |
 | 额外要求、解决的问题与上游差异 | [差异说明](skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md) |
 | 最终10份样本、87页及可用教学源码 | [样本目录](examples/README.md) |
-| 4页宣传PPTX与4张4K JPG | [宣传PPTX](MyPPTSkill-Promo.pptx) · [完整宣传包](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.0/MyPPTSkill-1.0-promo.zip) |
+| 4页宣传PPTX与4张4K JPG | [宣传PPTX](MyPPTSkill-Promo.pptx) · [完整宣传包](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.1/MyPPTSkill-1.1-promo.zip) |
+| 图片转可编辑 PPT 同图实测 | [原图、上游展示结果与本次重建](showcases/issue-4-image-to-editable/README.md) |
 | 当前适用测试与统一运行入口 | [开发测试](tests/README.md) |
 | 本版验证摘要 | [验证结果](VALIDATION.md) |
 | GitHub侧边简介与Topics文案 | [GitHub About](GITHUB_ABOUT.md) |

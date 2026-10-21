@@ -58,6 +58,7 @@ $issues=[System.Collections.Generic.List[object]]::new()
 $reviews=[System.Collections.Generic.List[object]]::new()
 $chartLabels=[System.Collections.Generic.List[object]]::new()
 $chartGeometry=[System.Collections.Generic.List[object]]::new()
+$chartLegends=[System.Collections.Generic.List[object]]::new()
 $rasterHashes=@{}
 $renderStartedUtc=[DateTimeOffset]::UtcNow.ToString('o')
 $anchors=@{}
@@ -166,6 +167,12 @@ function Check-Shape($sh,$slideNo,$sw,$shgt,$margin,$auditPath,$backgroundIds,$n
             $chartGeometry.Add(@{slide=$slideNo;shape_id=[int]$sh.Id;shape=$sh.Name;audit_path=$auditPath;plot_bounds_pt=@(([double]$sh.Left+[double]$plot.InsideLeft),([double]$sh.Top+[double]$plot.InsideTop),([double]$sh.Left+[double]$plot.InsideLeft+[double]$plot.InsideWidth),([double]$sh.Top+[double]$plot.InsideTop+[double]$plot.InsideHeight))})
         } catch { $reviews.Add(@{slide=$slideNo;shape=$sh.Name;audit_path=$auditPath;reason='native_plot_bounds_unavailable'}) }
         try {
+            if ($sh.Chart.HasLegend) {
+                try {
+                    $legend=$sh.Chart.Legend
+                    $chartLegends.Add(@{slide=$slideNo;shape_id=[int]$sh.Id;audit_path=$auditPath;bounds_pt=@(([double]$sh.Left+[double]$legend.Left),([double]$sh.Top+[double]$legend.Top),([double]$sh.Left+[double]$legend.Left+[double]$legend.Width),([double]$sh.Top+[double]$legend.Top+[double]$legend.Height))})
+                } catch { $reviews.Add(@{slide=$slideNo;shape=$sh.Name;audit_path=$auditPath;reason='native_legend_geometry_unavailable'}) }
+            }
             $labels=[System.Collections.Generic.List[object]]::new()
             $series=$sh.Chart.SeriesCollection()
             for ($si=1;$si -le $series.Count;$si++) {
@@ -175,6 +182,8 @@ function Check-Shape($sh,$slideNo,$sw,$shgt,$margin,$auditPath,$backgroundIds,$n
                     if ($point.HasDataLabel) {
                         $d=$point.DataLabel
                         $item=@{slide=$slideNo;chart=$sh.Name;series=$si;point=$pi;text=$d.Text;left=[double]$d.Left;top=[double]$d.Top;width=[double]$d.Width;height=[double]$d.Height}
+                        $item['audit_path']=$auditPath
+                        $item['bounds_pt']=@(([double]$sh.Left+$item.left),([double]$sh.Top+$item.top),([double]$sh.Left+$item.left+$item.width),([double]$sh.Top+$item.top+$item.height))
                         $labels.Add($item);$chartLabels.Add($item)
                     }
                 }
@@ -268,7 +277,10 @@ try {
     if($sourceHashAfter -ne $sourceHashBefore -or $snapshotHashAfter -ne $snapshotHash){$issues.Add(@{reason='input_changed_during_render';before=$sourceHashBefore;after=$sourceHashAfter;snapshot_after=$snapshotHashAfter})}
     $report=@{source=$src;sha256=$snapshotHash;source_hash_before=$sourceHashBefore;source_hash_after=$sourceHashAfter;snapshot=$snapshot;snapshot_hash_after=$snapshotHashAfter;slide_count=$deck.Slides.Count;width_pt=$sw;height_pt=$shgt;minimum_margin_pt=$margin;issues=@($issues.ToArray());manual_review=@($reviews.ToArray());text_records=@($records.ToArray());chart_label_records=@($chartLabels.ToArray());status=$(if($issues.Count){'failed_preflight'}else{'rendered_pending_visual_review'})}
     $report['chart_geometry_records']=@($chartGeometry.ToArray())
+    $report['chart_legend_records']=@($chartLegends.ToArray())
     $report['schema']='render-evidence/v2'
+    $toolRunPath=Join-Path $out 'tool-run.json'
+    if(Test-Path -LiteralPath $toolRunPath) {$toolRun=Get-Content -LiteralPath $toolRunPath -Raw | ConvertFrom-Json;$report['bounded_run_id']=$toolRun.run_id}
     $report['raster_hashes']=$rasterHashes
     $report['render_started_utc']=$renderStartedUtc
     $report['render_finished_utc']=[DateTimeOffset]::UtcNow.ToString('o')

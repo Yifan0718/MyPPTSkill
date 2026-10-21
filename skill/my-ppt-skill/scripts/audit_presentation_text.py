@@ -40,7 +40,9 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('pptx',type=Path);ap.add_argument('report',type=Path);a=ap.parse_args()
     try:result=audit(a.pptx);code=2 if result['regex_candidates'] else 0
     except Exception as exc:result={'status':'failed','error':str(exc)};code=3
-    a.report.parent.mkdir(parents=True,exist_ok=True);a.report.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8')
+    from report_io import emit_report
+    report_error=emit_report(a.report,result,inputs=(a.pptx,),frozen_dirs=())
+    if report_error:return report_error
     print(result['status']);return code
 
 if __name__=='__main__':raise SystemExit(main())
