@@ -123,7 +123,7 @@ class ReadabilityTests(unittest.TestCase):
   self.path=self.w/'candidate.pptx';p.save(self.path);Image.new('RGB',(960,540),'white').save(self.r/'slide-01.png')
   self.audit={'sha256':sha(self.path),'slide_count':1,'text_records':[{'slide':1,'audit_path':str(t.shape_id),'text':t.text}]};(self.r/'audit.json').write_text(json.dumps(self.audit),'utf8')
   self.ev={'slide':1,'audit_path':str(t.shape_id),'quote':'每段五步'}
-  self.review={'schema':'audience-review/v1','sha256':sha(self.path),'audience':'首次接触该研究的技术同行','expression_mode':'advantage_led','chapter_navigation':{'mode':'none','basis':'user','description':'用户明确不要单独的章节标识'},'unresolved':[], 'definitions':[], 'examples':[], 'feedback':[], 'pages':[{'slide':1,'image_sha256':sha(self.r/'slide-01.png'),'kind':'general','result':'pass','unresolved':[],'purpose':'解释控制步和动作段的数量关系','plain_language':'三段动作一共执行十五个控制步','operation_or_reading':'先理解每段五步再理解整体十五步','metrics_or_symbols':'负百分数表示相对基线误差下降','evidence_to_conclusion':'页面写明各段步数及带符号变化量','evidence':[self.ev],'visual_checks':{k:'实际查看页面中的对应对象和文字关系' for k in ('content_reading','layout','local_detail','full_page_return','cross_page','palette')},'visual_targets_reviewed':[],'local_views':[]}]}
+  self.review={'schema':'audience-review/v1','sha256':sha(self.path),'audience':'首次接触该研究的技术同行','expression_mode':'advantage_led','chapter_navigation':{'mode':'none','basis':'user','description':'用户明确不要单独的章节标识'},'unresolved':[], 'definitions':[], 'examples':[], 'feedback':[], 'pages':[{'slide':1,'image_sha256':sha(self.r/'slide-01.png'),'kind':'general','result':'pass','unresolved':[],'purpose':'解释控制步和动作段的数量关系','plain_language':'三段动作一共执行十五个控制步','operation_or_reading':'先理解每段五步再理解整体十五步','metrics_or_symbols':'负百分数表示相对基线误差下降','evidence_to_conclusion':'页面写明各段步数及带符号变化量','evidence':[self.ev],'visual_checks':{k:'实际查看页面中的对应对象和文字关系' for k in ('content_reading','layout','local_detail','full_page_return','cross_page','palette','floating_notes','container_balance','density_and_balance','typography_consistency','effective_content_spacing','content_sufficiency','regional_balance','grouping_and_spacing')},'visual_targets_reviewed':[],'local_views':[]}]}
  def check(self):return verify(self.path,self.r,self.review)['issues']
  def test_valid_evidence_is_pending_not_signed_off(self):
   self.assertEqual(self.check(),[]);self.assertEqual(verify(self.path,self.r,self.review)['status'],'audience_evidence_complete_pending_semantic_signoff')
@@ -139,6 +139,34 @@ class ReadabilityTests(unittest.TestCase):
   self.review['feedback']=[{'id':'a','category':'terminology','issue':'动作段与步数关系没有解释','status':'resolved','affected_slides':[1],'similar_checked_slides':[1],'observation':'页面现已显示每段五步及总共十五步','changes':[self.ev]}];self.assertEqual(self.check(),[])
  def test_example_needs_selection(self):self.review['pages'][0]['kind']='example';self.assertTrue(self.check())
  def test_missing_visual_stage_cannot_be_code_only(self):del self.review['pages'][0]['visual_checks']['palette'];self.assertTrue(self.check())
+ def test_hierarchy_checks_are_individually_required(self):
+  for key in ('floating_notes','container_balance','density_and_balance','typography_consistency','effective_content_spacing','content_sufficiency','regional_balance','grouping_and_spacing'):
+   value=self.review['pages'][0]['visual_checks'].pop(key)
+   self.assertTrue(any(key in message for message in self.check()),key)
+   self.review['pages'][0]['visual_checks'][key]=value
+ def test_density_and_content_checks_cannot_be_omitted(self):
+  for key in ('effective_content_spacing','content_sufficiency','regional_balance','grouping_and_spacing'):
+   value=self.review['pages'][0]['visual_checks'].pop(key)
+   self.assertTrue(any(key in message for message in self.check()),key)
+   self.review['pages'][0]['visual_checks'][key]=value
+ def test_regional_visual_observation_required(self):
+  self.review['pages'][0]['visual_checks'].pop('regional_balance')
+  self.assertTrue(any('regional_balance' in message for message in self.check()))
+ def test_semantic_grouping_observation_required(self):
+  self.review['pages'][0]['visual_checks'].pop('grouping_and_spacing')
+  self.assertTrue(any('grouping_and_spacing' in message for message in self.check()))
+ def test_absent_object_has_specific_observation_without_adding_objects(self):
+  self.review['pages'][0]['visual_checks']['floating_notes']='本页仅有正常正文，没有独立悬浮小字；已检查标题附近及页面四角。'
+  self.assertEqual(self.check(),[])
+ def test_layout_resolution_does_not_bypass_content_sufficiency(self):
+  self.review['pages'][0]['visual_checks'].pop('content_sufficiency')
+  with patch('verify_delivery.verify_layout',return_value={'status':'evidence_complete_pending_visual_signoff','issues':[],'visual_resolutions':[{'resolution':'visually_resolved_pending_signoff'}]}),patch('verify_delivery.verify_audience',side_effect=lambda *a:verify(self.path,self.r,self.review)),patch('verify_delivery.load',return_value={}):
+   result=final_verify(self.path,None,None,self.r,None)
+   self.assertEqual(result['status'],'failed');self.assertIn('content_sufficiency',str(result['issues']))
+ def test_layout_resolution_does_not_bypass_unresolved_empty_content(self):
+  self.review['pages'][0]['unresolved']=['本页删去了必要机制和实例，内容仍不足以承担讲解职责。']
+  with patch('verify_delivery.verify_layout',return_value={'status':'evidence_complete_pending_visual_signoff','issues':[]}),patch('verify_delivery.verify_audience',side_effect=lambda *a:verify(self.path,self.r,self.review)),patch('verify_delivery.load',return_value={}):
+   self.assertEqual(final_verify(self.path,None,None,self.r,None)['status'],'failed')
  def test_blank_reconstruction(self):self.review['pages'][0]['plain_language']='pass';self.assertTrue(self.check())
  def test_mixed_text_image_fields_cannot_bypass_missing_file(self):
   e={**self.ev,'crop_path':str(self.w/'missing.png'),'crop_box_px':[0,0,1,1],'crop_sha256':'OLD','image_sha256':'OLD','observation':'虚假的局部记录不能覆盖真实查看'}
@@ -249,9 +277,9 @@ class UpdatePreservationTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as td:
    base=Path(td);live=base/'live';incoming=base/'incoming';live.mkdir();incoming.mkdir()
    (live/'VERSION').write_text('1.0.20','utf8');(live/'SKILL.md').write_text('local entry','utf8');(live/'manifest.json').write_text('{"files":{}}','utf8')
-   rels=['references/audience-and-evidence.md','references/revision-control.md','scripts/audit_visual_components.py','scripts/verify_readability_review.py','scripts/verify_delivery.py','scripts/report_io.py','scripts/run_bounded.py']
+   rels=['references/audience-and-evidence.md','references/revision-control.md','references/presentation-hierarchy.md','scripts/audit_visual_components.py','scripts/verify_readability_review.py','scripts/verify_delivery.py','scripts/report_io.py','scripts/run_bounded.py']
    expected={}
-   source_root=Path(__file__).resolve().parent.parent
+   source_root=Path(guard.__file__).resolve().parent.parent
    for rel in rels:
     dst=live/rel;dst.parent.mkdir(parents=True,exist_ok=True);dst.write_bytes((source_root/rel).read_bytes());expected[rel]=dst.read_bytes()
     up=incoming/rel;up.parent.mkdir(parents=True,exist_ok=True);up.write_text('upstream replacement','utf8')

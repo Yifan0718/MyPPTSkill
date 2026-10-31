@@ -4,7 +4,7 @@
 
 对照来源是 [liumingjian 于 2026-06-09 提交的 issue #4](https://github.com/GordenSun/GordenPPTSkill/issues/4) 中的原图和转换结果截图。MyPPTSkill 使用该原图重新生成一页原生对象 PPT，完成四轮 PowerPoint 渲染、局部观察、独立复核和最终签核。
 
-[下载可编辑 PPTX](slides.pptx) · [查看 PDF](slides.pdf) · [高清结果图](mypptskill-result.png) · [整组案例下载](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.1/MyPPTSkill-1.1-issue4-case.zip)
+[下载可编辑 PPTX](slides.pptx) · [查看 PDF](slides.pdf) · [高清结果图](mypptskill-result.png) · [整组案例下载](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.2/MyPPTSkill-1.2-issue4-case.zip)
 
 ## 对标结果
 

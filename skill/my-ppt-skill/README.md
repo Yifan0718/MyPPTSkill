@@ -1,6 +1,6 @@
 # MyPPTSkill
 
-**MyPPTSkill 发布版本：1.1** · [发布与更新日志](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v1.1)
+**MyPPTSkill 发布版本：1.2** · [发布与更新日志](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v1.2)
 
 本目录的 `VERSION`、`manifest.json` 与 `updates.json` 记录上游模板 Skill 的更新基线，供自适应更新使用；MyPPTSkill 的发布版本由仓库根目录 `VERSION` 和 GitHub Release 标识。
 
@@ -84,7 +84,7 @@ README 和差异说明面向使用者，不建立另一套验收标准。精确�
 | 内容 | 事实扎实、证据与结论对应；不写制作流程、验收自述或泛化防御句；保留日期、估计、模拟等真实属性 |
 | 叙事 | [发布会原则](references/narrative-reference.md)按用途选用，客观比较和学术材料不强行宣传，不藏关键反证、不换口径制造优势 |
 | 标题 | 直接表达主题或判断；不强加无意义副标题；标题区紧凑，不能挤压主体 |
-| 页尾 | 只保留 x/y 页码；封面也编号，每页一个，全稿位置一致，至少 3 pt 隔离 |
+| 页尾 | 必要注释集中页底，默认正常正文字号；x/y 页码独立保护，每页一个，至少 3 pt 隔离 |
 | 常规字号 | 标准 13.3333×7.5 英寸页面至少 12 pt；正文通常 14–18 pt，页标题建议 26–32 pt，短标题建议 16–22 pt；页码可 10 pt |
 | 特殊字号 | 普通表格困难时可 10 pt；图内辅助文字按 12／10／8 pt 分级。8 pt 仅限必要复杂技术图局部，不能用于正文、普通表格或代码正文 |
 | 8 pt 证据 | 先实际渲染 10 pt、定位冲突并尝试布局调整；说明保留必要性和不能合理拆图的原因；逐项绑定最终对象和签核 |
@@ -159,3 +159,5 @@ Fork 来源：**[GordenSun/GordenPPTSkill](https://github.com/GordenSun/GordenPP
 最终证据命令：`python scripts/verify_delivery.py candidate.pptx coverage.json coverage-review.json render audience-review.json delivery-check.json`。记录字段及异常处理见[证据接口](references/evidence-schema.md#首次阅读与反馈证据)。内容准备任务按其阶段执行，正式成品完整执行渲染与签核。
 
 准备和渲染使用[有界执行](references/signoff-workflow.md#有界执行与报告写入恢复)，卡住时可定位、换目录重试或切换工具。审计报告原子写入，路径检查保护输入与原始证据；超时及失败运行保留可恢复状态。
+
+标题与注释按[层级规范](references/presentation-hierarchy.md)处理：逐页检查全部悬浮小字、多行文字整体居中、页面中部重心与信息密度；模板字号可调整，同类角色保持一致，少数页例外保留实际渲染问题与复验依据。

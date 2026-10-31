@@ -1,6 +1,6 @@
 {
-  "count": 10,
-  "pages": 87,
+  "count": 11,
+  "pages": 94,
   "samples": [
     {
       "number": 1,
@@ -91,6 +91,15 @@
       "pptx_sha256": "158EB280833DD010E47671D3EF6DDF9622B63174A428CA34AF18CEF75700E607",
       "pdf_sha256": "66BA992724D4DE1C7224ADB78E0595CF2A59AB369021F8360DA558884E8DF6F4",
       "focus": "MATLAB源码、真实多面板图与布局讲解"
+    },
+    {
+      "number": 11,
+      "title": "结构与气味：化学与AI教学",
+      "pages": 7,
+      "folder": "11_chemistry-structure-odor",
+      "pptx_sha256": "2B25BDB9714A3D56DFE2564D270740A0E00252E4C904293308EB2B139CED71DF",
+      "pdf_sha256": "1753F796B5E294DCD8AAD840E1620A1AF575DD09F3066E94CA832C9FF2320223",
+      "focus": "分子结构、机制图文、语义分组与等宽编号"
     }
   ]
 }

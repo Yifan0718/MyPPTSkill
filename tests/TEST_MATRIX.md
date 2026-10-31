@@ -14,7 +14,7 @@
 | `test_gate_visual_resolution.py` | 21 | 通用视觉兜底接入 |
 | `test_interstitial_spacing.py` | 45 | 中间说明行与上下间距 |
 | `test_layout_safety.py` | 4 | 布局及碰撞候选保留 |
-| `test_layout_visual_review.py` | 28 | 独立局部＋整页复核证据 |
+| `test_layout_visual_review.py` | 33 | 独立局部＋整页复核证据 |
 | `test_measurement_fallback.py` | 31 | 测量不确定项证据 |
 | `test_pptx_delivery_shell.py` | 22 | 第一页缩略图与普通视图 |
 | `test_relation_contracts.py` | 10 | 组件和对齐关系契约 |
@@ -27,12 +27,13 @@
 | `test_update_safety.py` | 14 | 更新计划、冲突、删除项、失败与回滚 |
 | `test_visible_chart_spacing.py` | 27 | 图表实际可见边界和邻接间距 |
 | `test_white_container.py` | 8 | 白色容器与真实边界 |
-| `test_usage_components.py` | 64 | 表格/图例/间距/配色与JSON往返、首次阅读/案例/反馈证据、防绕过、更新保护 |
+| `test_usage_components.py` | 71 | 表格/图例/间距/配色与JSON往返、首次阅读/案例/反馈证据、防绕过、更新保护 |
 | `test_report_io.py` | 13 | 原子报告、直接/间接输入保护、硬链接、写入失败与BOM |
 | `test_bounded_rendering.py` | 22 | 超时、进程树、运行记录、备用渲染隔离与恢复 |
 | `test_upstream_issue_regressions.py` | 7 | 更新源空值/类型、快照PDF选择、容量工具异常输入及正常空框 |
+| `test_presentation_hierarchy.py` | 37 | 全位置悬浮小字、主题色容器联合居中、混合图文、重心与JSON往返 |
 
-Python合计439项，全部通过。
+Python合计488项，全部通过。
 
 | PowerShell脚本 | 检查数 | 覆盖重点 |
 |---|---:|---|

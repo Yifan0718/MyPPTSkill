@@ -1,12 +1,13 @@
 {
-  "name": "MyPPTSkill 1.1 release resources",
-  "skill_archive_sha256": "9a3335b2b4997700117b351e1663284bb5bac476386b3c79939ac21e0bee1410",
-  "samples": 10,
-  "sample_pages": 87,
-  "python_tests": 439,
+  "name": "MyPPTSkill 1.2 release resources",
+  "release_version": "1.2",
+  "skill_archive_sha256": "a015069ef33aa10d64de1e8d9374559c733d5012ada07427150ad69ce9486e40",
+  "samples": 11,
+  "sample_pages": 94,
+  "python_tests": 488,
   "entrypoint_tests": 6,
   "powershell_contracts": 76,
-  "real_pipeline_sample_pages": 3,
+  "added_regressions": 49,
   "files": {
     ".gitattributes": {
       "bytes": 95,
@@ -17,8 +18,8 @@
       "sha256": "FB7E4EE31E98D6763629C2915C1503E2341848A0D2F0CEC87382C93C4C300B2C"
     },
     "CHANGELOG.md": {
-      "bytes": 5167,
-      "sha256": "59B25DE4B6F79D5173045AF21DEEDE4DB7346DF32BABCB4B893492D851016F49"
+      "bytes": 7393,
+      "sha256": "74734CE8AD1030768093C0097C1DBE49CED3C4001394CC2C0F0DEC8B768AB16D"
     },
     "GITHUB_ABOUT.md": {
       "bytes": 708,
@@ -41,20 +42,20 @@
       "sha256": "2142FB005A5C4AD73059DF7D95263D911FC84563816F48BDC0235746A721E751"
     },
     "README.md": {
-      "bytes": 6834,
-      "sha256": "B53BC0C9B8C6CCD658CE0C501D5852DBECEDA19D5EE84BD45E30132B4A756CFE"
+      "bytes": 7768,
+      "sha256": "B44E0803A2C354DEC68B682424FBBA137E508ACD24C1380F218BF51AD1C47FD1"
     },
     "RELEASE.md": {
-      "bytes": 2992,
-      "sha256": "C710B6DEE342BC9E697B8C929F4F3DA487FE54128B7781A85486BB574D33A785"
+      "bytes": 2324,
+      "sha256": "089D8F0C1B5CD81F47AA8A3EAD5DC2BB341673D9757961F207D3493332D3F361"
     },
     "VALIDATION.md": {
-      "bytes": 2676,
-      "sha256": "3BE4578D42D688CB2F389BB413A3C9FC82A20781CEF686B32DC9D9280E282635"
+      "bytes": 1400,
+      "sha256": "5149EA08F66CD0AE42A537BFF9B5AC114F7DDFB264413C569DA1CC1BF329D373"
     },
     "VERSION": {
-      "bytes": 5,
-      "sha256": "D8BB74080A94AA97D78E90F9A656C6A75216E55736F53D5433A0812C5DBC2EC4"
+      "bytes": 4,
+      "sha256": "44804414F85BEF9588F60086587FD6E8871B39123C831EC129624F4D81A95FEA"
     },
     "assets/promo/01.jpg": {
       "bytes": 725711,
@@ -392,17 +393,65 @@
       "bytes": 2939,
       "sha256": "B4CAAAE1B076E81183CFD59A64976FCFAC6962D558B755C2FD9404037EAF9E53"
     },
-    "examples/README.md": {
-      "bytes": 1848,
-      "sha256": "2B50DD027E4BF7B63D1E270F0F061AFA05CD25E48F5234C6A00893AE0DA771C0"
+    "examples/11_chemistry-structure-odor/README.md": {
+      "bytes": 1471,
+      "sha256": "28546EE2822DB3BEEAF1CDAAC0F491195B2C2FF1F395338BEB77B1663C850B15"
     },
-    "examples/all-samples-87-pages.pdf": {
-      "bytes": 3705245,
-      "sha256": "C3170300868ECD743E1BF31E118768E1CCF918D1D455B748516FE8D0172E4E5F"
+    "examples/11_chemistry-structure-odor/pages/01.png": {
+      "bytes": 1705967,
+      "sha256": "2757C11BABB656E1789C53D39D22C67CF49188DE4FA1FB88F79FB40D8460173F"
+    },
+    "examples/11_chemistry-structure-odor/pages/02.png": {
+      "bytes": 232433,
+      "sha256": "3F7B71CCD7DAF6AD4E6A77B044AC974C69341D35D1354D3FCC1583626B837493"
+    },
+    "examples/11_chemistry-structure-odor/pages/03.png": {
+      "bytes": 1250604,
+      "sha256": "CA5A42E6D3F81A22E58F48F1E82B41FE492509C975C5042C6D751906B35C342B"
+    },
+    "examples/11_chemistry-structure-odor/pages/04.png": {
+      "bytes": 153701,
+      "sha256": "28D1DC0C24CFC44C400D62E7517E6A93FB9E492897CC0CA46A335517B0829F98"
+    },
+    "examples/11_chemistry-structure-odor/pages/05.png": {
+      "bytes": 1044568,
+      "sha256": "828A9E1EC197E98098E5DE4E01D1480F84393F5D8F9916F49CAE65CA22CBBF2C"
+    },
+    "examples/11_chemistry-structure-odor/pages/06.png": {
+      "bytes": 176308,
+      "sha256": "C71B60AACDCAA5C9B2B44AF670EE1FC46FDD340448DF98CC7D22F382845E5448"
+    },
+    "examples/11_chemistry-structure-odor/pages/07.png": {
+      "bytes": 150120,
+      "sha256": "55AB0C19AA23BD70426FD4F5DB61FC9871A2AC8D952A2491320A44A8F49A4425"
+    },
+    "examples/11_chemistry-structure-odor/preview.png": {
+      "bytes": 1705967,
+      "sha256": "2757C11BABB656E1789C53D39D22C67CF49188DE4FA1FB88F79FB40D8460173F"
+    },
+    "examples/11_chemistry-structure-odor/showcase.png": {
+      "bytes": 1250604,
+      "sha256": "CA5A42E6D3F81A22E58F48F1E82B41FE492509C975C5042C6D751906B35C342B"
+    },
+    "examples/11_chemistry-structure-odor/slides.pdf": {
+      "bytes": 494039,
+      "sha256": "1753F796B5E294DCD8AAD840E1620A1AF575DD09F3066E94CA832C9FF2320223"
+    },
+    "examples/11_chemistry-structure-odor/slides.pptx": {
+      "bytes": 347157,
+      "sha256": "2B25BDB9714A3D56DFE2564D270740A0E00252E4C904293308EB2B139CED71DF"
+    },
+    "examples/README.md": {
+      "bytes": 1976,
+      "sha256": "1A53268E81D936EBC88DC83EF7A1624311815CED540786BFF584B40415E10A5D"
+    },
+    "examples/all-samples-94-pages.pdf": {
+      "bytes": 4198418,
+      "sha256": "4A24936077F80D85E0CE58952CB1DB7F82ED681A49E2E57A48225014CA3BD8F7"
     },
     "examples/catalog.json": {
-      "bytes": 3773,
-      "sha256": "A1653676DCD67F19CD3D70607BC8B9E34E37F8BB8378C7D77D9D62E3A6329CB8"
+      "bytes": 4083,
+      "sha256": "494FD4772CC024834BCBE7CC01927C8FDD21F6B12BF7237DEA66A5AD93FBE3D9"
     },
     "licenses/LICENSE-MODIFICATIONS": {
       "bytes": 1114,
@@ -418,7 +467,7 @@
     },
     "showcases/issue-4-image-to-editable/README.md": {
       "bytes": 3417,
-      "sha256": "A26A1B5E45FE880088FBC0921D1A5D60942E1CA4AFCA238E57D8C43533030865"
+      "sha256": "DC48DD7E7621C582AC3E7BB08D8ADDB74701106AFD7C22B0542397186BE3BF9A"
     },
     "showcases/issue-4-image-to-editable/SOURCES.md": {
       "bytes": 1052,
@@ -465,12 +514,12 @@
       "sha256": "F495A2A5D809C3B72F5095CDF9C951EAAB09BD81652ED04037A12189ACE220C2"
     },
     "skill/my-ppt-skill/README.md": {
-      "bytes": 14341,
-      "sha256": "1F89B8E07C1AFB079E1EAF8DFBB01B7DBBB8F519FA6E49B9D8A9F152B289B747"
+      "bytes": 14482,
+      "sha256": "A416AB63D1D88CCA1CD5BAC442FA3C073C9CC0569EEFE6784469450F4B100735"
     },
     "skill/my-ppt-skill/SKILL.md": {
-      "bytes": 17610,
-      "sha256": "CDD24ADD5230F18A790BCF28E78A5A45E3CCC4EB529F5B225A6614233FFDB1AF"
+      "bytes": 17679,
+      "sha256": "E35D304038682EA6FF6AC2E2EA0E5FC8E4E606DE0174C50925973270F79A15ED"
     },
     "skill/my-ppt-skill/VERSION": {
       "bytes": 7,
@@ -489,12 +538,12 @@
       "sha256": "C7C6FC9628B3CDDA4E84A7E081CE3E89065BE501D364B853CBCA6924B9114C39"
     },
     "skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md": {
-      "bytes": 15313,
-      "sha256": "9DE7F9A856257BA97DA39FC47C7D86BF24B3FD0182CD76D22D2C5856AE594CF5"
+      "bytes": 18115,
+      "sha256": "E2A69B94F6A0F9F8759CA8EF560F9363612A49D1C2BB57F23F1A8760704EC5C6"
     },
     "skill/my-ppt-skill/local-overrides/registry.json": {
-      "bytes": 7457,
-      "sha256": "8B9965A8D710BAA9514F4295FF5B9367C97592125B3F734D1A567851DF4D613A"
+      "bytes": 7679,
+      "sha256": "D60C3D6FE04AF8DB8896D12ACBB62BCECBB92EF2CAEEE08A20F5BA2DBD922CC1"
     },
     "skill/my-ppt-skill/manifest.json": {
       "bytes": 24113,
@@ -521,28 +570,32 @@
       "sha256": "9FCEEE83E29DD3ABF686E2373578A8FD5DE2C1EC4EEB4F9A0D87B2E52CEB12E6"
     },
     "skill/my-ppt-skill/references/evidence-schema.md": {
-      "bytes": 22373,
-      "sha256": "E95506A80DA7465F8168913DF2F28E775E4DEECE92EF060AE9F5B0BFF3105144"
+      "bytes": 24477,
+      "sha256": "2DCB49D117608E4E669D2AF60F0E2A2712752F3B2BF97DF4BE491A5F4BB03566"
     },
     "skill/my-ppt-skill/references/layout-integrity.md": {
-      "bytes": 41043,
-      "sha256": "4068ABABD4C2CA270175E965F5DEF8AC4F010AD251B6469441E34EE783BA2DC8"
+      "bytes": 43110,
+      "sha256": "641D09A94A540C2B27DB4E4A47341948AF832F35A87846DBB9B2BAE8571F20B0"
     },
     "skill/my-ppt-skill/references/local-delivery-quality.md": {
-      "bytes": 51972,
-      "sha256": "DC21AC3B453364498BEBE3BD69639A6BDE577F02A2BC326D85DA9323A7AB84C1"
+      "bytes": 54686,
+      "sha256": "D6FD787557CD06716F62897A90CE4E265C2B6ABD24F884E02A63863089A86C45"
     },
     "skill/my-ppt-skill/references/narrative-reference.md": {
       "bytes": 6552,
       "sha256": "D1B44130C93ED04BA96C05675214FF88C5283507BB73A75335BF6DEC7983A777"
     },
     "skill/my-ppt-skill/references/original-design-guide.md": {
-      "bytes": 5237,
-      "sha256": "6486390B43FED940CA6AAB3F33A0333980AE987AA97930CB6B27DF54B6E2103D"
+      "bytes": 5477,
+      "sha256": "833701A56DEDF1058939BB2982CC410C120E2A7BF2F568EA3E286A664A57BADA"
     },
     "skill/my-ppt-skill/references/pptx-edit-schema.md": {
       "bytes": 6658,
       "sha256": "BF80F69D11D2E519D7222F3124FB0809B0BD62142B2FBF2484F456AF0EA5A342"
+    },
+    "skill/my-ppt-skill/references/presentation-hierarchy.md": {
+      "bytes": 19947,
+      "sha256": "5BF627386752F0E47CB7B4E5DB35BC2E638A8B78BDF9BE41F3BF83FFF415E2FC"
     },
     "skill/my-ppt-skill/references/revision-control.md": {
       "bytes": 2656,
@@ -553,8 +606,8 @@
       "sha256": "95FA486F12ABF91ED3FFCFBF946248B6BE15D49B01C835A28258B4BD520459A0"
     },
     "skill/my-ppt-skill/references/signoff-workflow.md": {
-      "bytes": 17137,
-      "sha256": "2AC6BFAFB29C1705A39F419F7AC9D59CDE984B69BEE3F15924C21FB871647440"
+      "bytes": 17774,
+      "sha256": "4E33B1A092CA5758EA1AB6C87076CDC1DEDDB0F3B5BA03939A1EB721A71AA810"
     },
     "skill/my-ppt-skill/references/workflow.md": {
       "bytes": 8473,
@@ -577,8 +630,8 @@
       "sha256": "A67F5E7DF72FC706D938C15956B5EA56D6EF802A3B3330A767C3A442802160D3"
     },
     "skill/my-ppt-skill/scripts/audit_visual_components.py": {
-      "bytes": 8646,
-      "sha256": "9F7AFAF1707BD188CF1CD6C8FC98A2B461DE436B020C0CBEF21BE3F323678B8A"
+      "bytes": 20965,
+      "sha256": "27B96FEF0190097E85FA6AEA8BB557C59D05514EC001EA490A3A2C3B202C9089"
     },
     "skill/my-ppt-skill/scripts/build_manifest.py": {
       "bytes": 3900,
@@ -641,8 +694,8 @@
       "sha256": "7FA2BE2E35D1AB79756D5D58B2822CA64885E4C7F18EF0A7A19F82A6B023F40C"
     },
     "skill/my-ppt-skill/scripts/render_powerpoint_audit.ps1": {
-      "bytes": 21455,
-      "sha256": "07552D66360C3144A254316E0941146811BD451125F58ADF437B6B129263CD1D"
+      "bytes": 21554,
+      "sha256": "73765F59ED8439EB825BCBC0F37E65DE0B9E8509CEC2A0DEB4218FE0FCC5D3BF"
     },
     "skill/my-ppt-skill/scripts/render_slides.py": {
       "bytes": 4748,
@@ -665,16 +718,16 @@
       "sha256": "7CA24444C57C40B3E29615A4DD845CC9C119B3846CD35D328D41A7FE08C6E0A5"
     },
     "skill/my-ppt-skill/scripts/verify_coverage_review.py": {
-      "bytes": 42582,
-      "sha256": "E43DDEA3C90B78344D8E2A10D8081B76860FDF708AAF3736C9B6B83034B0B3C4"
+      "bytes": 42660,
+      "sha256": "33B8D29834DD7DE14A61A05255AB110F75CAECC42793E69BB504329A7F1314A9"
     },
     "skill/my-ppt-skill/scripts/verify_delivery.py": {
       "bytes": 3355,
       "sha256": "3B7BC05A137C3D5167AF95598168261538A76862F919FDDB2D84F5DF283E0175"
     },
     "skill/my-ppt-skill/scripts/verify_readability_review.py": {
-      "bytes": 13121,
-      "sha256": "BDCED977AEDB7833EE3AB78F6C3DCB0EA36FCCEE55E27D6808E935BD34EAFF40"
+      "bytes": 13297,
+      "sha256": "03752250863B6B092B279D04A7F8BA5A4CF00F0D09B1FE162C7CB50F997CA70E"
     },
     "skill/my-ppt-skill/scripts/visible_chart_spacing.py": {
       "bytes": 22951,
@@ -1025,12 +1078,12 @@
       "sha256": "8BAA2D306D6252E39AA3C4B7D2206AE9A40070262D1CA1843AD28359698A325B"
     },
     "tests/README.md": {
-      "bytes": 4287,
-      "sha256": "C7430F9DFC40FE9B897D69084692F468E0BF3F43FB698CF8ECF9F81BE3558926"
+      "bytes": 5255,
+      "sha256": "223CBDC38767874AC3BBEA90FE0732C160FABC90CC90C7C8EA9E3E7B6ECAF4E6"
     },
     "tests/TEST_MATRIX.md": {
-      "bytes": 3182,
-      "sha256": "11C0EA1A1ED9921B5F7E5DEA5624A815C7DC3F10204F93331F56420D1D280FA8"
+      "bytes": 3362,
+      "sha256": "E57F88E1982C5ECC0FCE77A24584FEC1E1AFFCAB0D4392E8226425DA28826EFD"
     },
     "tests/cases/test_axis_region_scope.py": {
       "bytes": 2974,
@@ -1085,8 +1138,8 @@
       "sha256": "658065801F5DFFB6F1BDD5715D8DFE4941A6DFA2A557E6ADC0BBFF78ED2EA5B0"
     },
     "tests/cases/test_layout_visual_review.py": {
-      "bytes": 14391,
-      "sha256": "44C6026C687C1DBE2FFA21AE3BD5D61F79D2D90B352FF6C7DA9F20AFCB61020C"
+      "bytes": 17178,
+      "sha256": "6CBFA571AF772C07D48B56FF60072A46B8E519BD59C963D532C6F3F2B4974F33"
     },
     "tests/cases/test_measurement_fallback.py": {
       "bytes": 13428,
@@ -1095,6 +1148,10 @@
     "tests/cases/test_pptx_delivery_shell.py": {
       "bytes": 13673,
       "sha256": "8978F9651297B6031F2C644DB4FC63FD95F924D9EDC13C72E389B588CB2868A0"
+    },
+    "tests/cases/test_presentation_hierarchy.py": {
+      "bytes": 11143,
+      "sha256": "352308441E125E985FCB3B6B6F961D6331F32BA597E8B768C805F98243246132"
     },
     "tests/cases/test_relation_contracts.py": {
       "bytes": 10045,
@@ -1141,8 +1198,8 @@
       "sha256": "9F728940827D8C77C4D9ABDF7A4AD97164E8F158EF379D33A5641D8028863E5A"
     },
     "tests/cases/test_usage_components.py": {
-      "bytes": 26083,
-      "sha256": "62ED7DB6D189FED723C64BD819A5AE2E429B9E2ADCC3E60E615ED8BE6A40775E"
+      "bytes": 29020,
+      "sha256": "27D084586F9BA45BEB645CDFEFCF31E5000F961340472BE9B442203F51A959BC"
     },
     "tests/cases/test_visible_chart_spacing.py": {
       "bytes": 12580,
@@ -1151,6 +1208,10 @@
     "tests/cases/test_white_container.py": {
       "bytes": 3025,
       "sha256": "2F5A79B8D94B007927580C9EAA79484277D30DA62B4E5C794DA3E68A7B5C07B3"
+    },
+    "tests/generate_footer_fixture.py": {
+      "bytes": 1260,
+      "sha256": "0F3FDD2A7751F239A9D4F0A9AC930935CE4091838885122E991625A6588FC6EA"
     },
     "tests/generate_usage_visual_fixture.py": {
       "bytes": 5979,
@@ -1175,22 +1236,10 @@
     "tests/test_entrypoints.py": {
       "bytes": 3477,
       "sha256": "63588B57BFBD6940F9E81FF95E0294FFCD882BDF2497AFE7B68570A0B217FE39"
+    },
+    "tests/verify_footer_fixture.py": {
+      "bytes": 907,
+      "sha256": "C8562DE14D82AED957608EBD287402D3A556B4AE9A9CBF6285C1166891773F6B"
     }
-  },
-  "release_version": "1.1",
-  "repository": "https://github.com/Yifan0718/MyPPTSkill",
-  "upstream": "https://github.com/GordenSun/GordenPPTSkill",
-  "promotion_pages": 4,
-  "promotion_jpg_count": 4,
-  "promotion_jpg_resolution": [
-    3840,
-    2160
-  ],
-  "usage_component_regressions": 64,
-  "fault_recovery_regressions": 35,
-  "added_regressions": 106,
-  "showcase_count": 1,
-  "showcase_pages": 1,
-  "issue4_case_pptx_sha256": "D816138C85ADE70BBB13050E4F6088A0544B9D7DEF2C352DAB35709AD4CCC77C",
-  "upstream_issue_regressions": 7
+  }
 }

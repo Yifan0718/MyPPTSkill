@@ -1,6 +1,6 @@
 # MyPPTSkill
 
-**当前版本：1.1** · [下载 Release](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v1.1) · [更新日志](CHANGELOG.md)
+**当前版本：1.2** · [下载 Release](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v1.2) · [更新日志](CHANGELOG.md)
 
 ## TL;DR
 
@@ -14,9 +14,9 @@
 - **复杂内容照样好看**：多图表、代码、公式和科研图文混排，兼顾信息密度与可读性。
 - **你的规则，持续有效**：持续跟进上游 GordenPPTSkill 更新，自适应保留已固化的定制规则与修复。
 
-**21 套中文模板 · 10 份实际样本 · 87 页成品展示 · 图片重建实测对照 · 完整开发测试**
+**21 套中文模板 · 11 份实际样本 · 94 页成品展示 · 图片重建实测对照 · 完整开发测试**
 
-[安装与使用](skill/my-ppt-skill/README.md#安装与使用) · [查看成品](examples/README.md) · [87页预览](examples/all-samples-87-pages.pdf) · [完整差异](skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md)
+[安装与使用](skill/my-ppt-skill/README.md#安装与使用) · [查看成品](examples/README.md) · [94页预览](examples/all-samples-94-pages.pdf) · [完整差异](skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md)
 
 <a id="issue4-comparison"></a>
 
@@ -34,11 +34,11 @@
 
 提升来自完整流程：**原生对象拆解 → 四轮真实渲染 → 局部视觉与整页交叉检查 → 独立复核 → 实际编辑验证**。在副本里改文字、改色格后重新渲染，变化准确落在对应对象区域。
 
-[查看原图、完整对照与方法](showcases/issue-4-image-to-editable/README.md) · [下载可编辑 PPTX](showcases/issue-4-image-to-editable/slides.pptx) · [下载整组案例](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.1/MyPPTSkill-1.1-issue4-case.zip)
+[查看原图、完整对照与方法](showcases/issue-4-image-to-editable/README.md) · [下载可编辑 PPTX](showcases/issue-4-image-to-editable/slides.pptx) · [下载整组案例](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.2/MyPPTSkill-1.2-issue4-case.zip)
 
 ## 四页看懂 MyPPTSkill
 
-**v1.1 新增**：首次阅读理解检查、先研究再选择代表性案例、按用途组织叙事、连续模块与图例检查、色块配色优化，以及超时恢复和验收证据保护。新增 106 项回归测试，完整套件通过 439 项 Python 测试、6 项入口测试与 76 项 PowerShell 检查。[查看本轮改进](CHANGELOG.md)。
+**v1.2 新增**：清理悬浮小字，压紧标题空档，按完整语义块统一间距；整组文字居中、页面信息密度和等宽编号逐项检查。14项逐页视觉观察贯穿迭代与签核，原创配色自由组合。488项Python测试、6项入口测试、76项PowerShell检查通过。[查看本轮改进](CHANGELOG.md)。
 
 [下载这份宣传 PPTX](MyPPTSkill-Promo.pptx) · 点击图片查看高清原图 · 欢迎 **Star / Fork / 提出意见**
 
@@ -50,13 +50,23 @@
 
 [![模板选择、视觉迭代与上游更新后的定制规则保护](assets/promo/04.jpg)](assets/promo/04.jpg)
 
+## 新增化学教学案例：结构讲清楚，版面排均衡
+
+从香芹酮的镜像结构，到嗅觉受体与AI预测，7页串起结构、机制、实验和证据。真实图片与可编辑结构图相互配合，正常字号呈现关键解释，彩色等宽编号保持清晰层级。
+
+| 分子结构与机制说明 | 训练流程与结果解读 |
+|---|---|
+| [![镜像结构与嗅觉机制](examples/11_chemistry-structure-odor/pages/03.png)](examples/11_chemistry-structure-odor/README.md) | [![AI学习与评估](examples/11_chemistry-structure-odor/pages/04.png)](examples/11_chemistry-structure-odor/README.md) |
+
+[查看全部7页](examples/11_chemistry-structure-odor/README.md) · [下载PPTX](examples/11_chemistry-structure-odor/slides.pptx) · [查看PDF](examples/11_chemistry-structure-odor/slides.pdf)
+
 ## 直接看效果
 
 | [多图表与科学混排](examples/01_scientific-charts/README.md) | [长稿与复杂图解](examples/05_inference-scaling/README.md) | [MATLAB源码与图像](examples/10_matlab-tiledlayout/README.md) |
 |---|---|---|
 | [![科学混排](examples/01_scientific-charts/preview.png)](examples/01_scientific-charts/README.md) | [![推理扩容](examples/05_inference-scaling/showcase.png)](examples/05_inference-scaling/README.md) | [![MATLAB教学](examples/10_matlab-tiledlayout/showcase.png)](examples/10_matlab-tiledlayout/README.md) |
 
-以下展示成品中的实际内容页。[点击查看完整样本](examples/README.md)。全部10份样本包含科学混排、世界模型、Do-JEPA、电力转型、推理集群、C++、LaTeX和MATLAB主题。
+以下展示成品中的实际内容页。[点击查看完整样本](examples/README.md)。全部11份样本包含科学混排、世界模型、Do-JEPA、电力转型、推理集群、C++、LaTeX、MATLAB及化学教学主题。
 
 ## 快速开始
 
@@ -76,9 +86,10 @@
 |---|---|
 | 安装目录与完整使用文档 | [Skill](skill/my-ppt-skill/README.md) |
 | 额外要求、解决的问题与上游差异 | [差异说明](skill/my-ppt-skill/docs/UPSTREAM_DIFFERENCES.md) |
-| 最终10份样本、87页及可用教学源码 | [样本目录](examples/README.md) |
-| 4页宣传PPTX与4张4K JPG | [宣传PPTX](MyPPTSkill-Promo.pptx) · [完整宣传包](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.1/MyPPTSkill-1.1-promo.zip) |
+| 11份成品案例、94页及可用教学源码 | [样本目录](examples/README.md) |
+| 4页宣传PPTX与4张4K JPG | [宣传PPTX](MyPPTSkill-Promo.pptx) · [完整宣传包](https://github.com/Yifan0718/MyPPTSkill/releases/download/v1.2/MyPPTSkill-1.2-promo.zip) |
 | 图片转可编辑 PPT 同图实测 | [原图、上游展示结果与本次重建](showcases/issue-4-image-to-editable/README.md) |
+| 7页化学教学案例 | [PPTX、PDF与逐页高清图](examples/11_chemistry-structure-odor/README.md) |
 | 当前适用测试与统一运行入口 | [开发测试](tests/README.md) |
 | 本版验证摘要 | [验证结果](VALIDATION.md) |
 | GitHub侧边简介与Topics文案 | [GitHub About](GITHUB_ABOUT.md) |

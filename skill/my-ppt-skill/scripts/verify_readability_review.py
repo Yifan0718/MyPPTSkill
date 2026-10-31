@@ -79,7 +79,7 @@ def verify(pptx,render_dir,review):
         if p.get('kind')=='example':example_pages.append(n)
         visual=p.get('visual_checks',{})
         if not isinstance(visual,dict):need(False,f'Page {n} visual_checks must be an object');visual={}
-        for key in ('content_reading','layout','local_detail','full_page_return','cross_page','palette'):
+        for key in ('content_reading','layout','local_detail','full_page_return','cross_page','palette','floating_notes','container_balance','density_and_balance','typography_consistency','effective_content_spacing','content_sufficiency','regional_balance','grouping_and_spacing'):
             need(text_ok(visual.get(key)),f'Page {n} lacks actual visual-stage observation: {key}')
         targets=[]
         def collect(shapes,parent=''):

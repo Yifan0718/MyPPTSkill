@@ -126,8 +126,20 @@ exit 2 表示发现待核查关系，含可靠测量结果或未知项；数值�
 
 组件审计新增表格单元格对齐/内距、图例与数据标签、表格—说明—后续模块间距及色块文字配色候选。前3类实际几何/样式冲突须修复或通用独立视觉闭环；未知测量与配色候选须当前局部证据和整页观察。配色是审美候选，不将比率或彩色文字当成必然缺陷。渲染报告可附 `chart_legend_records` 与带audit_path、页面坐标bounds_pt的chart_label_records，无法取得时继续局部复核。
 
-每页另填 `visual_checks:{content_reading,layout,local_detail,full_page_return,cross_page,palette}` 的具体看图观察，`visual_targets_reviewed` 完整覆盖当前页原生表格、图表、图片和组合（递归audit_path），`local_views` 使用上述图像证据结构，复杂对象至少有实际局部图。局部图须来自当前页且不是整页；检查记录与既有coverage局部证据可复用，避免重复生成。此处记录所有阶段的视觉判断，包括灰色说明、色块底色和字色；不能只抄自动测量值。纯文字页也记录实际观察，可无复杂对象局部裁剪。
+每页另填 `visual_checks:{content_reading,layout,local_detail,full_page_return,cross_page,palette,floating_notes,container_balance,density_and_balance,typography_consistency,effective_content_spacing,content_sufficiency,regional_balance,grouping_and_spacing}` 十四项具体看图观察，`visual_targets_reviewed` 完整覆盖当前页原生表格、图表、图片和组合（递归audit_path），`local_views` 使用上述图像证据结构，复杂对象至少有实际局部图。局部图须来自当前页且不是整页；检查记录与既有coverage局部证据可复用，避免重复生成。此处记录所有阶段的视觉判断，包括灰色说明、色块底色和字色；不能只抄自动测量值。纯文字页也记录实际观察，可无复杂对象局部裁剪。
 
 格式校验会定位非法页码、对象路径类型、术语名称及反馈类别，并保留同轮已收集的哈希等错误。文字证据与图片证据使用各自完整字段；局部图须联合覆盖对应原生组件范围。色块文字对比度4.5及RGB通道差32是提示复核的内部启发值，实际审美判断按局部和整页效果完成。
 
 有界渲染可附`bounded_run_id`，与渲染目录tool-run.json中的`schema:bounded-run/v1,run_id,status,exit_code`匹配。status必须finished；允许exit_code=0，或exit_code=2且原渲染状态为failed_preflight并继续独立视觉闭环。缺失、运行中、超时、取消、其他退出码或身份不匹配均需修复执行链后重跑。旧的无运行标记证据保持原协议，新任务按有界执行入口操作。报告输出保护和恢复见签核规范。
+
+十四项观察逐页逐项验证，缺项返回具体字段及补充要求。页面没有对应对象时，填写实际页面结构与核查结果，不用“通过/不适用”代替观察，也无需新增对象来填表。旧版本签核保留原记录，当前版本的新任务按完整字段复核。
+
+`title_entry_position_review` 保留当前标题界、页高、比例及测量来源；标题距顶达到页高20%时请求局部和整页复核，不自动要求上移。封面也须记录实际字形起点、整组上下留白和标题信息去重，不能用“独立封面”单独关闭该项。沿用现有组件审计的原像素局部与整页回看路径，不新增无出口的硬性坐标拦截。
+
+## 有效内容间距与内容充实度
+
+当前每页visual_checks另须effective_content_spacing与content_sufficiency两项具体观察，分别核对容器内外叠加空隙和本页的信息增量。effective_content_entry_gap_review及text_container_excess_space_review是待视觉复核候选，保留原测量、当前局部和整页证据；它们不自动要求改图或扩大字数。无法测准时继续独立视觉路径；缺少观察则校验指出具体字段。用户报告过空/下沉后，按层级规范保留至少一次改进布局的实际渲染对照。
+
+每页visual_checks.regional_balance记录最空/最挤的具体区域、实际调整和回到整页的判断。全页居中、无溢出或规则0不构成区域视觉均衡证明。用户指正或反复漏检时保留真实改进稿对照，独立复核先看图后看作者解释。
+
+每页visual_checks.grouping_and_spacing须记录完整宏观语义块、同级组间距和标题—所属正文—下一标题的亲疏关系。section_proximity_inversion_review保留三个对象和组内/组间原测量，真实问题修复；关系误推断或测量受字形影响时按现有独立局部与整页视觉闭环处理。

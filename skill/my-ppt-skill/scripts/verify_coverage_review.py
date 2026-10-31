@@ -437,7 +437,7 @@ def verify(pptx, coverage_path, review, render_dir):
             if error:
                 error=resolve_measurement('center',error)
                 if error:layout_fail(error)
-        if reason in ('table_alignment_consistency_review','chart_legend_clearance_review','interstitial_module_spacing_review'):
+        if reason in ('table_alignment_consistency_review','chart_legend_clearance_review','interstitial_module_spacing_review','container_text_vertical_balance_review','section_proximity_inversion_review'):
             layout_fail('Component geometry/style discrepancy requires repair or independent local/full-page visual reconciliation')
         if not generic_visual and (reason in COMPONENT_REASONS or reason in ('rendered_text_rectangles_overlap','connector_crosses_or_touches_text',
                       'nonstraight_connector_path_requires_review','connector_geometry_unavailable',

@@ -16,7 +16,7 @@ description: >-
 
 1. **确认需求与选模板。** 制作整套前，未明确的封面、篇幅必须询问；大纲仅在实质不清楚时询问，已知信息不重复问。执行下文三模式与 [本地交付标准](references/local-delivery-quality.md) 的需求、内容、字号、边距和元数据规则。不得删关键内容或机械增页规避排版。
 2. **检查更新并冻结版本。** 本会话首次使用执行 `python scripts/check_update.py`；失败不得称“已是最新”。更新仅用保护入口，规则冲突显式向用户确认；参见 [更新保护](references/local-delivery-quality.md#更新时保留本地规则)。最终迭代前按 [冻结流程](references/layout-integrity.md#冻结skill后再迭代和签核) 建立版本锁。
-3. **规划内容和布局。** 先按[首次阅读与案例](references/audience-and-evidence.md)建立读者可理解的术语、指标和代表性示例，并用[修订闭环](references/revision-control.md)追踪用户反馈及影响范围。 叙事按用途参照 [叙事选择流程](references/narrative-reference.md)，不机械写成宣传稿。执行 [全页覆盖与反规避验收](references/layout-integrity.md)：统一锚点、真实间距、所有位置可见字形边缘、混合字体局部检查；不得自授免检。分析型多页稿搭配多种有任务的图表和图标，科研绘图按需读 [工具选择](references/scientific-visualization.md)。
+3. **规划内容和布局。** 按[标题、注释与字号](references/presentation-hierarchy.md)检查全部悬浮小字、页底注释、整块文字居中、页面重心及信息密度，建立语义字号基准。 先按[首次阅读与案例](references/audience-and-evidence.md)建立读者可理解的术语、指标和代表性示例，并用[修订闭环](references/revision-control.md)追踪用户反馈及影响范围。 叙事按用途参照 [叙事选择流程](references/narrative-reference.md)，不机械写成宣传稿。执行 [全页覆盖与反规避验收](references/layout-integrity.md)：统一锚点、真实间距、所有位置可见字形边缘、混合字体局部检查；不得自授免检。分析型多页稿搭配多种有任务的图表和图标，科研绘图按需读 [工具选择](references/scientific-visualization.md)。
 4. **渲染、修复、反复核验。** 最终渲染前按 [第一页缩略图与普通视图](references/delivery-shell.md) 准备交付外壳；PowerPoint默认后台无窗口运行。 所有页面初始 `suspected_unverified`。必须规则与视觉交叉检查；所有原生连线、箭头及图内连接按 [连接完整性](references/connector-integrity.md) 逐根逐端检查。自动通过不能代替局部和整页可视化。版式规则未通过或测不准时，保留原结果，执行 [局部＋整页独立视觉兜底](references/signoff-workflow.md#版式规则未通过时的视觉兜底)；真实视觉合格且独立复核完成可以关闭对应拦截，不要求所有版式数值机械通过。实际可见缺陷须修正，未解决项不得签核；拦截必须接续复核、修复或替代流程，不能作为停工理由。
 5. **签核后交付。** 最终使用 `scripts/verify_delivery.py` 同时汇总版式证据和首次阅读证据；原 `verify_coverage_review.py` 继续作为版式证据检查器。 按 [签核范围与证据流程](references/signoff-workflow.md) 处理错误、版本、全量双遍视觉检查及发布。默认必须全量所有页；仅已全量签核后用户指出局部问题的修订可按该文件的严格增量条件处理。缺证据、未解决项、失败或未知状态均不得发布。
 
@@ -77,7 +77,7 @@ description: >-
 1. **按内容组织版式** —— 内容充实、对齐严格、留白均衡，不默认追求极简
 2. 不限制为 4 个元素；允许复杂图标、图表和图解，保证信息层级与视觉均衡
 3. 字体：英文 Arial / Helvetica；中文 微软雅黑 / 思源黑体；标题加粗即可
-4. 主色 1 个，可有 1 个必要强调色，加灰阶和白底；不要拼凑多种风格
+4. 按内容选择协调的主题色、强调色及中性色，不设颜色数量硬上限；保持视觉主次、可读性和跨页颜色映射一致
 5. 用 `python-pptx` 直接代码生成，参考 [`references/original-design-guide.md`](./references/original-design-guide.md)
 
 ## 编辑铁律（所有模式通用）
@@ -98,10 +98,7 @@ description: >-
    - 如果 `ending` 数组为空，**直接以最后一张内容页收尾**，不要硬造"感谢聆听"。
    - 同理，`agenda` 空 → 不强加目录；`section_divider` 空 → 不强加分章扉页。
    - 封面计入已确认总页数，除非用户明确要求“正文 N 页另加封面”。独立封面与正文一起参与全页渲染、逐页检查和 signoff；同样遵守页尾、语言与排版规则。
-9. **同级标题字号必须一致，不要逐处改字号** ——
-   - detail.json 顶部有 `type_scale`（字号层级表，level 1 = 最大），每个 slot 标了 `level`。**同一 level 的文字使用一致字号；模板字号过小时按本地默认下限统一调整。**
-   - 某处文字偏长时，用**更精炼的措辞重写**来控制长度（见第 3 条），**不要把这一处字号改小**，也不要截断加省略号；必须保留全文时加宽文本框并修复相邻对齐。
-   - 选多页拼一份 PPT 时，让各页同 level 的标题用词长度相近，整体才齐整。
+9. **同类字号尽量统一，模板可以调整** —— 按[语义字号与少数页调整](references/presentation-hierarchy.md#语义字号体系与少数页调整)建立主标题、正文、注释等基准。可调整模板字号及布局；少数页偏离须有基准字号的实际渲染问题、具体原因与修改后复验记录。保持必要内容与信息密度，并继续遵守字号下限和图内辅助文字例外。
 
 ## 最小构建示例（不是签核流程）
 

@@ -125,6 +125,43 @@ class LayoutVisualReview(unittest.TestCase):
         self.assertEqual(result['visual_resolutions'][0]['original_finding'],self.f)
     def test_real_dispatch_without_independent_review_keeps_hard_failure(self):
         self.peer_path.unlink();self.assertTrue([i for i in self.gate()['issues'] if i.get('id')==self.f['id']])
+    def hierarchy_dispatch(self, mutate=None):
+        # Inject only the scanner output to test real gate routing independently
+        # of geometric candidate discovery (covered by test_presentation_hierarchy).
+        # All evidence here remains explicitly synthetic, never a deck signoff.
+        reasons=('floating_annotation_review','container_text_vertical_balance_review',
+                 'container_text_union_measurement_required','page_content_low_review',
+                 'title_entry_position_review','effective_content_entry_gap_review',
+                 'text_container_excess_space_review','section_proximity_inversion_review')
+        for reason in reasons:
+            with self.subTest(reason=reason):
+                self.f={**self.f,'reason':reason}
+                self.coverage['findings']=[self.f if f['id']==self.f['id'] else f for f in self.coverage['findings']]
+                hard=reason in ('container_text_vertical_balance_review','section_proximity_inversion_review')
+                self.errors=['Component geometry/style discrepancy requires repair or independent local/full-page visual reconciliation' if hard else 'Original layout finding requires visual reconciliation: '+reason]
+                self.make_evidence()
+                if mutate:mutate()
+                with patch('verify_coverage_review.rescan',return_value=copy.deepcopy(self.coverage)):
+                    result=self.gate()
+                target_errors=[i for i in result['issues'] if i.get('id')==self.f['id']]
+                if mutate:self.assertTrue(target_errors,result)
+                else:
+                    self.assertFalse(target_errors,result)
+                    resolved=next(r for r in result['visual_resolutions'] if r['finding_id']==self.f['id'])
+                    self.assertEqual(resolved['original_finding'],self.f)
+                    self.assertEqual(resolved['rule_failures'],self.errors)
+                # Resolving a single finding must not erase unrelated failures.
+                self.assertTrue(result['issues'])
+    def test_all_new_hierarchy_reasons_have_independent_visual_dispatch(self):
+        self.hierarchy_dispatch()
+    def test_new_hierarchy_reasons_reject_missing_peer(self):
+        self.hierarchy_dispatch(lambda:self.peer_path.unlink())
+    def test_new_hierarchy_reasons_reject_missing_local_view(self):
+        self.hierarchy_dispatch(lambda:self.record.update(details=[]))
+    def test_new_hierarchy_reasons_require_full_page_return(self):
+        self.hierarchy_dispatch(lambda:self.record.update(returned_to_full_page=False))
+    def test_new_hierarchy_reasons_do_not_close_visible_defects(self):
+        self.hierarchy_dispatch(lambda:self.record.update(no_visible_layout_defect=False))
     def test_actual_42pt_numeral_14pt_title_remains_flagged_and_needs_review(self):
         p=Presentation();p.slide_width=Pt(960);p.slide_height=Pt(540);s=p.slides.add_slide(p.slide_layouts[6]);records=[];ids=[]
         for x,size,label in [(40,42,'01'),(300,14,'Corresponding heading')]:

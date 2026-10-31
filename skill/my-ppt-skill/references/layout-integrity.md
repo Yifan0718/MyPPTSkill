@@ -23,7 +23,7 @@
 
 | 关系 | 实际检查重点 |
 |---|---|
-| 标题、副标题与主体 | 是否有必要；实际可见上下边界；标题区是否挤压正文；上下留白是否失衡 |
+| 标题、副标题与主体 | 所有悬浮小字的必要性与去向；标题区实际高度；主体是否下沉；信息密度与上下留白 |
 | 同行编号、图标、标签、标题 | 字形中心/首行关系；混合字号；图标光学中心；不以顶端相同替代居中 |
 | 同列数字、单位、说明 | 全组共同锚点；数字长度变化；单位与数字的基线；不漏掉第三块文字 |
 | 多行正文、表格与矩阵 | 行名与对应行；列宽、单元格留白；小数/单位；跨行、断字、孤行；表头与正文分开核对 |
@@ -46,7 +46,7 @@
 | 回到正常整页 | 小字是否仍可读、灰色定义是否被弱化、底色是否昏暗浑浊、颜色是否争抢重点、局部移动是否造成新失衡 |
 | 跨页核查 | 术语/方法/指标口径、颜色/图例映射、表格与辅助文字风格、章节首标识、首次定义顺序、修订影响和用户指正类别 |
 
-这些检查嵌入已有内容遍与版式遍及局部回看，不要求同一未变稿无限重复导出。每项涉及的对象都从实际图像观察；程序无告警、数值合规、继承模板或配色有品牌理由均不能替代可见效果检查。每页audience记录中的visual_checks写六项具体观察（content_reading/layout/local_detail/full_page_return/cross_page/palette），并覆盖真实表格、图表、图片、组合对象路径。palette与cross_page同时核对同类、同级模块的字色方案及模块内部层级，结合底色判断；有语义用途的颜色区别检查其一致性。复杂对象需实际局部图再回整页；真实缺陷修复，机器误报仍按原独立视觉兜底，不自授豁免。
+这些检查嵌入已有内容遍与版式遍及局部回看，不要求同一未变稿无限重复导出。每项涉及的对象都从实际图像观察；程序无告警、数值合规、继承模板或配色有品牌理由均不能替代可见效果检查。每页audience记录中的visual_checks记录内容、版式、局部、整页回看、跨页、配色，以及悬浮小字、容器平衡、密度重心和字号一致性、有效内容间距、内容充实度及区域均衡、语义分组与间距十四项具体观察，并覆盖真实表格、图表、图片、组合对象路径。palette与cross_page同时核对同类、同级模块的字色方案及模块内部层级，结合底色判断；有语义用途的颜色区别检查其一致性。复杂对象需实际局部图再回整页；真实缺陷修复，机器误报仍按原独立视觉兜底，不自授豁免。
 
 ## 不允许用声明取得免检
 
@@ -193,7 +193,7 @@ if ($coverageExit -eq 2) { Write-Output '存在待核查项，停止签核并逐
 
 连接图同时执行 [连接完整性门槛](connector-integrity.md)。`connector_reviews` 自动对照原生连线清单，逐端核实目标、接触几何、当前局部像素证据及整页回看；通用 containment_and_connectors 描述不能替代逐根记录。短末段、回折、多段拼接、分支和交叉即使自动通过也强制放大视觉核验。缺项或端点失败向最终校验传导为非零，不能签核。
 
-运行 `python scripts/verify_coverage_review.py candidate.pptx coverage.json coverage-review.json render-dir evidence-check.json`。非零则停止签核。旧的自由文本 disposition 不能冒充已通过此校验，需按下面结构重新整理并实际核查，不能只迁移字段或补写结论。
+运行 `python scripts/verify_coverage_review.py candidate.pptx coverage.json coverage-review.json render-dir evidence-check.json`。非零时保持未签核并继续处理报告：实际缺陷修复，版式误报走独立局部＋整页视觉闭环，输入或证据错误先修复再重试。旧的自由文本 disposition 需按当前结构重新整理并实际核查，不能只迁移字段或补写结论。
 
 校验器会基于当前 PPTX 和该渲染目录的 audit.json 重新执行独立扫描，并与 coverage.json 完整比对；删除、修改告警列表或使用旧工具报告会被拒绝，不能靠手改 JSON 消除问题。
 
@@ -217,10 +217,12 @@ if ($coverageExit -eq 2) { Write-Output '存在待核查项，停止签核并逐
 }
 ```
 
-- 真实同行中心错位、同列锚点错位、跨栏失衡必须修正并重新扫描，不能以文字说明覆盖数值失败。图中数据位置确不构成版式对齐关系时，`object_relation` 为 `data-positioned labels`，另提供 `data_mapping` 的 path、sha256、formula、object_ids；校验文件存在与哈希只证明证据可追溯，执行者仍须核实映射内容和图像，禁止虚构文件骗过校验。
+- 实际可见的同行中心错位、同列锚点错位、跨栏失衡必须修正并重新扫描。数值失败而当前局部和整页实际合格时，采用完整的独立视觉闭环；作者文字说明不能独自关闭告警。图中数据位置确不构成版式对齐关系时，可采用数据映射路径：`object_relation` 为 `data-positioned labels`，另提供 `data_mapping` 的 path、sha256、formula、object_ids；执行者仍须核实映射内容和图像。该数据映射路径与通用独立视觉路径分别按其协议验收，不为取得通过虚构数据关系。
 - 同列整组确实采用居中或右对齐时，可提供 `alignment_contract: {anchor: "center" 或 "right", shape_ids: [...]}`；必须包含该检查组全部对象，校验器直接检查整组实际中轴/右边界偏差不超过 2 pt，而不是接受自述。不能只挑两块对齐的文字，忽略第三块；同行大编号/小标题的中心检查不能借用此同列规则。
 - `header_body_boundary_review` 的 measurements 必须有 `above_visual_gap_pt` 与 `below_visual_gap_pt`。真正独立封面可用 `standalone cover composition`，但必须提供 left_content_bounds_pt、right_content_bounds_pt、title_to_content_gap_pt、content_to_bottom_gap_pt，并实际检查；没有右栏时明确记录单栏实际范围，不能虚构。
 - 校验返回 `evidence_complete_pending_visual_signoff` 仍不是发布许可。完整文本语义审查、全部页面与复杂局部实际查看、所有其他质量要求通过，才可最终签核。发现用户或复核者指出的未解决问题时，必须拒绝发布，不将“执行者已签核”当作优先依据。
+
+上述alignment_contract及header_body_boundary_review测量字段描述直接数值核验路径。选择通用`layout_rule_visual_resolution`路径时，按[证据接口](evidence-schema.md#版式规则失败与不确定项的视觉闭环)绑定全部原失败和实际对象；缺少某个直接路径合同会保留为待独立解释的规则结果，不要求为此虚构右栏、容器或测量数值。顶层原报告、输入哈希、局部图、全页图及独立复核证据仍必须完整。
 
 碰撞/路径/多行对齐类发现需补充 `detail_evidence: {path, sha256, source_image_sha256}`、`returned_to_full_page: true`、`no_visible_collision_or_alignment_defect: true`，且 criterion/observation/measurements 必须说明为何实际画面没有缺陷；这些字段只能在真实检查后填写。误报说明不能复用到未检查的新页或新版本。
 
@@ -234,3 +236,11 @@ if ($coverageExit -eq 2) { Write-Output '存在待核查项，停止签核并逐
 版式遍每页另填 `rule_findings_reviewed`，恰好列出当前 coverage 报告中该页的全部 finding ID（确实没有才为空数组）。校验器对照重算后的报告检查漏项/重复/多项；rules_crosscheck 说明规则告警在图中的核查结果，以及视觉额外发现的处理情况。两遍完成后仍有任何疑点，继续迭代，不因记录结构齐全而签核。
 
 版式遍每页同时填 `optical_targets_reviewed`，恰好包含该页 `optical_review_targets` 的全部 shape_id；optical_edges 记录实际笔画起点/中轴、图形边界及内部局部复查的观察。未核对全部对象、缺失局部证据或可见错位未解决，不能签核。对于 rendered_ink_column_misaligned / rendered_ink_row_misaligned，不能用COM文字边界一致来覆盖像素发现；若整组居中/右对齐成立，校验其真实笔画中轴/右边界，而非只填对齐方式。
+
+逐页单列 `floating_notes`、`container_balance`、`density_and_balance`、`typography_consistency` 四项实际观察，按[presentation-hierarchy.md](presentation-hierarchy.md)执行。必要注释集中页底，普通正文及关键图表保持充实；多文本框共享容器时检查可见文字联合边界。
+
+正文入口、容器空壳与信息单薄问题按[presentation-hierarchy.md](presentation-hierarchy.md#全页有效内容空旷感与版式选择)复核。按真实图文判断有效内容，补充须有信息增量；禁止以免责声明或重复结论填空。
+
+版式遍必须先以AI实际读图独立判断视觉重量，逐区检查右下/侧栏末尾/图片下方等空洞，记录regional_balance。具体迭代与独立复核流程见[presentation-hierarchy.md](presentation-hierarchy.md#以反复ai读图验收视觉均衡)。
+
+全页间距先确定完整语义块及嵌套关系，按[presentation-hierarchy.md](presentation-hierarchy.md#先划分语义组再比较组内与组间距)分别检查同级宏观块均衡和组内紧/组间松，禁止仅比较卡内或标题坐标替代完整区域关系。

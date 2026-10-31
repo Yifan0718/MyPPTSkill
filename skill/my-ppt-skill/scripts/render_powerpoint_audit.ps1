@@ -69,7 +69,7 @@ function Check-Text($sh,$slideNo,$kind,$auditPath) {
     $isPageNumber=$tr.Text.Trim() -match '^[1-9][0-9]*/[1-9][0-9]*$'
     $isFooter=($sh.Name -match '^(footer|footnote|page-number):') -or ($sh.Top -ge $script:SlideHeight*.90)
     if ($isFooter -and -not $isPageNumber) {
-        $issues.Add(@{slide=$slideNo;shape=$sh.Name;audit_path=$auditPath;reason='non_page_number_footer_forbidden';text=$tr.Text})
+        $reviews.Add(@{slide=$slideNo;shape=$sh.Name;audit_path=$auditPath;reason='footer_annotation_requires_normal_font_purpose_and_page_number_clearance';text=$tr.Text})
     }
     $minimum=12*$script:FontScale
     if ($kind -eq 'table-compact') {
@@ -78,6 +78,7 @@ function Check-Text($sh,$slideNo,$kind,$auditPath) {
     }
     elseif ($kind -eq 'table') { $minimum=12*$script:FontScale }
     elseif ($isFooter -and $isPageNumber) { $minimum=10*$script:FontScale }
+    elseif ($isFooter) { $minimum=12*$script:FontScale }
     elseif ($sh.Name -like 'chart-note:compact:*') {
         $minimum=10*$script:FontScale
         $reviews.Add(@{slide=$slideNo;shape=$sh.Name;audit_path=$auditPath;reason='auxiliary_chart_note_10pt_requires_justification_and_visual_review'})

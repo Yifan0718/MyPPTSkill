@@ -1,8 +1,8 @@
-# MyPPTSkill 最终10个样本
+# MyPPTSkill 11个成品案例
 
-共10份、87页。只收录最终稿；不附早期版本或迭代过程。
+共11份、94页，包含可编辑PPTX、PDF、高清预览与教学源码。
 
-[全部87页PDF预览](all-samples-87-pages.pdf)
+[全部94页PDF预览](all-samples-94-pages.pdf)
 
 | 编号 | 主题 | 页数 | 重点 |
 |---|---|---:|---|
@@ -16,6 +16,8 @@
 | 08 | [C++继承与多态](08_cpp-inheritance/README.md) | 5 | 继承、多态、虚继承链与代码 |
 | 09 | [LaTeX数学排版](09_latex-amsmath/README.md) | 5 | 数学公式、LaTeX源码与效果对照 |
 | 10 | [MATLAB多面板绘图](10_matlab-tiledlayout/README.md) | 6 | MATLAB源码、真实多面板图与布局讲解 |
+
+| 11 | [结构与气味：化学与AI教学](11_chemistry-structure-odor/README.md) | 7 | 分子结构、机制图文、语义分组与等宽编号 |
 
 ## 使用与许可
 
