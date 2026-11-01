@@ -33,7 +33,9 @@
 | `test_upstream_issue_regressions.py` | 7 | 更新源空值/类型、快照PDF选择、容量工具异常输入及正常空框 |
 | `test_presentation_hierarchy.py` | 37 | 全位置悬浮小字、主题色容器联合居中、混合图文、重心与JSON往返 |
 
-Python合计488项，全部通过。
+| `test_production_instructions.py` | 12 | 制作指令候选、全域文本提取、主题语义与修正继续路径 |
+
+Python合计500项，全部通过。
 
 | PowerShell脚本 | 检查数 | 覆盖重点 |
 |---|---:|---|

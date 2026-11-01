@@ -33,7 +33,7 @@ python tests/run_integration.py --output test-results/powerpoint-01
 
 单独下载测试包时同时指定 `--skill-root` 和 `--input`。需要Windows PowerShell与已安装的PowerPoint。工具链完成后返回 `pipeline_checks_passed_visual_review_pending`，接着逐页／局部视觉复核。版式预检问题返回非零并保留报告，随后按Skill进行复核、修复或独立视觉闭环。
 
-完整自动套件包含488项Skill Python测试、6项发布入口控制流测试，以及76项PowerShell契约检查。覆盖构建、图表、间距和像素对齐、连接、字号证据、独立视觉兜底、签核完整性、更新保护、错误传播、事务回滚、缩略图与后台准备。分组详见 [TEST_MATRIX.md](TEST_MATRIX.md)。
+完整自动套件包含500项Skill Python测试、6项发布入口控制流测试，以及76项PowerShell契约检查。覆盖构建、图表、间距和像素对齐、连接、字号证据、独立视觉兜底、签核完整性、更新保护、错误传播、事务回滚、缩略图与后台准备。分组详见 [TEST_MATRIX.md](TEST_MATRIX.md)。
 
 可同时生成两页可编辑复杂图表夹具：
 
@@ -69,3 +69,5 @@ powershell -NoProfile -File skill/my-ppt-skill/scripts/render_powerpoint_audit.p
 页底注释另有真实渲染探针：使用 `generate_footer_fixture.py <新文件.pptx>` 生成两页，再用 Skill 的 `render_powerpoint_audit.ps1` 在新目录实际渲染，并运行 `verify_footer_fixture.py <render/audit.json>`。第1页20pt注释应进入视觉复核且预检无错误；第2页8pt普通脚注应被拦截。该诊断稿包含故意反例，测试通过状态与成品签核分开。
 
 新增层级规则沿通用独立视觉协议验证8类候选的正常继续路径，以及缺独立复核、缺局部图、缺整页回看、可见问题未解决时的拒绝路径。内容充实度和未解决内容问题继续传导到最终入口；版式闭环不能覆盖这些要求。
+
+制作指令回归覆盖正文、混合run、备注、表格、图表缓存与母版/布局；候选保留完整上下文供语义判断，正常主题事实和署名保持可读，修正后可继续验收。

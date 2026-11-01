@@ -161,3 +161,5 @@ Fork 来源：**[GordenSun/GordenPPTSkill](https://github.com/GordenSun/GordenPP
 准备和渲染使用[有界执行](references/signoff-workflow.md#有界执行与报告写入恢复)，卡住时可定位、换目录重试或切换工具。审计报告原子写入，路径检查保护输入与原始证据；超时及失败运行保留可恢复状态。
 
 标题与注释按[层级规范](references/presentation-hierarchy.md)处理：逐页检查全部悬浮小字、多行文字整体居中、页面中部重心与信息密度；模板字号可调整，同类角色保持一致，少数页例外保留实际渲染问题与复验依据。
+
+制作要求按[内容分离规则](references/local-delivery-quality.md#制作指令与成品内容分离)用于指导执行；成品讲述主题，交付前检查正文、图注、附录、母版、备注及图片内文字。

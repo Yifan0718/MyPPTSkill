@@ -14,6 +14,8 @@ description: >-
 
 本 Skill 保留模板风格，但不保留模板缺陷。以下本地定制优先于模板或上游资料中的“不改排版”“保持原字号”“轻微超框”“渲染可选”等冲突建议。用户当前明确要求优先；普通单稿反馈不自动成为长期规则。
 
+用户的任务要求、偏好和制作约束仅指导执行，成品讲述主题内容。按[制作指令与成品内容分离](references/local-delivery-quality.md#制作指令与成品内容分离)检查并清理混入正文、注释、附录、备注及导出产物的指令和执行自述。
+
 1. **确认需求与选模板。** 制作整套前，未明确的封面、篇幅必须询问；大纲仅在实质不清楚时询问，已知信息不重复问。执行下文三模式与 [本地交付标准](references/local-delivery-quality.md) 的需求、内容、字号、边距和元数据规则。不得删关键内容或机械增页规避排版。
 2. **检查更新并冻结版本。** 本会话首次使用执行 `python scripts/check_update.py`；失败不得称“已是最新”。更新仅用保护入口，规则冲突显式向用户确认；参见 [更新保护](references/local-delivery-quality.md#更新时保留本地规则)。最终迭代前按 [冻结流程](references/layout-integrity.md#冻结skill后再迭代和签核) 建立版本锁。
 3. **规划内容和布局。** 按[标题、注释与字号](references/presentation-hierarchy.md)检查全部悬浮小字、页底注释、整块文字居中、页面重心及信息密度，建立语义字号基准。 先按[首次阅读与案例](references/audience-and-evidence.md)建立读者可理解的术语、指标和代表性示例，并用[修订闭环](references/revision-control.md)追踪用户反馈及影响范围。 叙事按用途参照 [叙事选择流程](references/narrative-reference.md)，不机械写成宣传稿。执行 [全页覆盖与反规避验收](references/layout-integrity.md)：统一锚点、真实间距、所有位置可见字形边缘、混合字体局部检查；不得自授免检。分析型多页稿搭配多种有任务的图表和图标，科研绘图按需读 [工具选择](references/scientific-visualization.md)。
