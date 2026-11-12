@@ -11,6 +11,7 @@ import compute_capacity
 
 class UpstreamIssueRegressions(unittest.TestCase):
  def setUp(self):
+  self.office_patch=patch.object(renderer,'ms_powerpoint_installed',return_value=False);self.office_patch.start();self.addCleanup(self.office_patch.stop)
   self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.w=Path(self.temp.name)
  def root(self,name='live'):
   p=self.w/name;p.mkdir();(p/'VERSION').write_text('1.0');(p/'SKILL.md').write_text('fixture');return p

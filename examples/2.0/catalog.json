@@ -1,0 +1,543 @@
+{
+  "version": "2.0",
+  "decks": [
+    {
+      "slug": "01-zh-beamer-cg",
+      "title": "从梯度下降到共轭梯度",
+      "lang": "中文",
+      "backend": "LaTeX Beamer",
+      "hero": 13,
+      "pitch": "把条件数、下降方向、共轭梯度和预条件串成一条完整推导，用公式、轨迹和可复算实验讲透收敛。",
+      "slides": 20,
+      "manuscript_pages": 7,
+      "files": {
+        "manuscript-source.zip": {
+          "sha256": "9ce1337575836eef1386b2cf94a3db5aed6f72767442f36b93e90177e12c0025",
+          "bytes": 20286919
+        },
+        "manuscript.pdf": {
+          "sha256": "b64b482fc93f4e2d92ce14b55194e0c2a726971b06039e39abfc0ae35ab93f81",
+          "bytes": 289176
+        },
+        "pages/01.png": {
+          "sha256": "bf4ff0f306a2c13891e920d3645ad6fab0453a2db560bc4650b42723cf3b1004",
+          "bytes": 141653
+        },
+        "pages/02.png": {
+          "sha256": "d0198edcbda3511d8439993e3477c9a0de7a3980248db4f31d78fa714498bbd3",
+          "bytes": 259531
+        },
+        "pages/03.png": {
+          "sha256": "833a42e8cd2cc3c5fcad62e5ff8a8429edcea6491ba769a8eb214cfb4f0537ff",
+          "bytes": 297117
+        },
+        "pages/04.png": {
+          "sha256": "abb0bbeb725877db3d446a49a44ee233874415febeb279f4cac459f7e4f2bf17",
+          "bytes": 292839
+        },
+        "pages/05.png": {
+          "sha256": "ca2ca3673117af807855c17878613d2408c771936bedf95a3bd6e32e16246a5f",
+          "bytes": 253266
+        },
+        "pages/06.png": {
+          "sha256": "b35512e891716a10a5a44e14394cc0d110558411414298d575e6ff398a942040",
+          "bytes": 288396
+        },
+        "pages/07.png": {
+          "sha256": "688b33437dc54f4dbab24ab517e82c9331deae8d3b11a508ec7f1e3800a03f47",
+          "bytes": 366460
+        },
+        "pages/08.png": {
+          "sha256": "f5d91ddefdd46b4614a42fcd5945e57c770ed4381a09966831d336a66b90b89f",
+          "bytes": 274252
+        },
+        "pages/09.png": {
+          "sha256": "164d28604ebd189eacf399249afd71886d67ec937570d084e0350e5536eb1d22",
+          "bytes": 339092
+        },
+        "pages/10.png": {
+          "sha256": "0c963841a7fd9f0b634681464e7cd1154795bccc3b794c3548806d30c8479be7",
+          "bytes": 284985
+        },
+        "pages/11.png": {
+          "sha256": "0f3c42ffb1d814e86847e326d378ca1e04b9e1d8a2aa1caee98fbfc15eb82414",
+          "bytes": 270423
+        },
+        "pages/12.png": {
+          "sha256": "1b7eb6174efbfcca797bb3b2f0a7578c73c94a629d7378e3075df36f98cd649c",
+          "bytes": 264730
+        },
+        "pages/13.png": {
+          "sha256": "abba4c793cc96217df8614548c6f65853adcebba9180142ed7a6a74466b9166f",
+          "bytes": 338971
+        },
+        "pages/14.png": {
+          "sha256": "57cf13dd39fd5ae1da52dbf76278b8b0bde9b3fdc8cfe5f9956784bda8272051",
+          "bytes": 321050
+        },
+        "pages/15.png": {
+          "sha256": "9d2117ea76e32074c90ca22bd4684a2c5d78a5db5ed4dac2f34cb4594aea4a1d",
+          "bytes": 268849
+        },
+        "pages/16.png": {
+          "sha256": "fbf0467144c544a789576aa6ec60b8667aec7b68a25784e2f0a854707d460ce0",
+          "bytes": 305764
+        },
+        "pages/17.png": {
+          "sha256": "70753304283d2a817279930ec2b5f93ae996b62a590b16ca99b24143cf9b09a4",
+          "bytes": 280189
+        },
+        "pages/18.png": {
+          "sha256": "c42d8064d3d31da04ebcfbcf044b3786aab2fefa80c1792c628c225b3a3e3b81",
+          "bytes": 317553
+        },
+        "pages/19.png": {
+          "sha256": "a62022bc40960a3579d69ffa358d8b821c26b5ee3634c4f5911183554bbfd5b9",
+          "bytes": 347383
+        },
+        "pages/20.png": {
+          "sha256": "dab419d184518375ba4315021997666101280fbf67ba87f7b8342ae60c1c403b",
+          "bytes": 315635
+        },
+        "preview.png": {
+          "sha256": "bf4ff0f306a2c13891e920d3645ad6fab0453a2db560bc4650b42723cf3b1004",
+          "bytes": 141653
+        },
+        "README.md": {
+          "sha256": "8b94b0d35e4af320da1c8f1833d73a106b70af8611cb5dc55cf5c50b3fac76bd",
+          "bytes": 1520
+        },
+        "showcase.png": {
+          "sha256": "abba4c793cc96217df8614548c6f65853adcebba9180142ed7a6a74466b9166f",
+          "bytes": 338971
+        },
+        "slides-source.zip": {
+          "sha256": "0a5309923675e2cc511dcc21ca85bb00637116032a4000eb9d65a2dbcacd36b3",
+          "bytes": 21484096
+        },
+        "slides.pdf": {
+          "sha256": "6447bf77a936c87ea064126b2fc0ae3657009c124a12edf9a0215772d97fd177",
+          "bytes": 574617
+        }
+      },
+      "validation": {
+        "slides": 20,
+        "manuscript_pages": 7,
+        "aggregate_visual_match": true,
+        "preview_is_first_slide": true
+      }
+    },
+    {
+      "slug": "02-zh-powerpoint-spectrum",
+      "title": "从传感器数据到可信频谱",
+      "lang": "中文",
+      "backend": "PowerPoint",
+      "hero": 16,
+      "pitch": "从采样与混叠一路讲到FFT、窗函数、功率谱和时频分析，让频谱、热力图、代码与数值验证相互印证。",
+      "slides": 20,
+      "manuscript_pages": 6,
+      "files": {
+        "experiment/data/results.json": {
+          "sha256": "3685a685bc256276ccfd445caad595b9e51598f404d3e87e4d74139fc97480f8",
+          "bytes": 1806
+        },
+        "experiment/data/signal.csv": {
+          "sha256": "20682da33080b1b53140fdba53541d121ffd667fa12c05581a2960a879d71ad2",
+          "bytes": 420818
+        },
+        "experiment/data/signals.npz": {
+          "sha256": "d792050658ec7a694abc73dab5cc26ad06a6cbbf8ff48b96cca680b00ea97f2f",
+          "bytes": 460454
+        },
+        "experiment/source/butterfly.py": {
+          "sha256": "798df66e313163efa31cf43b8110070e88c1487163d65773614d85e38f89e7f2",
+          "bytes": 795
+        },
+        "experiment/source/experiments.py": {
+          "sha256": "40cc5a4276b1365c39386cccc33dc6f67174842eee4c6c9a4aceba8ab8b29997",
+          "bytes": 13535
+        },
+        "experiment/source/plot_style.py": {
+          "sha256": "13366e0da13fe21ee8c91832d8ed7998331c127ff859429addd15ffc5f1beb2d",
+          "bytes": 1665
+        },
+        "manuscript.docx": {
+          "sha256": "0a21b2e74ca4b59e0c3ca85f62644aaed4ab44dbd28e788ae051d41856acc815",
+          "bytes": 44808
+        },
+        "manuscript.pdf": {
+          "sha256": "d018745a365caccfb24a0d9e4f4c5dd135c2df7fd3eb6e2871c0c89ea4bc7bd3",
+          "bytes": 357267
+        },
+        "pages/01.png": {
+          "sha256": "774afa056a16e084559b57b52c64872fdf2faa22b14579eb84592da5b788f065",
+          "bytes": 87934
+        },
+        "pages/02.png": {
+          "sha256": "2025f34b5c15e55997540a2900d434e3a42c5ecbb51a2325393997e2ab3d2bb9",
+          "bytes": 406463
+        },
+        "pages/03.png": {
+          "sha256": "7e203da7296c2a41bb97a0b35c71d5783892d251cac11095d02760021521ebb1",
+          "bytes": 168372
+        },
+        "pages/04.png": {
+          "sha256": "d2bb3d182dfd45ac79cf001ff3b8f4f203295a0742c3415a6b3bc82136516add",
+          "bytes": 440005
+        },
+        "pages/05.png": {
+          "sha256": "1854fc96da7a4e780070a56a5530517ae5f65588d95455cc4efdd9ba8610fb4a",
+          "bytes": 276333
+        },
+        "pages/06.png": {
+          "sha256": "60b4ffea3d662dcb90dd8d792b68de05e53387b1b0c90be90c029c749b2e5ba4",
+          "bytes": 330288
+        },
+        "pages/07.png": {
+          "sha256": "ee93cb0d6e5eccd169f2c687f6180e63791d4e5c4917ec988e814a4f37801987",
+          "bytes": 348037
+        },
+        "pages/08.png": {
+          "sha256": "eb33966b3f346c2657fc0bfc1c00824f42e46edb1013694e1ef915190d328f43",
+          "bytes": 330080
+        },
+        "pages/09.png": {
+          "sha256": "91936003139c0f25ee0bf496126738cf4a20196c922221370b123def53f68428",
+          "bytes": 303840
+        },
+        "pages/10.png": {
+          "sha256": "a1aeb07bc720181821ef31413193acf50ced446f2bed1b159b56a55c06a6f4c0",
+          "bytes": 345315
+        },
+        "pages/11.png": {
+          "sha256": "0f0e8d42c23cb2e3aa4e745e9bbab0fbf039282080d88b7ad216b5d62e76908a",
+          "bytes": 334871
+        },
+        "pages/12.png": {
+          "sha256": "3227d8b86199427ec879635e08d1b1d3db847d3fefa8f8eb59df6d8f0ef0524d",
+          "bytes": 186437
+        },
+        "pages/13.png": {
+          "sha256": "79a5a8c1b0aaedf227014f57a471e20f0e5707ded2a7d17531c2a6c03eeac88d",
+          "bytes": 329425
+        },
+        "pages/14.png": {
+          "sha256": "a7c1bef6f9fd7ee73e17ea11548f360ae9e40ee989c7da3fdb9d537f33b14a7a",
+          "bytes": 372427
+        },
+        "pages/15.png": {
+          "sha256": "fb7de3160989a469d442d9423c01934f39d70b378e46e91af83a5bbcc072aab8",
+          "bytes": 541999
+        },
+        "pages/16.png": {
+          "sha256": "22b2937401c9c778d3af6d630f39eb1e770fb63b549f8a7854159c54e31dd84b",
+          "bytes": 418382
+        },
+        "pages/17.png": {
+          "sha256": "b3cfbdbaaf69a2cf1c348043f3adc830c2eab7643932a2b403b49a65dd20b493",
+          "bytes": 326652
+        },
+        "pages/18.png": {
+          "sha256": "d84784836a196a6b8f7c7f878d979adc05c4807032bfa86969bab0f12ccc89a2",
+          "bytes": 203871
+        },
+        "pages/19.png": {
+          "sha256": "1fe26cbb90b2b7675ca38a04c3ca378fa6ba3392585b11c7de1e89a24e18ac29",
+          "bytes": 164497
+        },
+        "pages/20.png": {
+          "sha256": "21560a78ec6f43b165c5d25f089321387b020fe6002e9fdebe6f3cbe4472e774",
+          "bytes": 214265
+        },
+        "preview.png": {
+          "sha256": "774afa056a16e084559b57b52c64872fdf2faa22b14579eb84592da5b788f065",
+          "bytes": 87934
+        },
+        "README.md": {
+          "sha256": "ee572e6a208508d2a6a8423a9d1e91a77dd080746f696cf57e235ad41f1daac5",
+          "bytes": 1511
+        },
+        "showcase.png": {
+          "sha256": "22b2937401c9c778d3af6d630f39eb1e770fb63b549f8a7854159c54e31dd84b",
+          "bytes": 418382
+        },
+        "slides.pdf": {
+          "sha256": "f0f3f29f643a0031fe6e557fa0d347f89a01fd2343f925c3a776c845b729d451",
+          "bytes": 2404639
+        },
+        "slides.pptx": {
+          "sha256": "c84bfcac1cc39ae5da98450ed595e9c5763178db45d7dd82509062d3b5f389f4",
+          "bytes": 2547284
+        }
+      },
+      "validation": {
+        "slides": 20,
+        "manuscript_pages": 6,
+        "aggregate_visual_match": true,
+        "preview_is_first_slide": true
+      }
+    },
+    {
+      "slug": "03-en-beamer-kalman",
+      "title": "How Kalman Filters Track Noisy Motion",
+      "lang": "English",
+      "backend": "LaTeX Beamer",
+      "hero": 18,
+      "pitch": "从一次可手算的位置更新出发，讲清协方差、预测更新、缺失观测、异常值与重复试验中的不确定性校准。",
+      "slides": 20,
+      "manuscript_pages": 7,
+      "files": {
+        "manuscript-source.zip": {
+          "sha256": "2ff27bcfc51fbd3098d3b0859be629bac71641ecab88e68cf21eda2474e023aa",
+          "bytes": 20291254
+        },
+        "manuscript.pdf": {
+          "sha256": "9873ac8dfd366dd6d3032e48d9de7fac2b9abe271efb0ff5d770b327fde1403b",
+          "bytes": 41621
+        },
+        "pages/01.png": {
+          "sha256": "bbb9709bfafd722c67ada6528a263af9d8cbf46e808135821acc4bc268e16610",
+          "bytes": 94976
+        },
+        "pages/02.png": {
+          "sha256": "b9e8d7353e8b2e32ecfc28fb184b66bc64eea5385d5b20e6c55819703e1afa3b",
+          "bytes": 156019
+        },
+        "pages/03.png": {
+          "sha256": "922383bcaa2ac231b2eeb4299326d4e57a7de82a81b3e6f6c14f3194ce094c24",
+          "bytes": 158912
+        },
+        "pages/04.png": {
+          "sha256": "a6e7107059f5cde31399603860c428bfd5944f8ea42e87763bce428e7afd3b30",
+          "bytes": 163976
+        },
+        "pages/05.png": {
+          "sha256": "b323778ec087735c55b6d12bc3cf9fc62ec75d2340cb732b41ac49e705f813c4",
+          "bytes": 227041
+        },
+        "pages/06.png": {
+          "sha256": "258e9ee8fe5a51a0390c95e3f911ca0d55f8803db8991fc40e0d4816a634a68b",
+          "bytes": 219793
+        },
+        "pages/07.png": {
+          "sha256": "df57be188320b6d8bd0e4a736b23266b75bd44f58bcc082a942398321718a2d3",
+          "bytes": 165051
+        },
+        "pages/08.png": {
+          "sha256": "18ccce4f8b536bf233ab6e229f5ad593739e138bc54b574a0d1389a595a3c5b8",
+          "bytes": 176163
+        },
+        "pages/09.png": {
+          "sha256": "b70b3c22689a9c918b5556259bbf47c40b0c9074b420df34c0afb7d701618dd5",
+          "bytes": 181594
+        },
+        "pages/10.png": {
+          "sha256": "120144b871e3641e27fc64be092b63684b194a0911496418b2949a6432c09577",
+          "bytes": 131769
+        },
+        "pages/11.png": {
+          "sha256": "2b43b4e4fc3651ba7154af4c5fb9844865b78db5865e14de849c8ad5e20704c7",
+          "bytes": 135981
+        },
+        "pages/12.png": {
+          "sha256": "966c2161793e1b5bb68c62e3d2ca90395cc224a32582978b818d3cca8f769531",
+          "bytes": 289047
+        },
+        "pages/13.png": {
+          "sha256": "60ab21033b81d74b47fc2bc6d4698d7c2b9c7f10cf7ca6bfc8260d1c8404cd41",
+          "bytes": 186465
+        },
+        "pages/14.png": {
+          "sha256": "23884964a23d2c3b2f4977811cf8ed577d556647f67bd8f9c5e961ac215216aa",
+          "bytes": 275496
+        },
+        "pages/15.png": {
+          "sha256": "2cc70f2060f8692e28244a6dfad659697880378a497dbe2f964c82294f7f6c95",
+          "bytes": 221924
+        },
+        "pages/16.png": {
+          "sha256": "73fbe395132b8f26c785045339335180453afccf26093008ee9a3ff6a4c9072c",
+          "bytes": 172709
+        },
+        "pages/17.png": {
+          "sha256": "5d2830f15dd0066f3014c443ea58641ba56121a260010e2fc8dd42d5221a3b5e",
+          "bytes": 166767
+        },
+        "pages/18.png": {
+          "sha256": "42638e4d2fa47268dc81a8434520867c4def6978510a225783bd2b5be89ae72e",
+          "bytes": 146258
+        },
+        "pages/19.png": {
+          "sha256": "71a904940aee69ead2c9b29cdd43e8501407f61956456d5bd3c354cb3a67b27f",
+          "bytes": 205976
+        },
+        "pages/20.png": {
+          "sha256": "f665e2d29a328b8330ebea4ec586e3e5a87ef5c04d1593c3a2e291a893e44a9a",
+          "bytes": 165148
+        },
+        "preview.png": {
+          "sha256": "bbb9709bfafd722c67ada6528a263af9d8cbf46e808135821acc4bc268e16610",
+          "bytes": 94976
+        },
+        "README.md": {
+          "sha256": "3f09dde2c7a489e2684fbaf36063d637ab524fdc77bfad90f1d38c2934249e9e",
+          "bytes": 1537
+        },
+        "showcase.png": {
+          "sha256": "42638e4d2fa47268dc81a8434520867c4def6978510a225783bd2b5be89ae72e",
+          "bytes": 146258
+        },
+        "slides-source.zip": {
+          "sha256": "d6bfcda856c8ab9205ab62d5e04855f09d971d4faf7a1f7bc38580aa322c07ec",
+          "bytes": 21534979
+        },
+        "slides.pdf": {
+          "sha256": "e6889b3a18b6fa2082a2cf52a807a09aefc9bdbaf0b4ce9b5bb5a9d44b547578",
+          "bytes": 218180
+        }
+      },
+      "validation": {
+        "slides": 20,
+        "manuscript_pages": 7,
+        "aggregate_visual_match": true,
+        "preview_is_first_slide": true
+      }
+    },
+    {
+      "slug": "04-en-powerpoint-indexes",
+      "title": "How Indexes Accelerate Queries",
+      "lang": "English",
+      "backend": "PowerPoint",
+      "hero": 11,
+      "pitch": "以20万条订单的真实运行实验为主线，连接B-tree、SQL查询计划、复合与覆盖索引，以及时间、空间和维护成本。",
+      "slides": 20,
+      "manuscript_pages": 5,
+      "files": {
+        "experiment/data/results.json": {
+          "sha256": "f8af53b6234a88b988cfce0f672f469fd5d5b336c490756e8707e92576be6db2",
+          "bytes": 16415
+        },
+        "experiment/source/experiment.py": {
+          "sha256": "1a94daee374f8b7051a8f4d4ece419b13fb7ade7366566376b14c76c56b88d63",
+          "bytes": 8848
+        },
+        "manuscript.docx": {
+          "sha256": "d8b1dc8d4d3cc738739db2db22551d40ac2ab58e9d3314ec705b1c6aeec976a3",
+          "bytes": 43326
+        },
+        "manuscript.pdf": {
+          "sha256": "c8297bd127d68ead11997bf76956b75aff3cbf9ca7323c0d9326ee6a58df3bfa",
+          "bytes": 119432
+        },
+        "pages/01.png": {
+          "sha256": "96e9d0926f72a6f11116fba1291c26012f7b42998921b49d86640feef134282b",
+          "bytes": 75070
+        },
+        "pages/02.png": {
+          "sha256": "f963c22f661162af2ae9d3d4aaef62a59561b722030782664768e3e8ddf5c22c",
+          "bytes": 177162
+        },
+        "pages/03.png": {
+          "sha256": "19d0f4b79345a7b2cf703c6bdaeb9b1c089e17d7c306729d7f4c94cc7f295d80",
+          "bytes": 115095
+        },
+        "pages/04.png": {
+          "sha256": "52598730bd1f4875ea6db93b13f282f5125075d57a3c8cd3b6367572b5beffa9",
+          "bytes": 110985
+        },
+        "pages/05.png": {
+          "sha256": "b554536e704ee76dc9f60b621b20ab72f8bf7b55f3291a82189147288f88799a",
+          "bytes": 127616
+        },
+        "pages/06.png": {
+          "sha256": "613269b3e5cb04be1b80b0b9475056f129acf6ffb5edb017feb8ec6945a9e652",
+          "bytes": 104161
+        },
+        "pages/07.png": {
+          "sha256": "b07d44d3e3b1486efadc8410bcfba3b3f3eeb77c069e5d17ce6ae70cea0c6968",
+          "bytes": 118874
+        },
+        "pages/08.png": {
+          "sha256": "8e9ba6a9152ea41401e8f3f03b3e2daef2fbc9efdb3b7911a3e04fe6c9d03d6b",
+          "bytes": 123673
+        },
+        "pages/09.png": {
+          "sha256": "e9e01d0f937e4365c63aaa8f5a299b1d3c9662a8fea580f68843ea3d98ac4a03",
+          "bytes": 132538
+        },
+        "pages/10.png": {
+          "sha256": "768a6c306635c3e980bcc66b0e19d37a1b607346bb8628b2aa625f110428af4f",
+          "bytes": 108717
+        },
+        "pages/11.png": {
+          "sha256": "28d5d3a945a875ebbdede1a51428b78f64f62cb6d9f21047c915b5fc9f852435",
+          "bytes": 125728
+        },
+        "pages/12.png": {
+          "sha256": "3bec4f55d9fc2e132f20ea7e5215f841c87815f2e6332eb3f6fcc0e69ded6a7b",
+          "bytes": 125883
+        },
+        "pages/13.png": {
+          "sha256": "ef790f45fb392d035966f8a73d343039669c8eecacf7985e1cf020b388900bcc",
+          "bytes": 112143
+        },
+        "pages/14.png": {
+          "sha256": "62aff473da77ec81855db9edb8899d8173ec2e7c289e6ac0e3b5ecbbf640eaf5",
+          "bytes": 133313
+        },
+        "pages/15.png": {
+          "sha256": "e1c297addc65e307d1f555a17fd44bfe3e69f22ab93efcd0132e7cdf56d483aa",
+          "bytes": 118833
+        },
+        "pages/16.png": {
+          "sha256": "7288b2101d0e69d37d33b65dc67b1067cfa6da4a1e85e9b77d55476ee383c1b1",
+          "bytes": 180570
+        },
+        "pages/17.png": {
+          "sha256": "04e758de20c5f0417ab1003dc81d15225cb2607e65b3fc93c621106869d3982b",
+          "bytes": 180729
+        },
+        "pages/18.png": {
+          "sha256": "943cf99bb78fe26f8ca03d22b5b0fd6cbf520367ad97e48c258ec41238125d19",
+          "bytes": 253326
+        },
+        "pages/19.png": {
+          "sha256": "a96cdfd66183c39b08126811b95884ea6bdfb2e6daec1e6731fe84d6cf8212a9",
+          "bytes": 140202
+        },
+        "pages/20.png": {
+          "sha256": "db102035a2467ebfef646e1b9d9f0db69dac925f3e9abf26dbe60f6d0f43c7fb",
+          "bytes": 142981
+        },
+        "preview.png": {
+          "sha256": "96e9d0926f72a6f11116fba1291c26012f7b42998921b49d86640feef134282b",
+          "bytes": 75070
+        },
+        "README.md": {
+          "sha256": "cd1326b91ee204db3420c88bc9cc504afc4667e47a3be9defc1c51560757e488",
+          "bytes": 1520
+        },
+        "showcase.png": {
+          "sha256": "28d5d3a945a875ebbdede1a51428b78f64f62cb6d9f21047c915b5fc9f852435",
+          "bytes": 125728
+        },
+        "slides.pdf": {
+          "sha256": "2b8e7e99808fd38805e7893d7dc100d459235a5a89f3b5c935db5216b16eb5bd",
+          "bytes": 536844
+        },
+        "slides.pptx": {
+          "sha256": "c838a01fb42662b4a7011edcb9ebf14e8509a8bd1d02491e3c0da61cf4472ae0",
+          "bytes": 346673
+        }
+      },
+      "validation": {
+        "slides": 20,
+        "manuscript_pages": 5,
+        "aggregate_visual_match": true,
+        "preview_is_first_slide": true
+      }
+    }
+  ],
+  "total_slide_pages": 80,
+  "total_manuscript_pages": 25
+}

@@ -1,0 +1,50 @@
+% Load after fonts.tex and theme.tex. Values are starting points for visual review.
+\usetheme{Boadilla}
+\usecolortheme{beaver}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=.6cm,text margin right=.6cm}
+% fonts.tex loads the exact Fandol/Latin Modern files from the managed bundle.
+\definecolor{Ink}{HTML}{282B30}
+\definecolor{Accent}{HTML}{93232C}
+\definecolor{Pale}{HTML}{F5F5F5}
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{frametitle}{fg=Accent,bg=gray!9}
+\setbeamercolor{title}{fg=Accent,bg=gray!14}
+\setbeamercolor{structure}{fg=Accent}
+\setbeamercolor{block title}{fg=Accent,bg=gray!14}
+\setbeamercolor{block body}{fg=Ink,bg=Pale}
+\setbeamerfont{normal text}{size=\BodyFont,series=\mdseries}
+% Calibrate long titles in the actual cover; these are initial sizes.
+\setbeamerfont{title}{size=\fontsize{19}{24}\selectfont,series=\mdseries}
+\setbeamerfont{subtitle}{size=\fontsize{12}{16}\selectfont,series=\mdseries}
+\setbeamerfont{frametitle}{size=\fontsize{14.5}{18}\selectfont,series=\mdseries}
+\setbeamerfont{block title}{size=\BodyFont,series=\mdseries}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  % Single-line 14.5pt FandolHei calibration. Recheck visible ink after title/font changes.
+  \begin{beamercolorbox}[wd=\paperwidth,sep=0pt,leftskip=.6cm,rightskip=.6cm,ht=.57cm,dp=.24cm]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}}
+\setbeamercolor{author in head/foot}{fg=white,bg=Accent}
+\setbeamercolor{title in head/foot}{fg=Accent,bg=gray!14}
+\setbeamercolor{date in head/foot}{fg=Accent,bg=gray!23}
+% Set this only when an author is supplied. Otherwise the title occupies its space.
+\newcommand{\BioFooterAuthor}{}
+\newcommand{\BioFooterCell}[3]{%
+  \begingroup
+  % Keep all background edges aligned; optical correction moves text only.
+  \begin{beamercolorbox}[wd=#1,ht=.26cm,dp=.10cm,center]{#2}
+    \ifstrequal{#2}{date in head/foot}{%
+      \raisebox{.28pt}[0pt][0pt]{\fontsize{7.9}{9}\selectfont\mdseries #3}%
+    }{\fontsize{7.9}{9}\selectfont\mdseries #3}%
+  \end{beamercolorbox}\endgroup}
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+    \ifdefempty{\BioFooterAuthor}{%
+      \BioFooterCell{.78\paperwidth}{title in head/foot}{\insertshorttitle}%
+    }{%
+      \BioFooterCell{.28\paperwidth}{author in head/foot}{\BioFooterAuthor}%
+      \BioFooterCell{.50\paperwidth}{title in head/foot}{\insertshorttitle}%
+    }%
+    \BioFooterCell{.22\paperwidth}{date in head/foot}{\insertpagenumber/\insertdocumentendpage}%
+  }\vskip0pt}

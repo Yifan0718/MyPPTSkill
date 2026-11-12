@@ -163,6 +163,13 @@ def validate_layout_visual_review(finding, disposition, image_path, slide, rende
         relation=peer.get('relationship_assessment',{})
         if any(type(relation.get(k)) is not bool for k in ('same_alignment_group','same_metric_group')) or not _specific(relation.get('structural_explanation')):
             raise ValueError('Independent review must explicitly assess actual alignment/metric grouping and visible structure')
+        if finding.get('reason') == 'large_internal_whitespace_review':
+            whitespace=peer.get('whitespace_assessment',{})
+            if whitespace.get('gap_pt') != finding.get('gap_pt') or whitespace.get('axis') != finding.get('axis'):
+                raise ValueError('Large-whitespace review must retain the actual gap and axis')
+            for key in ('space_purpose','adjacent_module_relationship','tighter_layout_assessment','content_sufficiency'):
+                if not _specific(whitespace.get(key)):
+                    raise ValueError('Large-whitespace review needs specific '+key+'; different roles or no overlap alone cannot close it')
         if not _time(render['render_finished_utc'])<=_time(peer['reviewed_at'])<=_time(record['reviewed_at']):raise ValueError('Layout visual review predates rendering or independent inspection')
         return None,{'finding_id':finding['id'],'code':CODE,'resolution':'visually_resolved_pending_signoff',
                      'original_finding':copy.deepcopy(finding),'rule_failures':list(rule_failures),'reviewer_id':reviewer,

@@ -359,6 +359,10 @@ def run(args) -> int:
     buffer=BytesIO();prs.save(buffer)
     output_bytes,_=transform(buffer.getvalue(),author=edits_spec.get('author'))
     if findings(output_bytes,author=edits_spec.get('author')):raise ValueError('Metadata validation failed before atomic save')
+    from pptx_image_fidelity import transform as preserve_images
+    output_bytes,image_report=preserve_images(output_bytes)
+    for image in image_report['large_images']:
+        print(f"note  Original image retained: {image['part']} ({image['bytes']} bytes; over 20 MB).", file=sys.stderr)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     fd, temp_name = tempfile.mkstemp(suffix='.pptx', dir=args.output.parent)
     os.close(fd)

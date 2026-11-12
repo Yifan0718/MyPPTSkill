@@ -1,19 +1,13 @@
-# GitHub侧边说明
+# GitHub侧边简介
 
 ## Description
 
-告别PPT排版错乱与AI味。充分发挥多模态AI视觉能力，逐页反复核验、迭代打磨；强迫症级对齐与统一，支持复杂图表、代码和科研图文混排。21套中文模板，自定义要求长期保留。
+专注PPT与Slides制作，讲得漂亮，排得整齐。支持PowerPoint与LaTeX Beamer，多模态AI逐页看图、反复精调，摆脱AI味，打磨复杂图表、公式与代码。21套模板，按需搭配多语言讲稿，上游模板Skill更新自适应保留定制规则。
 
 ## Topics
 
-`powerpoint` · `pptx` · `slides` · `presentation` · `ai-agent` · `agent-skills` · `codex` · `multimodal` · `data-visualization` · `scientific-visualization` · `visual-qa` · `python`
+`powerpoint` · `pptx` · `latex` · `beamer` · `slides` · `presentation` · `speaker-notes` · `ai-agent` · `agent-skills` · `codex` · `multimodal` · `scientific-visualization` · `data-visualization` · `visual-qa` · `python`
 
-## Website
+## Project
 
-有项目主页时填写实际地址；未部署时留空。
-
-## 项目名称
-
-MyPPTSkill
-
-README中已明确fork自GordenSun/GordenPPTSkill。以上为本仓库的侧边简介与Topics配置。
+MyPPTSkill — https://github.com/Yifan0718/MyPPTSkill

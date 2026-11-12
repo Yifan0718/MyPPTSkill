@@ -83,6 +83,16 @@ def sweep(objects, axis):
     return bands, [bands[i+1]['start'] - bands[i]['end'] for i in range(len(bands)-1)]
 
 
+def explicitly_unpainted(shape):
+    """Exclude only proven empty native frames, never inherited/unknown paint."""
+    if shape.shape_type not in (MSO_SHAPE_TYPE.AUTO_SHAPE, MSO_SHAPE_TYPE.TEXT_BOX):return False
+    if shape.has_text_frame and shape.text.strip():return False
+    def no_paint(path):
+        return bool(shape._element.xpath(path+'/a:noFill') or
+                    shape._element.xpath(path+'/a:solidFill/*/a:alpha[@val="0"]'))
+    return no_paint('./p:spPr') and no_paint('./p:spPr/a:ln')
+
+
 def audit(pptx, render):
     # COM can return JSON null for table-cell names. Preserve every record;
     # normalize only the optional display name, never omit unnamed cells.
@@ -159,6 +169,9 @@ def audit(pptx, render):
             if s.width <= 0 or s.height <= 0:
                 excluded.append({'id': s.shape_id, 'name': s.name, 'reason': 'zero_area'})
                 continue
+            if explicitly_unpainted(s):
+                excluded.append({'id':s.shape_id,'name':s.name,'reason':'explicitly_unpainted_empty_frame'})
+                continue
             objects.append({'id': s.shape_id, 'name': s.name,
                             'bounds': [s.left/12700, s.top/12700, (s.left+s.width)/12700, (s.top+s.height)/12700]})
             if s.shape_type == MSO_SHAPE_TYPE.GROUP or s.has_chart or s.has_table or s.shape_type == MSO_SHAPE_TYPE.PICTURE:
@@ -172,8 +185,40 @@ def audit(pptx, render):
             row = [x for x in objects if x['id'] in band['shape_ids']]
             hb, hg = sweep(row, 'horizontal')
             scans.append({'axis': 'horizontal', 'row_shape_ids': band['shape_ids'], 'bands': hb, 'gaps_pt': hg})
+        # A painted card may define a module edge, but its envelope cannot
+        # establish the spacing of content inside it. Inspect contained native
+        # members separately; nested shells each get their own scan. Groups,
+        # images and charts also retain their independent internal review.
+        for host in objects:
+            h=host['bounds']
+            members=[obj for obj in objects if obj['id']!=host['id'] and
+                     obj['bounds']!=h and h[0]<=obj['bounds'][0] and h[1]<=obj['bounds'][1] and
+                     h[2]>=obj['bounds'][2] and h[3]>=obj['bounds'][3]]
+            if len(members)<2:continue
+            inner,ig=sweep(members,'vertical')
+            scans.append({'axis':'vertical','host_shape_id':host['id'],'bands':inner,'gaps_pt':ig})
+            for band in inner:
+                row=[obj for obj in members if obj['id'] in band['shape_ids']]
+                hb,hg=sweep(row,'horizontal')
+                scans.append({'axis':'horizontal','host_shape_id':host['id'],'row_shape_ids':band['shape_ids'],'bands':hb,'gaps_pt':hg})
+            if len(inner)<2 and all(not scan['gaps_pt'] for scan in scans if scan.get('host_shape_id')==host['id']):
+                flag(n,'internal_layout_requires_review',{'shape_id':host['id'],'shape':host['name'],
+                     'shape_ids':[obj['id'] for obj in members],
+                     'reason_detail':'Container envelopes overlap internally; inspect actual content and empty regions locally and on the full page'})
         for scan in scans:
             gs = scan['gaps_pt']
+            # An absolute macro gap matters even when there are only two bands
+            # or every gap happens to be equally large. Keep semantic review.
+            extent = prs.slide_height/12700 if scan['axis']=='vertical' else width
+            for j,gap in enumerate(gs):
+                if gap > max(48*scale, extent*.10):
+                    pair=scan['bands'][j:j+2]
+                    flag(n,'large_internal_whitespace_review',{
+                        'axis':scan['axis'],'gap_pt':gap,'gap_ratio':gap/extent,
+                        'threshold_pt':max(48*scale,extent*.10),'bands':pair,
+                        'shape_ids':sorted(set(i for band in pair for i in band['shape_ids'])),
+                        **({'host_shape_id':scan['host_shape_id']} if 'host_shape_id' in scan else {}),
+                        'required':'Inspect the empty region and both adjacent complete modules; justify its actual purpose and compare a tighter arrangement.'})
             if any(g < 12*scale-.25*scale for g in gs):
                 flag(n, 'narrow_occupied_band_gap', {'axis':scan['axis'],'gaps_pt':gs,'bands':scan['bands']})
             if len(gs) >= 2:

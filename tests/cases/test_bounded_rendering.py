@@ -63,6 +63,7 @@ class RunEvidenceTests(unittest.TestCase):
 
 class FallbackRenderTests(unittest.TestCase):
  def setUp(self):
+  self.office_patch=patch('render_slides.ms_powerpoint_installed',return_value=False);self.office_patch.start();self.addCleanup(self.office_patch.stop)
   self.t=tempfile.TemporaryDirectory();self.addCleanup(self.t.cleanup);self.w=Path(self.t.name);self.p=self.w/'input.pptx'
   p=Presentation();p.slides.add_slide(p.slide_layouts[6]);p.save(self.p);self.calls=[]
  def fake(self,command,**kwargs):

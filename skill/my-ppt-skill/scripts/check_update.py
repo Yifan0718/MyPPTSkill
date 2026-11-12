@@ -19,6 +19,7 @@ This script *does not* download files; it just reports what would change. Use
 """
 from __future__ import annotations
 import argparse
+import http.client
 import json
 import os
 import re
@@ -28,6 +29,37 @@ import tempfile
 import urllib.error
 import urllib.request
 from pathlib import Path
+from run_bounded import stop_owned_tree
+
+HTTP_FETCH_TIMEOUT = 30
+HTTP_METADATA_LIMIT = 1024 * 1024
+HTTP_FETCH_WORKER = r'''
+import http.client, json, sys, urllib.request
+request = json.loads(sys.stdin.read())
+try:
+    with urllib.request.urlopen(request['url'], timeout=request['timeout']) as response:
+        limit = request['limit']
+        declared = response.headers.get('Content-Length')
+        if response.headers.get('Transfer-Encoding', '').lower() == 'chunked':
+            declared = None
+        expected = int(declared) if declared is not None else None
+        if expected is not None and (expected < 0 or expected > limit):
+            raise ValueError('Update metadata exceeds the byte limit or has invalid Content-Length')
+        body = bytearray()
+        while True:
+            chunk = response.read(min(65536, limit + 1 - len(body)))
+            if not chunk:
+                break
+            body.extend(chunk)
+            if len(body) > limit:
+                raise ValueError('Update metadata exceeds the byte limit')
+        if expected is not None and len(body) != expected:
+            raise http.client.IncompleteRead(bytes(body), expected - len(body))
+        sys.stdout.buffer.write(body)
+except (OSError, ValueError, http.client.HTTPException) as error:
+    print(type(error).__name__ + ': ' + str(error), file=sys.stderr)
+    sys.exit(3)
+'''
 
 
 def parse_version(v: str) -> tuple[int, int, int]:
@@ -41,8 +73,20 @@ def fetch_remote_updates(source: str) -> dict:
     if source.startswith("git+"):
         return _fetch_remote_updates_git(source)
     url = source.rstrip("/") + "/updates.json"
-    with urllib.request.urlopen(url, timeout=30) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    # A socket timeout alone cannot stop slow streams or a stalled DNS lookup.
+    # The worker owns no descendants, so subprocess.run can kill it at deadline.
+    request = json.dumps({'url': url, 'timeout': HTTP_FETCH_TIMEOUT,
+                          'limit': HTTP_METADATA_LIMIT}).encode('utf-8')
+    try:
+        child = subprocess.run([sys.executable, '-I', '-X', 'utf8', '-c', HTTP_FETCH_WORKER],
+                               input=request, capture_output=True, timeout=HTTP_FETCH_TIMEOUT,
+                               creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+    except subprocess.TimeoutExpired as error:
+        raise OSError('Update metadata transport exceeded its wall-clock deadline') from error
+    if child.returncode:
+        detail = child.stderr.decode('utf-8', errors='replace').strip()[:2000]
+        raise OSError(detail or 'Update metadata worker failed with exit ' + str(child.returncode))
+    return json.loads(child.stdout.decode('utf-8-sig'))
 
 
 def _fetch_remote_updates_git(source: str) -> dict:
@@ -60,18 +104,43 @@ def _fetch_remote_updates_git(source: str) -> dict:
         env = os.environ.copy()
         env["GIT_LFS_SKIP_SMUDGE"] = "1"
         env.update(GIT_TERMINAL_PROMPT='0',GCM_INTERACTIVE='Never')
-        subprocess.run(
+        _run_git(
             ["git", "clone", "--depth", "1", "--branch", branch,
              "--filter=blob:none", "--no-checkout", url, td],
-            check=True,
             env=env,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
             timeout=30,
         )
-        result = subprocess.run(["git", "show", "HEAD:updates.json"],
-            cwd=td, check=True, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE,timeout=30)
+        result = _run_git(["git", "show", "HEAD:updates.json"],
+                          cwd=td, env=env, timeout=30)
         return json.loads(result.stdout.decode("utf-8-sig"))
+
+
+def _run_git(command, *, env, timeout, cwd=None):
+    """Bound only this invocation tree; inherited output handles cannot block EOF."""
+    with tempfile.TemporaryFile() as output, tempfile.TemporaryFile() as errors:
+        child = subprocess.Popen(command, cwd=cwd, env=env, stdin=subprocess.DEVNULL,
+                                 stdout=output, stderr=errors,
+                                 creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0)
+                                 if os.name == 'nt' else 0,
+                                 start_new_session=os.name != 'nt')
+        try:
+            code = child.wait(timeout=timeout)
+        except (subprocess.TimeoutExpired, KeyboardInterrupt):
+            try:
+                stop_owned_tree(child)
+            except (OSError, subprocess.SubprocessError) as error:
+                # Even failed cleanup must not enter communicate() on handles
+                # still held by a remote helper. Surface the incomplete cleanup.
+                raise OSError('Git invocation cleanup failed: ' + str(error)) from error
+            raise
+        output.seek(0)
+        errors.seek(0)
+        stdout, stderr = output.read(HTTP_METADATA_LIMIT + 1), errors.read(2000)
+        if code:
+            raise subprocess.CalledProcessError(code, command, output=stdout, stderr=stderr)
+        if len(stdout) > HTTP_METADATA_LIMIT:
+            raise OSError('Git update metadata exceeds the byte limit')
+        return subprocess.CompletedProcess(command, code, stdout=stdout, stderr=stderr)
 
 
 def collect_delta(remote_hist: list[dict], local_version: str) -> tuple[set[str], set[str], set[str]]:
@@ -142,9 +211,12 @@ def main() -> int:
 
     try:
         remote = fetch_remote_updates(source)
+    except KeyboardInterrupt:
+        print('ERR Update check interrupted; remote version is unverified. Local files unchanged.', file=sys.stderr)
+        return 130
     except (ValueError,UnicodeError) as exc:
         print(f'ERR Invalid remote metadata: {exc}',file=sys.stderr);return 4
-    except (OSError, subprocess.SubprocessError) as exc:
+    except (OSError, http.client.HTTPException, subprocess.SubprocessError) as exc:
         print(f"ERR Update check failed ({exc}); remote version is unverified. Local files unchanged.", file=sys.stderr)
         return 3
 

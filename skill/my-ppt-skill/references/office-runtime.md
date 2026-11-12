@@ -1,0 +1,12 @@
+# Microsoft Office 执行优先级
+
+Office任务先检测本机对应的Microsoft Office应用。已安装PowerPoint、Word或Excel时，实际打开、排版、渲染和导出使用该MS Office应用，优先级高于其他兼容办公套件或通用渲染脚本的默认选择。此规则同时适用于PPTX、Word讲稿及相关Office成果。
+
+- Python/OOXML等可用于生成和修改可编辑文件；最终版式以MS Office实际输出核验。PDF栅格化工具可以处理Office已经导出的PDF。
+- 有MS Office时不自动转向LibreOffice、WPS或其他兼容套件。原生自动化失败先读取日志、定位阶段和任务文件，尝试同一应用的其他可用原生接口、显式导出参数或必要的UI路径；每次有界执行，在新工作目录重试，保留有效源稿和内容。确认没有相应MS Office应用时才选择可用替代套件。
+- PowerPoint使用后台只读快照与现有审计脚本。`render_slides.py`检测到已安装PowerPoint时走原生路径，失败码及预检结果继续传导，不偷偷调用LibreOffice。
+- Windows与WSL共同存在时，WSL可承担计算和绘图，Office最终排版回到Windows原生应用。WSL内没有Office命令不代表宿主未安装Office；检测不明时回宿主核实，使用Windows运行时调用现有PowerPoint脚本继续，不把WSL探测结果当作调用其他套件的许可。
+- Word优先后台打开工作副本、重新分页、原生导出PDF，再检查全部渲染页。不同自动化接口存在可选参数差异时，可显式提供导出参数或换用受支持的同一Word接口；核对实际页数和输出文件。只清理任务自己打开的文档和实例，保留用户已有文件及未保存状态。
+- 正常制作不激活窗口、不切前台。确需UI诊断时先说明必要性，完成后恢复环境。失败不能通过未渲染的文件、绘制的页面仿图或旧导出物替代验收。
+
+LaTeX Beamer继续由LaTeX构建PDF；本规则约束Office格式的实际处理，不把Beamer编译强行改由PowerPoint完成。

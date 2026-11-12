@@ -103,16 +103,18 @@ class ReleaseFailurePaths(unittest.TestCase):
   self.assertEqual(Presentation(p).core_properties.title,'retained title')
   self.assertFalse(list(self.base.glob('*.tmp')))
  def test_git_check_is_bounded_and_noninteractive(self):
-  with patch.object(cu.subprocess,'run',return_value=SimpleNamespace(stdout=b'{}')) as run:
+  with patch.object(cu,'_run_git',return_value=SimpleNamespace(stdout=b'{}')) as run:
    cu.fetch_remote_updates('git+https://example.invalid/repo#main')
   self.assertEqual(run.call_count,2)
   for call in run.call_args_list:
    self.assertGreater(call.kwargs['timeout'],0)
    self.assertEqual(call.kwargs['env']['GIT_TERMINAL_PROMPT'],'0')
+   self.assertEqual(call.kwargs['env']['GCM_INTERACTIVE'],'Never')
+   self.assertEqual(call.kwargs['env']['GIT_LFS_SKIP_SMUDGE'],'1')
  def test_stage_clone_timeout_controlled_and_preserves_live_files(self):
   self.write(self.live,'updates.json',{'update_source':'git+https://example.invalid/repo#main'})
   before={k:g.digest(p) for k,p in g.files(self.live).items()}
-  with patch.object(sys,'argv',['update','prepare','--root',str(self.live),'--stage',str(self.stage)]),patch.object(g.subprocess,'run',side_effect=subprocess.TimeoutExpired('git clone',180)) as run,contextlib.redirect_stderr(io.StringIO()):code=g.main()
+  with patch.object(sys,'argv',['update','prepare','--root',str(self.live),'--stage',str(self.stage)]),patch.object(g,'_run_git',side_effect=subprocess.TimeoutExpired('git clone',180)) as run,contextlib.redirect_stderr(io.StringIO()):code=g.main()
   self.assertEqual(code,4);self.assertEqual(before,{k:g.digest(p) for k,p in g.files(self.live).items()})
   self.assertGreater(run.call_args.kwargs['timeout'],0)
   self.assertEqual(run.call_args.kwargs['env']['GIT_TERMINAL_PROMPT'],'0')

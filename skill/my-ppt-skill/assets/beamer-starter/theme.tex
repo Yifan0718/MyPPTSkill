@@ -1,0 +1,50 @@
+\definecolor{Ink}{HTML}{17324D}
+\definecolor{Accent}{HTML}{167C80}
+\definecolor{Compare}{HTML}{BC5D28}
+\definecolor{Muted}{HTML}{566778}
+\definecolor{Pale}{HTML}{EDF4F6}
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{frametitle}{fg=Ink,bg=white}
+\setbeamercolor{structure}{fg=Accent}
+\setbeamercolor{block title}{fg=Ink,bg=Pale}
+\setbeamercolor{block body}{fg=Ink,bg=Pale}
+\setbeamercolor{footline}{fg=Muted}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{itemize item}{\small\raisebox{0.1ex}{\textbullet}}
+\setbeamersize{text margin left=7mm,text margin right=7mm}
+
+% Semantic font roles; TeX pt on the native 16 x 9 cm page.
+\newcommand{\BodyFont}{\fontsize{10.5}{13.4}\selectfont}
+\newcommand{\AuxFont}{\fontsize{9.2}{11.7}\selectfont}
+\newcommand{\AuxNote}[1]{{\AuxFont\color{black!62}#1\par}}
+\newcommand{\PlotFont}{\fontsize{8.8}{10.5}\selectfont}
+\newcommand{\CodeFont}{\fontsize{9.2}{11.8}\selectfont}
+\setbeamerfont{normal text}{size=\BodyFont}
+\setbeamerfont{frametitle}{size=\fontsize{14.5}{18}\selectfont,series=\mdseries}
+\setbeamerfont{block title}{size=\BodyFont,series=\mdseries}
+\setbeamerfont{block body}{size=\BodyFont}
+\setbeamerfont{footline}{size=\fontsize{8}{10}\selectfont}
+\setbeamertemplate{frametitle}{%
+  \vspace{2mm}\usebeamerfont{frametitle}\insertframetitle\par\vspace{1.5mm}}
+% Count physical PDF pages, including every overlay and appendix page.
+\setbeamertemplate{footline}{%
+  \hfill\usebeamerfont{footline}\usebeamercolor[fg]{footline}%
+  \insertpagenumber/\insertdocumentendpage\hspace{7mm}\vspace{2mm}}
+\AtBeginDocument{\BodyFont
+  \setlength{\abovedisplayskip}{4pt}\setlength{\belowdisplayskip}{4pt}
+  \setlength{\abovedisplayshortskip}{3pt}\setlength{\belowdisplayshortskip}{3pt}}
+\newcommand{\Key}[1]{{\color{Accent}\mdseries #1}}
+\newcommand{\Insight}[1]{\par\vspace{2mm}%
+  \begin{beamercolorbox}[sep=1.8mm,wd=\textwidth]{block body}\BodyFont #1\end{beamercolorbox}}
+
+\pgfplotsset{starter axis/.style={
+  width=6.8cm,height=4.65cm,
+  axis line style={Ink!55},tick style={Ink!55},
+  grid=major,grid style={Ink!10},
+  tick label style={font=\PlotFont},
+  label style={font=\PlotFont},title style={font=\PlotFont},
+  legend style={font=\PlotFont,draw=none,fill=white,inner sep=2pt},
+  line width=0.8pt,mark size=1.6pt,
+  scaled ticks=false,
+}}

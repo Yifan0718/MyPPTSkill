@@ -1,5 +1,8 @@
 python-pptx==1.0.2
-Pillow==12.3.0
+Pillow==13.0.0
 lxml==6.1.1
-numpy==2.5.4
-opencv-python-headless==5.0.0.93
+numpy==2.3.5
+opencv-python==5.0.0.93
+pypdf==6.10.0
+PyMuPDF==2.1
+reportlab==4.4.9

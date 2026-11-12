@@ -4,13 +4,13 @@ import argparse,hashlib,json
 from datetime import datetime,timezone
 
 ROOT=Path(__file__).resolve().parent.parent
-EXTENSIONS={'.md','.py','.ps1','.json','.yaml','.yml','.toml'}
+EXTENSIONS={'.md','.py','.ps1','.json','.yaml','.yml','.toml','.tex','.sty','.cls','.tikz','.bib','.bst','.csv','.tsv','.dat','.lua','.cfg'}
 def inventory(root):
     result={}
     for p in sorted(root.rglob('*')):
         rel=p.relative_to(root)
         if not p.is_file() or any(x in ('.git','__pycache__','local-overrides') for x in rel.parts):continue
-        if p.suffix.lower() in EXTENSIONS or p.name=='VERSION':
+        if p.suffix.lower() in EXTENSIONS or p.name in ('VERSION','MYPPT_VERSION','latexmkrc','.latexmkrc') or rel.parts[:2] == ('assets','fonts'):
             result[rel.as_posix()]=hashlib.sha256(p.read_bytes()).hexdigest().upper()
     return result
 

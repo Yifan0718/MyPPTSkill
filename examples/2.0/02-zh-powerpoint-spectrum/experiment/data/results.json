@@ -1,0 +1,77 @@
+{
+  "fs": 2048,
+  "duration_s": 4,
+  "N": 8192,
+  "seed": 20261112,
+  "dtype": "float64",
+  "downsample": {
+    "naive_124": 0.5000000000000017,
+    "filtered_124": 5.691030392665665e-05,
+    "filtered_120": 1.0013771360860404
+  },
+  "windows": [
+    {
+      "name": "Rectangular",
+      "gain": 1.0,
+      "mainlobe_bins": 2,
+      "sidelobe_db": -13.261029168676865,
+      "enbw_bins": 1.0
+    },
+    {
+      "name": "Hann",
+      "gain": 0.5,
+      "mainlobe_bins": 4,
+      "sidelobe_db": -31.467396265386732,
+      "enbw_bins": 1.5
+    },
+    {
+      "name": "Blackman-Harris",
+      "gain": 0.35875,
+      "mainlobe_bins": 8,
+      "sidelobe_db": -92.01091678685954,
+      "enbw_bins": 2.004352938217048
+    }
+  ],
+  "amplitude": [
+    {
+      "window": "boxcar",
+      "uncorrected": 0.9000000000000001,
+      "corrected": 0.9000000000000001
+    },
+    {
+      "window": "hann",
+      "uncorrected": 0.4500000000000001,
+      "corrected": 0.9000000000000005
+    },
+    {
+      "window": "blackmanharris",
+      "uncorrected": 0.3228750000000001,
+      "corrected": 0.8999999999999987
+    }
+  ],
+  "power": {
+    "integral": 0.48522141264494806,
+    "weighted_mean_square": 0.48522141264494817,
+    "rms": 0.6965783607354941
+  },
+  "welch": {
+    "segments": 31,
+    "trials": 300,
+    "periodogram_cv": 0.9491783009299831,
+    "welch_cv": 0.17960133818734825
+  },
+  "diagnosis": {
+    "peaks_hz": [
+      120.0,
+      123.0
+    ],
+    "burst_peak_s": 2.60205078125,
+    "burst_envelope_V": 0.6839502383860648
+  },
+  "checks": {
+    "inverse_fft_error": 1.1102230246251565e-15,
+    "amplitude_error": 1.3322676295501878e-15,
+    "parseval_error": 1.1102230246251565e-16,
+    "alias_sample_error": 9.658940314238862e-15
+  }
+}

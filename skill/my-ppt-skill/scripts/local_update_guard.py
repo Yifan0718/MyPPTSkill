@@ -1,7 +1,7 @@
 """Stage upstream updates and preserve current and future local customizations."""
 from pathlib import Path, PurePosixPath
 import argparse, hashlib, json, shutil, subprocess, difflib, sys, os, tempfile
-from check_update import parse_version
+from check_update import parse_version, _run_git
 def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def atomic_json(path,value):
     """Leave the previous valid metadata intact on interrupted writes."""
@@ -77,7 +77,7 @@ def prepare(root,stage,candidate=None):
     else:
         url,_,branch=source[4:].partition('#')
         env=os.environ.copy();env.update(GIT_TERMINAL_PROMPT='0',GCM_INTERACTIVE='Never')
-        subprocess.run(['git','clone','--depth','1','--branch',branch or 'main',url,str(incoming)],check=True,timeout=180,env=env)
+        _run_git(['git','clone','--depth','1','--branch',branch or 'main',url,str(incoming)],timeout=180,env=env)
     new=files(incoming)
     if 'SKILL.md' not in new or 'VERSION' not in new:
         raise ValueError('Candidate must contain SKILL.md and VERSION')

@@ -7,6 +7,10 @@ Fork 自 [GordenSun/GordenPPTSkill](https://github.com/GordenSun/GordenPPTSkill)
 | 文件 | 相对基线 | 许可范围 |
 |---|---|---|
 | `agents/openai.yaml` | 新增 | MIT（Yifan0718） |
+| `MYPPT_VERSION` | 新增 | MIT（Yifan0718） |
+| `startup-update.json` | 新增 | MIT（Yifan0718） |
+| `scripts/startup_update.py` | 新增 | MIT（Yifan0718） |
+| `references/startup-update.md` | 新增 | MIT（Yifan0718） |
 | `docs/LICENSE_SCOPE.md` | 新增 | MIT（Yifan0718） |
 | `docs/UPSTREAM_DIFFERENCES.md` | 新增 | MIT（Yifan0718） |
 | `LICENSE` | 上游原样 | 许可文本／权利声明；见内容规定 |
@@ -144,3 +148,7 @@ Fork 自 [GordenSun/GordenPPTSkill](https://github.com/GordenSun/GordenPPTSkill)
 | `local-overrides/registry.json` | 新增／运行状态 | 定制保护配置；列出路径不改变被列文件的许可 |
 
 发布版未附上游历史 CHANGELOG、开发配置、宣传素材及本地开发测试。原 LICENSE 和 NOTICE 保持原文。
+
+## 固定字体资源
+
+`assets/fonts/latin-modern/`、`latin-modern-math/`和`upstream/lm*.zip`为原样上游字体资源，适用GUST Font License；`assets/fonts/licenses/`保存对应上游版权及许可原文。Fandol使用官方固定包自动获取，公开目录只含其许可文本和下载清单。`fonts.json`为新增固定资源配置，`scripts/setup_fonts.py`为本项目新增MIT代码。字体许可独立于代码MIT，具体出处及版本见[字体说明](../references/bundled-fonts.md)。

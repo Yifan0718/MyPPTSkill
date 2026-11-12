@@ -142,5 +142,5 @@ python3 scripts/build_pptx.py \
 | `expected_text mismatch` | 模板原文发生变化；重新核对目标与 detail.json 的 current_text，不通过关闭校验掩盖错位 |
 | `shape_id not found` | 模板被替换了；要么用其他模板，要么重新提取 detail.json |
 | 文字溢出 | 看 `max_chars`；缩短文字或换更宽的版式 |
-| 字体不一样 | 见 [`SKILL.md` 字体说明](../SKILL.md)，配置 fontconfig 别名 |
+| 字体不一样 | 按 [`SKILL.md` 字体说明](../SKILL.md)检查原字体文件、安装与发现路径；受控字体按[固定资源](bundled-fonts.md)恢复。用户明确同意换字体时统一更新相关角色，再渲染全部受影响页 |
 | 图表数据没改 | 见 [`chart-editing.md`](./chart-editing.md) |

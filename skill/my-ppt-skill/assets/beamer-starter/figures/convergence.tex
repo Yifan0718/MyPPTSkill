@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+\begin{groupplot}[
+  starter axis,
+  group style={group size=2 by 1,horizontal sep=17mm},
+  xmin=0,xmax=6,xtick={0,2,4,6},xlabel={迭代次数 $k$},
+  samples at={0,1,2,3,4,5,6},
+]
+\nextgroupplot[title={(a) 到最优点的距离},ylabel={$|x_k|$},
+  ymin=0,ymax=4.3,ytick={0,1,2,3,4},legend pos=north east]
+\addplot[Compare,mark=square*] {4*pow(0.75,x)};
+\addlegendentry{$\eta=0.25$}
+\addplot[Accent,mark=*] {4*pow(0.25,x)};
+\addlegendentry{$\eta=0.75$}
+\nextgroupplot[title={(b) 目标值的数量级},ylabel={$f(x_k)$},
+  ymode=log,log basis y=10,ymin=1e-7,ymax=20,
+  ytick={1e-6,1e-4,1e-2,1},
+  yticklabels={$10^{-6}$,$10^{-4}$,$10^{-2}$,$10^0$}]
+\addplot[Compare,mark=square*] {8*pow(0.75,2*x)};
+\addplot[Accent,mark=*] {8*pow(0.25,2*x)};
+\end{groupplot}
+\end{tikzpicture}

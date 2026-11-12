@@ -1,4 +1,12 @@
-# MyPPTSkill 11个成品案例
+# 成品案例
+
+## 2.0旗舰作品
+
+[四套20页完整作品与讲稿](2.0/README.md) · [80页预览](2.0/80-pages.pdf) · [讲稿预览](2.0/manuscripts.pdf)
+
+中文Beamer、中文PowerPoint、英文Beamer、英文PowerPoint，覆盖公式推导、科学图表、代码与数据实验。
+
+## 扩展案例库
 
 共11份、94页，包含可编辑PPTX、PDF、高清预览与教学源码。
 

@@ -1,0 +1,918 @@
+{
+  "N": 200000,
+  "seed": 20261112,
+  "sqlite_version": "3.53.1",
+  "python": "3.12.14",
+  "query": "SELECT created_seq, amount_cents FROM orders WHERE tenant_id=42 ORDER BY created_seq DESC LIMIT 20",
+  "cases": {
+    "Scan": {
+      "vm_instructions": 617851,
+      "rows_returned": 20,
+      "median_ms": 5.5869,
+      "times_ms": [
+        5.8301,
+        6.4342,
+        6.1847,
+        7.0966,
+        5.457,
+        5.5869,
+        5.4091,
+        5.3878,
+        5.8499,
+        5.447,
+        5.3947
+      ],
+      "plan": [
+        "SCAN orders",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ],
+      "result": [
+        [
+          199998,
+          12409
+        ],
+        [
+          199965,
+          71348
+        ],
+        [
+          199943,
+          2880
+        ],
+        [
+          199941,
+          98552
+        ],
+        [
+          199904,
+          66249
+        ],
+        [
+          199874,
+          69278
+        ],
+        [
+          199842,
+          50435
+        ],
+        [
+          199655,
+          51885
+        ],
+        [
+          199295,
+          30141
+        ],
+        [
+          199290,
+          46940
+        ],
+        [
+          199099,
+          87900
+        ],
+        [
+          198945,
+          47948
+        ],
+        [
+          198920,
+          3030
+        ],
+        [
+          198676,
+          21801
+        ],
+        [
+          198530,
+          14018
+        ],
+        [
+          198526,
+          184
+        ],
+        [
+          198470,
+          91271
+        ],
+        [
+          198391,
+          86730
+        ],
+        [
+          198325,
+          95412
+        ],
+        [
+          197897,
+          99375
+        ]
+      ],
+      "page_bytes": 18231296,
+      "insert_vm_instructions": 85000
+    },
+    "Tenant": {
+      "vm_instructions": 23792,
+      "rows_returned": 20,
+      "median_ms": 0.5901,
+      "times_ms": [
+        0.5901,
+        0.5818,
+        0.584,
+        0.5956,
+        0.5877,
+        0.5901,
+        0.5891,
+        0.5917,
+        0.5923,
+        0.5933,
+        0.5998
+      ],
+      "plan": [
+        "SEARCH orders USING INDEX idx (tenant_id=?)",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ],
+      "result": [
+        [
+          199998,
+          12409
+        ],
+        [
+          199965,
+          71348
+        ],
+        [
+          199943,
+          2880
+        ],
+        [
+          199941,
+          98552
+        ],
+        [
+          199904,
+          66249
+        ],
+        [
+          199874,
+          69278
+        ],
+        [
+          199842,
+          50435
+        ],
+        [
+          199655,
+          51885
+        ],
+        [
+          199295,
+          30141
+        ],
+        [
+          199290,
+          46940
+        ],
+        [
+          199099,
+          87900
+        ],
+        [
+          198945,
+          47948
+        ],
+        [
+          198920,
+          3030
+        ],
+        [
+          198676,
+          21801
+        ],
+        [
+          198530,
+          14018
+        ],
+        [
+          198526,
+          184
+        ],
+        [
+          198470,
+          91271
+        ],
+        [
+          198391,
+          86730
+        ],
+        [
+          198325,
+          95412
+        ],
+        [
+          197897,
+          99375
+        ]
+      ],
+      "page_bytes": 20213760,
+      "insert_vm_instructions": 115000
+    },
+    "Composite": {
+      "vm_instructions": 150,
+      "rows_returned": 20,
+      "median_ms": 0.0106,
+      "times_ms": [
+        0.0111,
+        0.0107,
+        0.0105,
+        0.0105,
+        0.0109,
+        0.0106,
+        0.0107,
+        0.0104,
+        0.0106,
+        0.0122,
+        0.0104
+      ],
+      "plan": [
+        "SEARCH orders USING INDEX idx (tenant_id=?)"
+      ],
+      "result": [
+        [
+          199998,
+          12409
+        ],
+        [
+          199965,
+          71348
+        ],
+        [
+          199943,
+          2880
+        ],
+        [
+          199941,
+          98552
+        ],
+        [
+          199904,
+          66249
+        ],
+        [
+          199874,
+          69278
+        ],
+        [
+          199842,
+          50435
+        ],
+        [
+          199655,
+          51885
+        ],
+        [
+          199295,
+          30141
+        ],
+        [
+          199290,
+          46940
+        ],
+        [
+          199099,
+          87900
+        ],
+        [
+          198945,
+          47948
+        ],
+        [
+          198920,
+          3030
+        ],
+        [
+          198676,
+          21801
+        ],
+        [
+          198530,
+          14018
+        ],
+        [
+          198526,
+          184
+        ],
+        [
+          198470,
+          91271
+        ],
+        [
+          198391,
+          86730
+        ],
+        [
+          198325,
+          95412
+        ],
+        [
+          197897,
+          99375
+        ]
+      ],
+      "page_bytes": 20979712,
+      "insert_vm_instructions": 120000
+    },
+    "Covering": {
+      "vm_instructions": 129,
+      "rows_returned": 20,
+      "median_ms": 0.0086,
+      "times_ms": [
+        0.0089,
+        0.0088,
+        0.0087,
+        0.0086,
+        0.0085,
+        0.0086,
+        0.0086,
+        0.0126,
+        0.0086,
+        0.0086,
+        0.0089
+      ],
+      "plan": [
+        "SEARCH orders USING COVERING INDEX idx (tenant_id=?)"
+      ],
+      "result": [
+        [
+          199998,
+          12409
+        ],
+        [
+          199965,
+          71348
+        ],
+        [
+          199943,
+          2880
+        ],
+        [
+          199941,
+          98552
+        ],
+        [
+          199904,
+          66249
+        ],
+        [
+          199874,
+          69278
+        ],
+        [
+          199842,
+          50435
+        ],
+        [
+          199655,
+          51885
+        ],
+        [
+          199295,
+          30141
+        ],
+        [
+          199290,
+          46940
+        ],
+        [
+          199099,
+          87900
+        ],
+        [
+          198945,
+          47948
+        ],
+        [
+          198920,
+          3030
+        ],
+        [
+          198676,
+          21801
+        ],
+        [
+          198530,
+          14018
+        ],
+        [
+          198526,
+          184
+        ],
+        [
+          198470,
+          91271
+        ],
+        [
+          198391,
+          86730
+        ],
+        [
+          198325,
+          95412
+        ],
+        [
+          197897,
+          99375
+        ]
+      ],
+      "page_bytes": 21721088,
+      "insert_vm_instructions": 125000
+    }
+  },
+  "tenant42_rows": 1980,
+  "open_rows": 20045,
+  "range": {
+    "query": "SELECT sum(amount_cents) FROM orders INDEXED BY idx WHERE tenant_id=42 AND created_seq BETWEEN 80000 AND 119999",
+    "tenant_first": {
+      "vm_instructions": 1991,
+      "rows_returned": 1,
+      "median_ms": 0.0521,
+      "times_ms": [
+        0.0544,
+        0.0538,
+        0.053,
+        0.0524,
+        0.0516,
+        0.052,
+        0.0525,
+        0.0521,
+        0.0519,
+        0.0519,
+        0.052
+      ],
+      "plan": [
+        "SEARCH orders USING INDEX idx (tenant_id=? AND created_seq>? AND created_seq<?)"
+      ],
+      "result": [
+        [
+          19206018
+        ]
+      ]
+    },
+    "range_first": {
+      "vm_instructions": 200808,
+      "rows_returned": 1,
+      "median_ms": 1.3114,
+      "times_ms": [
+        1.3145,
+        1.3114,
+        1.3337,
+        1.314,
+        1.3196,
+        1.3003,
+        1.7822,
+        1.3032,
+        1.2402,
+        1.2239,
+        1.2318
+      ],
+      "plan": [
+        "SEARCH orders USING INDEX idx (created_seq>? AND created_seq<?)"
+      ],
+      "result": [
+        [
+          19206018
+        ]
+      ]
+    }
+  },
+  "payload": {
+    "vm_instructions": 170,
+    "rows_returned": 20,
+    "median_ms": 0.0126,
+    "times_ms": [
+      0.0127,
+      0.0125,
+      0.0126,
+      0.0125,
+      0.0124,
+      0.0126,
+      0.0126,
+      0.0124,
+      0.0126,
+      0.0124,
+      0.0126
+    ],
+    "plan": [
+      "SEARCH orders USING INDEX idx (tenant_id=?)"
+    ],
+    "result": [
+      [
+        199998,
+        12409,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199965,
+        71348,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199943,
+        2880,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199941,
+        98552,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199904,
+        66249,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199874,
+        69278,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199842,
+        50435,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199655,
+        51885,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199295,
+        30141,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199290,
+        46940,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        199099,
+        87900,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        198945,
+        47948,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        198920,
+        3030,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        198676,
+        21801,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        198530,
+        14018,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        198526,
+        184,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        198470,
+        91271,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        198391,
+        86730,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        198325,
+        95412,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        197897,
+        99375,
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ]
+    ]
+  },
+  "partial": {
+    "query": "SELECT created_seq,amount_cents FROM orders WHERE status='open' AND tenant_id=42 ORDER BY created_seq DESC LIMIT 20",
+    "partial": {
+      "vm_instructions": 132,
+      "rows_returned": 20,
+      "median_ms": 0.0085,
+      "times_ms": [
+        0.009,
+        0.0085,
+        0.0086,
+        0.0085,
+        0.0085,
+        0.0085,
+        0.0086,
+        0.0085,
+        0.0086,
+        0.0085,
+        0.0086
+      ],
+      "plan": [
+        "SEARCH orders USING COVERING INDEX idx (tenant_id=?)"
+      ],
+      "result": [
+        [
+          199842,
+          50435
+        ],
+        [
+          199655,
+          51885
+        ],
+        [
+          196933,
+          42520
+        ],
+        [
+          196005,
+          56885
+        ],
+        [
+          195177,
+          20084
+        ],
+        [
+          194458,
+          97937
+        ],
+        [
+          194158,
+          68778
+        ],
+        [
+          193118,
+          7642
+        ],
+        [
+          192808,
+          19187
+        ],
+        [
+          192536,
+          35712
+        ],
+        [
+          192091,
+          39163
+        ],
+        [
+          191758,
+          49066
+        ],
+        [
+          190412,
+          84227
+        ],
+        [
+          190267,
+          53785
+        ],
+        [
+          189914,
+          49948
+        ],
+        [
+          188249,
+          54970
+        ],
+        [
+          187172,
+          72796
+        ],
+        [
+          185400,
+          78703
+        ],
+        [
+          184864,
+          56193
+        ],
+        [
+          184741,
+          38217
+        ]
+      ],
+      "index_bytes": 352256
+    },
+    "full": {
+      "vm_instructions": 134,
+      "rows_returned": 20,
+      "median_ms": 0.0087,
+      "times_ms": [
+        0.0089,
+        0.0087,
+        0.0086,
+        0.0087,
+        0.0088,
+        0.0087,
+        0.0088,
+        0.0088,
+        0.0088,
+        0.0087,
+        0.0086
+      ],
+      "plan": [
+        "SEARCH orders USING COVERING INDEX idx (status=? AND tenant_id=?)"
+      ],
+      "result": [
+        [
+          199842,
+          50435
+        ],
+        [
+          199655,
+          51885
+        ],
+        [
+          196933,
+          42520
+        ],
+        [
+          196005,
+          56885
+        ],
+        [
+          195177,
+          20084
+        ],
+        [
+          194458,
+          97937
+        ],
+        [
+          194158,
+          68778
+        ],
+        [
+          193118,
+          7642
+        ],
+        [
+          192808,
+          19187
+        ],
+        [
+          192536,
+          35712
+        ],
+        [
+          192091,
+          39163
+        ],
+        [
+          191758,
+          49066
+        ],
+        [
+          190412,
+          84227
+        ],
+        [
+          190267,
+          53785
+        ],
+        [
+          189914,
+          49948
+        ],
+        [
+          188249,
+          54970
+        ],
+        [
+          187172,
+          72796
+        ],
+        [
+          185400,
+          78703
+        ],
+        [
+          184864,
+          56193
+        ],
+        [
+          184741,
+          38217
+        ]
+      ],
+      "index_bytes": 4866048
+    }
+  },
+  "tree": [
+    {
+      "page_type": "internal",
+      "pages": 6,
+      "cells": 845,
+      "bytes": 24576
+    },
+    {
+      "page_type": "leaf",
+      "pages": 846,
+      "cells": 199155,
+      "bytes": 3465216
+    }
+  ],
+  "depth": 2,
+  "selectivity": [
+    {
+      "fraction": 0.001,
+      "indexed_vm": 1217,
+      "scan_vm": 600612
+    },
+    {
+      "fraction": 0.01,
+      "indexed_vm": 12016,
+      "scan_vm": 606011
+    },
+    {
+      "fraction": 0.1,
+      "indexed_vm": 120016,
+      "scan_vm": 660011
+    },
+    {
+      "fraction": 0.5,
+      "indexed_vm": 600016,
+      "scan_vm": 900011
+    },
+    {
+      "fraction": 1.0,
+      "indexed_vm": 1200015,
+      "scan_vm": 1200011
+    }
+  ],
+  "predicate": {
+    "direct": {
+      "vm_instructions": 5953,
+      "rows_returned": 1,
+      "median_ms": 0.0272,
+      "times_ms": [
+        0.025,
+        0.0248,
+        0.0245,
+        0.0267,
+        0.0273,
+        0.0272,
+        0.0274,
+        0.0277,
+        0.0273,
+        0.0272,
+        0.0273
+      ],
+      "plan": [
+        "SEARCH orders USING COVERING INDEX idx (tenant_id=?)"
+      ],
+      "result": [
+        [
+          1980
+        ]
+      ]
+    },
+    "expression": {
+      "vm_instructions": 801994,
+      "rows_returned": 1,
+      "median_ms": 3.2854,
+      "times_ms": [
+        3.633,
+        3.2323,
+        3.2276,
+        3.2629,
+        3.4718,
+        3.5352,
+        3.2797,
+        3.1413,
+        3.2854,
+        3.5293,
+        3.3716
+      ],
+      "plan": [
+        "SCAN orders USING COVERING INDEX idx"
+      ],
+      "result": [
+        [
+          1980
+        ]
+      ]
+    }
+  }
+}

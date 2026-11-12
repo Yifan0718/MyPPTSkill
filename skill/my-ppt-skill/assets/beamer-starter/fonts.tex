@@ -1,0 +1,9 @@
+% MyPPTSkill managed-font-entry
+\usepackage{iftex}
+\ifPDFTeX
+  \PackageError{beamer-starter}{Use XeLaTeX or LuaLaTeX}{The font setup uses OpenType files.}
+\fi
+\usepackage{fontspec}
+\usepackage[fontset=none]{ctex}
+\InputIfFileExists{myppt-fonts.tex}{}{%
+  \PackageError{beamer-starter}{Managed font configuration is missing}{Build with MyPPTSkill build_beamer.py or run setup_fonts.py for this project first.}}

@@ -75,6 +75,84 @@ class LayoutVisualReview(unittest.TestCase):
     def test_actual_visible_number_title_mismatch_cannot_close(self):
         self.peer['relationship_assessment'].update(same_alignment_group=True,same_metric_group=True)
         self.peer['no_visible_layout_defect']=False;self.peer['unresolved']=['The numeral and associated title visibly disagree.'];self.write_peer();self.check(False)
+
+    def macro_gap_fixture(self):
+        im=Image.new('RGB',(960,540),'white');draw=ImageDraw.Draw(im)
+        for i,(shape,record) in enumerate(zip(self.s.shapes,self.records)):
+            x=40 if i%2==0 else 500;y=100 if i<2 else 340
+            shape.left=Pt(x);shape.top=Pt(y);shape.height=Pt(40)
+            font=ImageFont.load_default(size=16);bb=draw.textbbox((x,y),shape.text,font=font)
+            draw.text((x,y),shape.text,font=font,fill=(25,45,75))
+            record.update(left_pt=x,top_pt=y,height_pt=40,bound_left_pt=bb[0],bound_top_pt=bb[1],bound_width_pt=bb[2]-bb[0],bound_height_pt=bb[3]-bb[1])
+        im.save(self.image);self.p.save(self.pptx)
+        self.render.update(sha256=digest(self.pptx),raster_hashes={'1':digest(self.image)})
+        self.coverage=audit(self.pptx,self.render)
+        self.f=next(f for f in self.coverage['findings'] if f['reason']=='large_internal_whitespace_review' and f['axis']=='vertical')
+        self.errors=['Component geometry/style discrepancy requires repair or independent local/full-page visual reconciliation']
+        self.make_evidence()
+
+    def test_single_large_internal_gap_has_its_own_finding(self):
+        self.macro_gap_fixture()
+        self.assertEqual(self.f['gap_pt'],200)
+        self.assertEqual(len(self.f['bands']),2)
+
+    def container_gap_fixture(self, painted):
+        self.macro_gap_fixture()
+        host=self.s.shapes.add_shape(MSO_AUTO_SHAPE_TYPE.RECTANGLE,Pt(35),Pt(95),Pt(780),Pt(290))
+        if painted:
+            from pptx.dml.color import RGBColor
+            host.fill.solid();host.fill.fore_color.rgb=RGBColor(240,240,240)
+        else:host.fill.background()
+        host.line.fill.background()
+        # Keep a second outer band: the previous len(bands)<2 fallback could
+        # not catch an invisible bridge when this lower object was present.
+        lower=self.s.shapes.add_shape(MSO_AUTO_SHAPE_TYPE.RECTANGLE,Pt(40),Pt(405),Pt(760),Pt(30))
+        self.p.save(self.pptx);self.render['sha256']=digest(self.pptx)
+        return host,lower,audit(self.pptx,self.render)
+
+    def test_invisible_frame_cannot_hide_gaps_with_two_outer_bands(self):
+        host,lower,result=self.container_gap_fixture(False)
+        findings=result['findings']
+        self.assertTrue(any(f['reason']=='large_internal_whitespace_review' and f['axis']=='vertical' and f['gap_pt']==200 for f in findings))
+        self.assertTrue(any(x['id']==host.shape_id and x['reason']=='explicitly_unpainted_empty_frame' for x in result['pages'][0]['excluded']))
+        bands=result['pages'][0]['scans'][0]['bands']
+        self.assertTrue(any(lower.shape_id in b['shape_ids'] for b in bands))
+
+    def test_painted_container_keeps_outer_geometry_and_inner_gap(self):
+        host,lower,result=self.container_gap_fixture(True)
+        outer=result['pages'][0]['scans'][0]
+        self.assertEqual(len(outer['bands']),2)
+        self.assertTrue(any(host.shape_id in b['shape_ids'] for b in outer['bands']))
+        self.assertTrue(any(f['reason']=='large_internal_whitespace_review' and f.get('host_shape_id')==host.shape_id and f['axis']=='vertical' and f['gap_pt']==200 for f in result['findings']))
+
+    def test_native_text_and_unknown_paint_are_not_empty_frame_exemptions(self):
+        from audit_layout_coverage import explicitly_unpainted
+        host,_,_=self.container_gap_fixture(False)
+        self.assertTrue(explicitly_unpainted(host))
+        host.text='Actual semantic label'
+        self.assertFalse(explicitly_unpainted(host))
+        graphic=self.s.shapes.add_shape(MSO_AUTO_SHAPE_TYPE.OVAL,Pt(20),Pt(20),Pt(40),Pt(40))
+        self.assertFalse(explicitly_unpainted(graphic))
+
+    def test_large_gap_generic_role_prose_cannot_close(self):
+        self.macro_gap_fixture();self.check(False)
+        self.assertIn('actual gap',self.call()[0])
+
+    def test_large_gap_specific_independent_assessment_can_continue(self):
+        self.macro_gap_fixture()
+        self.peer['whitespace_assessment']={'gap_pt':self.f['gap_pt'],'axis':self.f['axis'],
+             'space_purpose':NOTE,'adjacent_module_relationship':NOTE,
+             'tighter_layout_assessment':NOTE,'content_sufficiency':NOTE}
+        self.write_peer();self.check(True)
+        result=self.gate()
+        self.assertFalse([i for i in result['issues'] if i.get('id')==self.f['id']],result)
+        self.assertTrue(result['issues'])
+
+    def test_large_gap_without_content_assessment_remains_pending(self):
+        self.macro_gap_fixture()
+        self.peer['whitespace_assessment']={'gap_pt':200,'axis':'vertical','space_purpose':NOTE,
+             'adjacent_module_relationship':NOTE,'tighter_layout_assessment':NOTE}
+        self.write_peer();self.check(False)
     def test_author_only_role_label_cannot_close(self):self.record.pop('independent_review');self.disposition['object_relation']='different roles';self.check(False)
     def test_no_rule_output_cannot_close(self):self.errors=[];self.check(False)
     def test_rewritten_original_delta_fails(self):self.record['machine_context']['original_finding']['center_delta_pt']=0;self.check(False)
@@ -104,7 +182,7 @@ class LayoutVisualReview(unittest.TestCase):
     def test_spacing_region_and_new_layout_reason_use_same_protocol(self):
         for reason in ('header_body_boundary_review','rendered_ink_column_misaligned','text_region_relation_requires_review','future_layout_rule'):
             self.f={**self.f,'reason':reason,'gaps_pt':[8,26],'threshold_pt':12};self.errors=['Original rule reports its current numeric mismatch.'];self.make_evidence();self.check(True)
-    def gate(self):
+    def gate(self, check_pages=False):
         import verify_coverage_review as gate
         cp=self.root/'coverage.json';cp.write_text(json.dumps(self.coverage),encoding='utf8')
         (self.root/'audit.json').write_text(json.dumps(self.render),encoding='utf8')
@@ -116,6 +194,7 @@ class LayoutVisualReview(unittest.TestCase):
         review={'skill_lock':{'path':str(lock),'sha256':digest(lock)},'sha256':digest(self.pptx),'coverage_sha256':digest(cp),'author_id':'synthetic-author','items':items}
         stubs={'check_skill_state':{'changed_files':[]},'validate_render_evidence':None,'verify_connections':[],
                'validate_gap_audit':([],[]),'validate_manual_dispositions':[],'review_fonts':[],'check_visual_passes':[]}
+        if check_pages:stubs.pop('check_visual_passes')
         with ExitStack() as stack:
             for name,result in stubs.items():stack.enter_context(patch.object(gate,name,return_value=result))
             return gate.verify(self.pptx,cp,review,self.root)
@@ -132,12 +211,12 @@ class LayoutVisualReview(unittest.TestCase):
         reasons=('floating_annotation_review','container_text_vertical_balance_review',
                  'container_text_union_measurement_required','page_content_low_review',
                  'title_entry_position_review','effective_content_entry_gap_review',
-                 'text_container_excess_space_review','section_proximity_inversion_review')
+                 'text_container_excess_space_review','section_proximity_inversion_review','decorative_anchor_relation_review')
         for reason in reasons:
             with self.subTest(reason=reason):
                 self.f={**self.f,'reason':reason}
                 self.coverage['findings']=[self.f if f['id']==self.f['id'] else f for f in self.coverage['findings']]
-                hard=reason in ('container_text_vertical_balance_review','section_proximity_inversion_review')
+                hard=reason in ('container_text_vertical_balance_review','section_proximity_inversion_review','decorative_anchor_relation_review')
                 self.errors=['Component geometry/style discrepancy requires repair or independent local/full-page visual reconciliation' if hard else 'Original layout finding requires visual reconciliation: '+reason]
                 self.make_evidence()
                 if mutate:mutate()
@@ -154,6 +233,48 @@ class LayoutVisualReview(unittest.TestCase):
                 self.assertTrue(result['issues'])
     def test_all_new_hierarchy_reasons_have_independent_visual_dispatch(self):
         self.hierarchy_dispatch()
+    def occupied_band_dispatch(self, mutate=None):
+        # Exercise real finding-disposition routing; discovery has separate
+        # geometry fixtures. All reviews here are synthetic protocol evidence.
+        for reason in ('narrow_occupied_band_gap','uneven_occupied_band_gaps',
+                       'body_band_scan_inconclusive','internal_layout_requires_review'):
+            with self.subTest(reason=reason):
+                self.f={**self.f,'reason':reason,'axis':'vertical','gaps_pt':[8,26]}
+                self.coverage['findings']=[self.f if f['id']==self.f['id'] else f for f in self.coverage['findings']]
+                self.errors=['Component geometry/style discrepancy requires repair or independent local/full-page visual reconciliation']
+                self.make_evidence()
+                if mutate:mutate()
+                with patch('verify_coverage_review.rescan',return_value=copy.deepcopy(self.coverage)):
+                    result=self.gate()
+                target_errors=[i for i in result['issues'] if i.get('id')==self.f['id']]
+                if mutate:self.assertTrue(target_errors,result)
+                else:
+                    self.assertFalse(target_errors,result)
+                    resolved=next(r for r in result['visual_resolutions'] if r['finding_id']==self.f['id'])
+                    self.assertEqual(resolved['original_finding'],self.f)
+                    self.assertEqual(resolved['rule_failures'],self.errors)
+                # Missing evidence for the other findings still blocks delivery.
+                self.assertTrue(result['issues'])
+                self.assertEqual(result['status'],'failed')
+    def test_occupied_band_author_prose_cannot_close(self):
+        self.occupied_band_dispatch(lambda:self.disposition.clear())
+    def test_occupied_band_independent_local_full_page_can_continue(self):
+        self.occupied_band_dispatch()
+    def test_occupied_band_missing_peer_remains_pending(self):
+        self.occupied_band_dispatch(lambda:self.peer_path.unlink())
+    def test_occupied_band_missing_local_view_remains_pending(self):
+        self.occupied_band_dispatch(lambda:self.record.update(details=[]))
+    def test_occupied_band_requires_full_page_return(self):
+        self.occupied_band_dispatch(lambda:self.record.update(returned_to_full_page=False))
+    def test_occupied_band_visible_defect_remains_pending(self):
+        self.occupied_band_dispatch(lambda:self.record.update(no_visible_layout_defect=False))
+    def test_occupied_band_resolution_cannot_replace_page_content_review(self):
+        self.occupied_band_dispatch()
+        with patch('verify_coverage_review.rescan',return_value=copy.deepcopy(self.coverage)):
+            result=self.gate(check_pages=True)
+        self.assertFalse([i for i in result['issues'] if i.get('id')==self.f['id']])
+        self.assertTrue(any('content and layout' in i['reason'] for i in result['issues']))
+        self.assertEqual(result['status'],'failed')
     def test_new_hierarchy_reasons_reject_missing_peer(self):
         self.hierarchy_dispatch(lambda:self.peer_path.unlink())
     def test_new_hierarchy_reasons_reject_missing_local_view(self):

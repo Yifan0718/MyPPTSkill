@@ -1,0 +1,6 @@
+{
+  "schema": "myppt-startup-update/v1",
+  "release_metadata_url": "https://api.github.com/repos/Yifan0718/MyPPTSkill/releases/latest",
+  "upstream_source": "git+https://github.com/GordenSun/GordenPPTSkill.git#main",
+  "upstream_metadata_url": "https://raw.githubusercontent.com/GordenSun/GordenPPTSkill/main/updates.json"
+}

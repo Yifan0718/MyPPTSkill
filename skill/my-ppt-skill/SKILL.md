@@ -1,7 +1,7 @@
 ---
 name: my-ppt-skill
 description: >-
-  用 21 套内置中文 PPT 模板（或用户自带的 .pptx 模板）生成与编辑 PowerPoint 演示文稿：保留模板风格，修复不当换行、过小字号及对齐问题，必须实际渲染并逐页验收；也支持完全原创的简洁版式。当用户要"做 / 生成 / 制作 / 编辑一份 PPT / 演示文稿 / 幻灯片 / .pptx"，或需要工作汇报、年终与季度总结、述职竞聘、项目复盘、开题答辩、商务提案、教学课件、数据可视化等成品 PPTX 时使用。Use when the user wants to create or edit a PowerPoint / PPT / slides / .pptx deck, pick from built-in templates, or apply their own template with readable typography and verified layouts.
+  制作与编辑 PowerPoint、LaTeX Beamer 演示稿，支持21套内置中文PPT模板、自带模板和原创设计，复杂图表、代码、公式混排，实际渲染并逐页视觉验收。用户明确要求时，为两种Slides制作多语言Word或LaTeX配套讲稿；LaTeX成果交付PDF与可编译源码。当用户需要PPT、幻灯片、Beamer、教学课件、研究或项目演示，或基于Slides的讲稿时使用。Use for PowerPoint/PPTX or LaTeX Beamer decks, template-based or original presentations, and explicitly requested multilingual speaker manuscripts in Word or LaTeX, with rendered visual review.
 ---
 
 # MyPPTSkill
@@ -10,16 +10,36 @@ description: >-
 
 ---
 
+## 输出格式与执行路线
+
+**Office工具最高优先级：** 本机安装了对应Microsoft Office应用时，Office文件的打开、排版、渲染和导出使用MS Office，执行[Office优先级与恢复流程](references/office-runtime.md)。失败先恢复原生路径；其他兼容办公套件仅在对应MS Office未安装时使用。
+
+所有LaTeX成果执行[PDF与原始源码交付规则](references/latex-delivery.md)：必须同时提供已编译PDF和原始源码，最终回复必须列出PDF文件的直达打开链接。
+
+普通PPT／PowerPoint请求默认PPTX；明确要求LaTeX、Beamer或已有Beamer工程时，执行[Beamer完整流程](references/beamer-workflow.md)，交付PDF与可编译源码。新建和重做整套演示默认16:9。两条路线共用需求、语言、内容、精调与视觉标准；构建、对象寻址和文件验收按格式执行。Beamer不调用PPTX专用COM/XML校验器。
+
+Beamer未指定其他风格时，直接采用已确认的[BIO0507默认风格](references/beamer-default-style.md)：Boadilla＋beaver、常规字重、紧凑页脚；加载配套样式文件后实际试排。其他风格按用户要求选择。
+
+默认风格字体按[受控字体资源](references/bundled-fonts.md)自动配置同一字体文件；该字体包的获取与用户级安装已获长期授权，其他软件/依赖仍按其授权范围处理。
+
+首次计算、绘图或编译前先执行[环境选择](references/scientific-visualization.md#先探测后选择)：确认实际解释器、已有库、字体和工具链，优先使用可用环境或替代工具。安装范围以用户明确授权为准；仅补字体的授权不扩大到Python包、TeX宏包或其他软件。不得先安装后补读规则。
+
+Beamer依次读取通用写作、需求与层级规则、[文字与空间精调](references/precision-layout.md)、[图表处理](references/beamer-charts.md)，使用构建工具并完成全部实际页的规则＋视觉检查，再签核交付。下面五步中的PPTX脚本、缩略图和普通视图要求属于PowerPoint路线；Beamer使用专用流程对应的构建、逐页图像、证据检查及签核。
+
+用户明确要求配套讲稿时，执行[讲稿流程](references/speaker-notes.md)。PowerPoint与Beamer共用，默认中文；格式按用户指定，未指定先询问，无回复时优先可用LaTeX，否则Word。仅制作Slides时不自动生成讲稿。
+
 ## 执行顺序与规则入口
 
 本 Skill 保留模板风格，但不保留模板缺陷。以下本地定制优先于模板或上游资料中的“不改排版”“保持原字号”“轻微超框”“渲染可选”等冲突建议。用户当前明确要求优先；普通单稿反馈不自动成为长期规则。
 
 用户的任务要求、偏好和制作约束仅指导执行，成品讲述主题内容。按[制作指令与成品内容分离](references/local-delivery-quality.md#制作指令与成品内容分离)检查并清理混入正文、注释、附录、备注及导出产物的指令和执行自述。
 
+**通用写作必读：** PowerPoint与Beamer的所有主题、用途、自然语言及模板模式，从构思/材料筛选、大纲/文稿、图表组件生成、每次排版改写到签核与输出，全流程执行[Affirmative-First Writing](references/affirmative-first-writing.md)。直接展开事实、机制和信息增量，逐句及整篇清理防御性否定、虚构反方和伪反驳。发布会原则继续按用途选择叙事方式，通用写作规范贯穿全部表达模式。
+
 1. **确认需求与选模板。** 制作整套前，未明确的封面、篇幅必须询问；大纲仅在实质不清楚时询问，已知信息不重复问。执行下文三模式与 [本地交付标准](references/local-delivery-quality.md) 的需求、内容、字号、边距和元数据规则。不得删关键内容或机械增页规避排版。
-2. **检查更新并冻结版本。** 本会话首次使用执行 `python scripts/check_update.py`；失败不得称“已是最新”。更新仅用保护入口，规则冲突显式向用户确认；参见 [更新保护](references/local-delivery-quality.md#更新时保留本地规则)。最终迭代前按 [冻结流程](references/layout-integrity.md#冻结skill后再迭代和签核) 建立版本锁。
-3. **规划内容和布局。** 按[标题、注释与字号](references/presentation-hierarchy.md)检查全部悬浮小字、页底注释、整块文字居中、页面重心及信息密度，建立语义字号基准。 先按[首次阅读与案例](references/audience-and-evidence.md)建立读者可理解的术语、指标和代表性示例，并用[修订闭环](references/revision-control.md)追踪用户反馈及影响范围。 叙事按用途参照 [叙事选择流程](references/narrative-reference.md)，不机械写成宣传稿。执行 [全页覆盖与反规避验收](references/layout-integrity.md)：统一锚点、真实间距、所有位置可见字形边缘、混合字体局部检查；不得自授免检。分析型多页稿搭配多种有任务的图表和图标，科研绘图按需读 [工具选择](references/scientific-visualization.md)。
-4. **渲染、修复、反复核验。** 最终渲染前按 [第一页缩略图与普通视图](references/delivery-shell.md) 准备交付外壳；PowerPoint默认后台无窗口运行。 所有页面初始 `suspected_unverified`。必须规则与视觉交叉检查；所有原生连线、箭头及图内连接按 [连接完整性](references/connector-integrity.md) 逐根逐端检查。自动通过不能代替局部和整页可视化。版式规则未通过或测不准时，保留原结果，执行 [局部＋整页独立视觉兜底](references/signoff-workflow.md#版式规则未通过时的视觉兜底)；真实视觉合格且独立复核完成可以关闭对应拦截，不要求所有版式数值机械通过。实际可见缺陷须修正，未解决项不得签核；拦截必须接续复核、修复或替代流程，不能作为停工理由。
+2. **轻量检查更新并冻结版本。** 本会话首次启用执行`python -B -X utf8 scripts/startup_update.py`，按[启动更新流程](references/startup-update.md)处理：确认有更新才询问是否更新；无更新、断网、超时或检查异常直接沿用本机版本继续制作，不因更新检查阻塞任务。未答复时也沿用当前版本，明确同意后才进入保护更新。规则冲突显式确认，额外要求按[更新保护](references/local-delivery-quality.md#更新时保留本地规则)保留。最终迭代前按[冻结流程](references/layout-integrity.md#冻结skill后再迭代和签核)建立版本锁。
+3. **规划内容和布局。** 执行[文字、空间与光学精调](references/precision-layout.md)，内容和等义措辞与列宽、行距、字号联动迭代。 按[标题、注释与字号](references/presentation-hierarchy.md)检查全部悬浮小字、页底注释、整块文字居中、页面重心及信息密度，建立语义字号基准。 先按[首次阅读与案例](references/audience-and-evidence.md)建立读者可理解的术语、指标和代表性示例，并用[修订闭环](references/revision-control.md)追踪用户反馈及影响范围。 叙事按用途参照 [叙事选择流程](references/narrative-reference.md)，不机械写成宣传稿。执行 [全页覆盖与反规避验收](references/layout-integrity.md)：统一锚点、真实间距、所有位置可见字形边缘、混合字体局部检查；不得自授免检。分析型多页稿搭配多种有任务的图表和图标，科研绘图按需读 [工具选择](references/scientific-visualization.md)。
+4. **渲染、修复、反复核验。** 按[原图保留](references/scientific-visualization.md#原图保留与大图选择)保持正文图片；自定义PPTX在首次PowerPoint保存前用`pptx_image_fidelity.py prepare`生成关闭自动压缩的候选，已有build_pptx输出自动设置。 最终渲染前按 [第一页缩略图与普通视图](references/delivery-shell.md) 准备交付外壳；PowerPoint默认后台无窗口运行。 所有页面初始 `suspected_unverified`。必须规则与视觉交叉检查；所有原生连线、箭头及图内连接按 [连接完整性](references/connector-integrity.md) 逐根逐端检查。自动通过不能代替局部和整页可视化。版式规则未通过或测不准时，保留原结果，执行 [局部＋整页独立视觉兜底](references/signoff-workflow.md#版式规则未通过时的视觉兜底)；真实视觉合格且独立复核完成可以关闭对应拦截，不要求所有版式数值机械通过。实际可见缺陷须修正，未解决项不得签核；拦截必须接续复核、修复或替代流程，不能作为停工理由。
 5. **签核后交付。** 最终使用 `scripts/verify_delivery.py` 同时汇总版式证据和首次阅读证据；原 `verify_coverage_review.py` 继续作为版式证据检查器。 按 [签核范围与证据流程](references/signoff-workflow.md) 处理错误、版本、全量双遍视觉检查及发布。默认必须全量所有页；仅已全量签核后用户指出局部问题的修订可按该文件的严格增量条件处理。缺证据、未解决项、失败或未知状态均不得发布。
 
 以上引用按对应阶段开始前读取并执行；仅调研、讨论或生成待确认大纲时，执行需求/叙事/读者准备规范，暂不启动依赖最终PPTX的渲染与签核。实际制作交付时完整执行全部阶段，不能以准备阶段例外跳过成品检查。技术能力说明不改变质量门槛。字号 12/10/8 pt 的适用范围及 8 pt 先实际尝试 10 pt 的证据链，统一以 [字号和可读性](references/local-delivery-quality.md#字号和可读性) 为准。验收日志仅留工作目录，不能写入 PPT 或备注。
@@ -27,6 +47,8 @@ description: >-
 > **模板素材许可**：内置 PPT 模板视觉素材仅供上游许可范围内的个人学习和研究，禁止未经授权的商业使用；分发须遵守上游及原作者限制。代码、规则与文档按各自 MIT 许可处理，不能把代码许可扩展到模板素材。Fork 来源及许可分层见 [许可说明](docs/LICENSE_SCOPE.md)。
 
 ## 何时使用本 Skill
+
+PowerPoint与Beamer的装饰元素均执行[装饰与参照对象验收](references/precision-layout.md#装饰元素与参照对象一起验收)：核对真实关联对象、两端/边缘、间隙和视觉重量；“装饰”用途与封面留白例外均不豁免位置和对齐检查。
 
 当用户的需求满足下列任何一项就调用本 Skill：
 
@@ -78,7 +100,7 @@ description: >-
 
 1. **按内容组织版式** —— 内容充实、对齐严格、留白均衡，不默认追求极简
 2. 不限制为 4 个元素；允许复杂图标、图表和图解，保证信息层级与视觉均衡
-3. 字体：英文 Arial / Helvetica；中文 微软雅黑 / 思源黑体；标题加粗即可
+3. 字体：英文 Arial / Helvetica；中文 微软雅黑 / 思源黑体；按实际字体校准字重，层级由字号、颜色、间距与必要强调共同建立，不默认所有标题加粗
 4. 按内容选择协调的主题色、强调色及中性色，不设颜色数量硬上限；保持视觉主次、可读性和跨页颜色映射一致
 5. 用 `python-pptx` 直接代码生成，参考 [`references/original-design-guide.md`](./references/original-design-guide.md)
 
@@ -100,7 +122,7 @@ description: >-
    - 如果 `ending` 数组为空，**直接以最后一张内容页收尾**，不要硬造"感谢聆听"。
    - 同理，`agenda` 空 → 不强加目录；`section_divider` 空 → 不强加分章扉页。
    - 封面计入已确认总页数，除非用户明确要求“正文 N 页另加封面”。独立封面与正文一起参与全页渲染、逐页检查和 signoff；同样遵守页尾、语言与排版规则。
-9. **同类字号尽量统一，模板可以调整** —— 按[语义字号与少数页调整](references/presentation-hierarchy.md#语义字号体系与少数页调整)建立主标题、正文、注释等基准。可调整模板字号及布局；少数页偏离须有基准字号的实际渲染问题、具体原因与修改后复验记录。保持必要内容与信息密度，并继续遵守字号下限和图内辅助文字例外。
+9. **同页同层级完全统一，跨页保持基准，模板可以调整** —— 按[语义字号与少数页调整](references/presentation-hierarchy.md#语义字号体系与少数页调整)建立主标题、正文、注释等基准。可调整模板字号及布局；少数页偏离须有基准字号的实际渲染问题、具体原因与修改后复验记录。同页普通非标题最小/最大字号比例至少50%、优先75%；唯一比例例外为[大数字强调＋较小辅助文字](references/presentation-hierarchy.md#同页字号比例与同层级一致性两种格式共用)，其余文字继续执行比例、字号下限与可读性检查，防止超小字免责声明和防御性备注。保持必要内容与信息密度，并继续遵守图内辅助文字的既有例外。
 
 ## 最小构建示例（不是签核流程）
 
@@ -170,7 +192,7 @@ my-ppt-skill/
 | 脚本 | 干嘛用 |
 |---|---|
 | `build_pptx.py` | 按 `edits.json`（选页 + 文字替换）从模板生成最终 pptx；带长度估算提示；`--strict` 校验 expected_text；任何定位/修改失败均非零退出 |
-| `render_slides.py` | 把任意 pptx 渲染成每页一张 PNG（用 LibreOffice + pdftoppm），用于预览 / 自检 |
+| `render_slides.py` | 检测MS PowerPoint并用原生后台渲染；未安装时才使用兼容套件，用于逐页预览与自检 |
 | `compute_capacity.py` | 由 template.pptx 算出每个 slot 的 `chars_per_line/max_lines/max_chars` 等容量字段（自带模板已算好，仅在加新模板时需要） |
 | `check_update.py` | 对比本地 VERSION 和远端 updates.json，告诉你要不要更新 |
 | `apply_update.py` | 保护入口：prepare 暂存差异、审查后 apply；保留授权本地规则，禁止覆盖式更新 |
@@ -178,9 +200,9 @@ my-ppt-skill/
 
 ## 字体说明
 
-模板 XML 里大量使用 `微软雅黑`。如果运行环境没有该字体，配合 `~/.config/fontconfig/fonts.conf` 把它别名到本地已安装的字体（推荐顺序：WenQuanYi Micro Hei → DengXian → Noto Sans SC → PingFang SC）。预览图正是用这条 fallback 链渲染的。
+模板 XML 常用`微软雅黑`，优先使用本机已获许可的原字体。默认Beamer所需Fandol与Latin Modern按[受控字体资源](references/bundled-fonts.md)自动配置。制作前确认所选主题的确切字体、样式及可用来源；缺失时先修复原字体的安装与发现路径。受控包之外的字体按其许可和授权取得，不能以名称相近的字体别名静默替换。
 
-最终交给用户的 .pptx 在 PowerPoint / WPS / Keynote 里打开时会自动用宿主机的字体渲染，仍需检查字体替换后的文字宽度、换行和字号；不能据此跳过实际渲染。
+PowerPoint、WPS、Keynote及TeX的字体发现机制不同，按实际输出环境检查字符、字重、宽度、换行和基线。用户明确批准改换字体时，统一更新相关语义角色并重新渲染全部受影响页面。
 
 ## 一些常见误区
 

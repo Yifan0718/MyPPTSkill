@@ -8,7 +8,8 @@ REASONS={'table_alignment_consistency_review','table_alignment_measurement_requi
          'interstitial_module_spacing_review','filled_text_color_review'}
 REASONS.update({'floating_annotation_review','container_text_vertical_balance_review',
                 'container_text_union_measurement_required','page_content_low_review','title_entry_position_review',
-                'effective_content_entry_gap_review','text_container_excess_space_review','section_proximity_inversion_review'})
+                'effective_content_entry_gap_review','text_container_excess_space_review','section_proximity_inversion_review',
+                'decorative_anchor_relation_review'})
 
 def numeric(text):
     return bool(re.fullmatch(r'[+−–-]?\d[\d,.]*(?:\s*(?:%|‰|mm|cm|m|s|ms|px|kWh|W|°))?',text.strip()))
@@ -119,6 +120,51 @@ def scan(slide,n,render,scale=1):
                 add('interstitial_module_spacing_review',shape_ids=[table.shape_id,mid.shape_id]+[s.shape_id for s in lower],
                     gaps_pt=[a,b],text_bounds_pt=mb,minimum_pt=12*scale,balance_tolerance_pt=max(3*scale,(a+b)/2*.2))
     out.extend(scan_hierarchy(slide,n,render,scale))
+    out.extend(scan_side_accents(slide,n,render,scale))
+    return out
+
+
+def scan_side_accents(slide,n,render,scale=1):
+    """Find thin side accents by visible geometry, never by author role names.
+
+    Discovery supplies possible partners, not a declaration of semantic ownership.
+    Even matching frame endpoints require painted-glyph and whole-page review.
+    """
+    out=[]
+    records={r.get('audit_path'):r for r in render.get('text_records',[]) if isinstance(r,dict) and r.get('slide')==n}
+    def walk(shapes,parent='',owner=None):
+        local=list(shapes)
+        for bar in local:
+            path=(parent+'/group/' if parent else '')+str(bar.shape_id)
+            if hasattr(bar,'shapes'):
+                walk(bar.shapes,path,owner or bar.shape_id);continue
+            if bar.has_text_frame and bar.text.strip():continue
+            geometry=bar._element.xpath('./p:spPr/a:prstGeom')
+            if not geometry or geometry[0].get('prst') not in ('rect','roundRect'):continue
+            try:visible=bar.fill.type==MSO_FILL_TYPE.SOLID and not any(e.get('val')=='0' for e in bar._element.xpath('./p:spPr/a:solidFill/*/a:alpha'))
+            except (ValueError,AttributeError):visible=False
+            b=box(bar);w,h=b[2]-b[0],b[3]-b[1]
+            if not visible or not (0<w<=12*scale and h>=36*scale and h>=5*w):continue
+            partners=[]
+            for t in local:
+                if not t.has_text_frame or not t.text.strip():continue
+                tp=(parent+'/group/' if parent else '')+str(t.shape_id);r=records.get(tp,{})
+                keys=('bound_left_pt','bound_top_pt','bound_width_pt','bound_height_pt')
+                measured=not parent and all(type(r.get(k)) in (int,float) and math.isfinite(r[k]) for k in keys) and r.get('bound_width_pt',0)>0 and r.get('bound_height_pt',0)>0
+                tb=[r['bound_left_pt'],r['bound_top_pt'],r['bound_left_pt']+r['bound_width_pt'],r['bound_top_pt']+r['bound_height_pt']] if measured else box(t)
+                gap=tb[0]-b[2] if tb[0]>=b[2] else b[0]-tb[2]
+                if 0<=gap<=80*scale and min(b[3],tb[3])>max(b[1],tb[1]):
+                    partners.append({'shape_id':t.shape_id,'audit_path':tp,'bounds_pt':tb,'side':'right' if tb[0]>=b[2] else 'left','gap_pt':gap,'measured':measured})
+            if partners:
+                closest=min(x['gap_pt'] for x in partners);partners=[x for x in partners if x['gap_pt']<=closest+8*scale]
+            union=[min(x['bounds_pt'][0] for x in partners),min(x['bounds_pt'][1] for x in partners),max(x['bounds_pt'][2] for x in partners),max(x['bounds_pt'][3] for x in partners)] if partners else None
+            out.append({'reason':'decorative_anchor_relation_review','shape_ids':[owner] if owner else [bar.shape_id]+[x['shape_id'] for x in partners],
+                        'audit_path':path,'accent_shape_id':bar.shape_id,'accent_bounds_pt':b,'rotation':float(bar.rotation),
+                        'possible_text_members':partners,'text_union_bounds_pt':union,
+                        'endpoint_deltas_pt':[b[1]-union[1],b[3]-union[3]] if union else None,
+                        'measurement_basis':'Group coordinates or rendered font-metric bounds, not painted ink; semantic partners are provisional.',
+                        'required':'Inspect the complete accent and actual related group together; check both endpoints, gap and regional balance. A decorative name, cover whitespace, or matching center cannot close this item. Confirm the actual anchor independently using local and full-page images.'})
+    walk(slide.shapes)
     return out
 
 

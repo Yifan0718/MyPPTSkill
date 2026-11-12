@@ -85,11 +85,11 @@ python3 scripts/render_slides.py output.pptx work/preview --dpi 144
 |---|---|
 | 只有一个大标题 + 一段副标，居中布满 | cover / section_divider / ending |
 | 出现 "目录 / Contents / Agenda" + 多个章节编号 | agenda |
-| 文字含 "稻壳儿 / WPS / 模板 / 下载" 等 | template_promo（不要用） |
+| 明确推广模板售卖、定制服务或下载，与当前主题无关 | template_promo（排除无关宣传） |
 | 顶部小字章节标题 + 主体多列结构 | content（章节内页面） |
 | Thank / 感谢 / 结束 | ending |
 
-把握不准的页面：**保守跳过**，只选你能 100% 看懂的页。
+页型不明时，继续读取对象、关系和实际渲染，确认内容职责与版式结构；必要时改用同风格的清楚布局。用户要求保留的内容须迁移并核对完整性，不能因页型难识别直接删页或漏查。模板宣传按实际用途判断，不能仅凭“WPS”“模板”等词排除主题内容。
 
 ## 关于"识别每一页 PPT 模板的排版"
 

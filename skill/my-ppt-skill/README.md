@@ -1,24 +1,22 @@
-# MyPPTSkill
+# MyPPTSkill 2.0
 
-**MyPPTSkill 发布版本：1.2** · [发布与更新日志](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v1.2)
+**复杂内容，讲得漂亮，排得整齐。**
 
-本目录的 `VERSION`、`manifest.json` 与 `updates.json` 记录上游模板 Skill 的更新基线，供自适应更新使用；MyPPTSkill 的发布版本由仓库根目录 `VERSION` 和 GitHub Release 标识。
+**专注PPT与Slides制作的AI Skill。** 支持PowerPoint与LaTeX Beamer，从内容组织、图表设计到逐页视觉精调，制作清楚、扎实、精美的演示文稿。
 
-## TL;DR
+- **摆脱AI味**：表达自然、清楚、有判断，事实与机制直接推进讲解。
+- **多模态视觉精调**：逐页读图、放大细节、反复修正，把字形、色块、间距与图表边界打磨到位。
+- **复杂内容完整展开**：公式、代码、多面板图与实测数据共同承担讲解任务。
+- **双格式Slides制作**：PowerPoint与LaTeX Beamer，支持中英文内容、模板编辑、原创设计和复杂图文混排。
+- **定制持续保留**：上游GordenPPTSkill模板Skill更新时，自适应保护你的规则与修复。
 
-**复杂 PPT，讲得漂亮，排得整齐。**
+**发布版本2.0 · 21套PowerPoint模板 · 双格式演示与多语言讲稿**
 
-充分发挥多模态 AI 的视觉能力，不靠一遍直出：逐页看图、反复核验细节、修正后再检查，尽最大努力把排版打磨到完美。
+[下载2.0安装包](https://github.com/Yifan0718/MyPPTSkill/releases/download/v2.0/MyPPTSkill-2.0-install.zip) · [查看Release](https://github.com/Yifan0718/MyPPTSkill/releases/tag/v2.0)
 
-- **摆脱 AI 味**：去掉免责声明、空洞套话、长篇赘述和小字堆砌，让表达自然、清楚、有判断。
-- **告别排版错乱**：溢出、遮挡、挤压和悬空箭头，逐项找出、修正到位。
-- **强迫症级对齐与统一**：从字形起点到图表边界，从横纵间距到跨页风格，细节逐一打磨。
-- **复杂内容照样好看**：多图表、代码、公式和科研图文混排，兼顾信息密度与可读性。
-- **你的规则，持续有效**：持续跟进上游 GordenPPTSkill 更新，自适应保留已固化的定制规则与修复。
+`MYPPT_VERSION`记录安装版MyPPTSkill发布版本，仓库根目录`VERSION`对应发布版本；本目录的`VERSION`、`manifest.json`和`updates.json`维护上游模板更新基线。
 
-MyPPTSkill 是 [GordenSun/GordenPPTSkill](https://github.com/GordenSun/GordenPPTSkill) 的定制 fork，提供 21 套中文模板，支持模板编辑、原创设计与复杂图文混排。
-
-[快速开始](#安装与使用) · [完整差异](docs/UPSTREAM_DIFFERENCES.md) · [模板目录](templates/INDEX.md) · [来源与许可](docs/LICENSE_SCOPE.md)
+[安装与使用](#安装与使用) · [完整差异](docs/UPSTREAM_DIFFERENCES.md) · [模板目录](templates/INDEX.md) · [来源与许可](docs/LICENSE_SCOPE.md)
 
 ## 安装与使用
 
@@ -39,6 +37,34 @@ MyPPTSkill 是 [GordenSun/GordenPPTSkill](https://github.com/GordenSun/GordenPPT
 - 用户指定模板直接使用；需用户选模板时通常展示三套真实第一页预览，剩余候选不足三套时如实展示，有更多候选时提供换一批。
 - 默认总页数包含封面。不为满足字号或留白机械拆页，不擅自突破页数上限。
 - 作者根据明确提供的信息或页面真实署名填写，不拿引用作者、公司或软件名代替。
+
+## 配套讲稿
+
+用户明确要求时，可为PowerPoint或Beamer制作多语言讲稿，默认中文，按幻灯片顺序用简洁段落讲清图表、公式与过渡。讲稿格式独立于Slides格式：Word和LaTeX都可搭配PowerPoint或Beamer。格式按用户指定；未指定先询问，无回复时优先已有LaTeX，否则Word。讲稿中的数值、数量、页码和步骤编号使用阿拉伯数字；讲稿与Slides分别渲染核验，核对数字写法与内容对应。[讲稿流程](references/speaker-notes.md)
+
+## Beamer 与两种格式共用的精调
+
+明确要求LaTeX／Beamer时，按[Beamer完整流程](references/beamer-workflow.md)交付PDF和可编译源码。新建、重做整套演示默认16:9；未指定其他风格时采用[BIO0507轻量学术风](references/beamer-default-style.md)，配套样式文件可直接加载。已有PPTX的三种模式继续使用；Beamer提供[起步工程](assets/beamer-starter/)、[主题候选](references/beamer-themes.md)与[图表处理](references/beamer-charts.md)。
+
+```text
+使用 $my-ppt-skill 制作3页Beamer教学稿，不加封面。
+讲解二次函数梯度下降的步长、收敛轨迹与停止条件，包含公式、图表和可复算代码。
+使用16:9，交付PDF与可编译源码，逐页核验后签核。
+```
+
+两种格式共用[文字、空间与光学精调](references/precision-layout.md)：在保持语义和信息量的前提下调整措辞、列宽、行距、位置与字号。页面有实际内容与证据，图表服务论点，避免用空白和机械拆页迁就规则。Beamer的点数按页面和有效缩放换算；warning帮助定位问题，实际视觉检查始终必做。
+
+Beamer标题从常规字重试排，优先结合Boadilla等主题用字号、颜色和间距建立层级；PowerPoint按实际字体校准强调力度。正文和专用页脚分别分配空间，页脚色带内部也检查真实字形上下余量。构建器在渲染前清理PDF生成程序身份，保留作者等正常属性与图片原编码。
+
+图片默认保留原始像素和清晰度。单张超过20MB可以询问压缩选择，未答复继续用原图。PowerPoint文档默认关闭自动压缩，保存后可核对媒体字节；详情见[原图保留](references/scientific-visualization.md#原图保留与大图选择)。
+
+构建工具`build_beamer.py`生成当前PDF、全部实际页图像、日志与依赖哈希；`verify_beamer_review.py`核对逐页观察和独立视觉闭环证据，实际签核后交付。现有TeX工具链、Poppler、pypdf与Pillow按需使用；用户明确授权时可以补齐字体或依赖。
+
+## 固定字体与全流程语言检查
+
+[字体资源](references/bundled-fonts.md)固定文件与校验值：Latin Modern随包提供，Fandol从官方固定版本自动取得或复用本机同SHA文件，用户级配置后直接加载。默认Beamer工程自动完成准备；PowerPoint使用系统实际注册的名称并渲染确认。迁移源码前可导出自动配置入口，接收者自动复原相同字体。
+
+[语言规范](references/affirmative-first-writing.md#在powerpoint与beamer全流程中执行)贯穿构思、材料筛选、大纲、图文生成、精调改写、跨页复核、签核与输出。逐句核对信息增量，清理无用注释、免责声明、防御性表达及制作指令泄漏，保留必要定义、单位与真实条件。
 
 ## 文档导航
 
@@ -71,9 +97,9 @@ README 和差异说明面向使用者，不建立另一套验收标准。精确�
 |---|---|
 | PPTX 构建和审计 | Python；依赖包括 python-pptx、Pillow、lxml，其他依赖按所用工具检测。优先使用已有运行时 |
 | Windows 渲染 | 优先使用已安装的桌面 PowerPoint 和 PowerShell；默认后台无窗口运行 |
-| 其他渲染 | 可用 LibreOffice／Poppler 等实际渲染，签核同时提交对象、字体、PNG及配套审计证据 |
+| 其他渲染 | 已安装MS Office时使用其原生渲染；未安装时可用兼容套件，Poppler可栅格化已导出的PDF，签核同时提交对象、字体、PNG及配套审计证据 |
 | 科学图 | 按需调用已安装的 Python／Matplotlib、MATLAB、LaTeX、R、Julia、Octave、Graphviz 等；Windows 同时考虑已有 WSL |
-| 字体 | 检查可用中文／英文字体，代码可采用 Consolas 等宽字体；字体替换后重新渲染检查 |
+| 字体 | 受控字体按固定文件自动配置；代码采用一致的等宽字体。检查原字体实际生效，获准改换后重新渲染全部受影响页 |
 
 可选工具不可用时选择可用工具，不自动安装或激活软件，不假称已执行。不同渲染器可能产生不同布局，必须检查实际交付环境的结果。详见[科学绘图工具规范](references/scientific-visualization.md)。
 
@@ -84,8 +110,8 @@ README 和差异说明面向使用者，不建立另一套验收标准。精确�
 | 内容 | 事实扎实、证据与结论对应；不写制作流程、验收自述或泛化防御句；保留日期、估计、模拟等真实属性 |
 | 叙事 | [发布会原则](references/narrative-reference.md)按用途选用，客观比较和学术材料不强行宣传，不藏关键反证、不换口径制造优势 |
 | 标题 | 直接表达主题或判断；不强加无意义副标题；标题区紧凑，不能挤压主体 |
-| 页尾 | 必要注释集中页底，默认正常正文字号；x/y 页码独立保护，每页一个，至少 3 pt 隔离 |
-| 常规字号 | 标准 13.3333×7.5 英寸页面至少 12 pt；正文通常 14–18 pt，页标题建议 26–32 pt，短标题建议 16–22 pt；页码可 10 pt |
+| 页尾 | 必要注释集中页底，主体解释与辅助备注分级；辅助备注可稍小或偏灰；x/y 页码独立保护，每页一个，至少 3 pt 隔离 |
+| 常规字号（PPTX；Beamer按专用流程换算） | 常规内容以12 pt为下限，按展示环境建立全稿语义字号；同页同层级字体一致，普通非标题最小字号至少为最大的一半，优选四分之三以上；仅“大数字强调＋较小辅助文字”可按[层级规范](references/presentation-hierarchy.md#同页字号比例与同层级一致性两种格式共用)排除强调数字，正文仍须足够大，其余文字继续检查比例，页码保留保护区；防止超小字免责声明和防御性备注 |
 | 特殊字号 | 普通表格困难时可 10 pt；图内辅助文字按 12／10／8 pt 分级。8 pt 仅限必要复杂技术图局部，不能用于正文、普通表格或代码正文 |
 | 8 pt 证据 | 先实际渲染 10 pt、定位冲突并尝试布局调整；说明保留必要性和不能合理拆图的原因；逐项绑定最终对象和签核 |
 | 外边距 | 标准页面左、右、底部至少 0.35 英寸，建议约 0.44 英寸；其他画布按高度同比缩放 |
@@ -100,11 +126,11 @@ README 和差异说明面向使用者，不建立另一套验收标准。精确�
 
 1. 确认需求、选模板、检查更新；记录本次规则和素材版本。
 2. 确定表达档位与章节导航；逐页安排论证职责，按代表性与论证任务选择案例，统一页面网格和对齐锚点。
-3. 构建候选，检查文字、数据、字体和元数据；准备首图缩略图和普通视图。
+3. 构建候选，检查文字、数据、字体和元数据；PowerPoint准备首图缩略图和普通视图，Beamer编译当前PDF。
 4. 从稳定快照实际渲染全稿，执行间距、覆盖、连接、语言和证据检查。
 5. 每页分别做内容遍和版式遍；按首次阅读视角复述，检查术语、操作、指标及证据。复杂区域放大查看，再回到正常整页，并核对跨页一致性与色调。
 6. 修正后重新渲染复查，必要时多轮迭代；不为凑轮次制造无意义修改。
-7. 通过 `verify_delivery.py` 汇总版式与首次阅读证据；问题全部关闭、证据与候选一致后实际签核，核对交付文件哈希，再交付成品。
+7. PowerPoint通过`verify_delivery.py`汇总版式与首次阅读证据；Beamer通过`verify_beamer_review.py`核对全部实际页、局部与独立记录。问题全部关闭、证据与候选一致后实际签核，核对交付文件哈希，再交付成品。
 
 首次签核必须覆盖全稿。仅已全量签核后用户指出局部问题的修订，才可凭影响范围证据复验全部受影响页；共享资源、页数或规则变化可能要求重新全量检查。
 
@@ -116,7 +142,9 @@ README 和差异说明面向使用者，不建立另一套验收标准。精确�
 
 ## 更新与额外要求保护
 
-以下命令在 Skill 根目录执行。首次使用执行 `python scripts/check_update.py`。失败须如实记录，可继续使用已安装的有效版本，但不能声称已是最新。
+每次会话首次启用时，执行`python -B -X utf8 scripts/startup_update.py`轻量检查MyPPTSkill与上游模板更新。确认有新版时询问用户是否更新；无更新、断网、超时或检查异常时直接继续制作，未回复也沿用本机版本。[启动更新流程](references/startup-update.md)
+
+用户明确同意更新后，以下保护命令在Skill根目录执行：
 
 ```text
 python scripts/apply_update.py prepare --stage <新的暂存目录>
@@ -163,3 +191,8 @@ Fork 来源：**[GordenSun/GordenPPTSkill](https://github.com/GordenSun/GordenPP
 标题与注释按[层级规范](references/presentation-hierarchy.md)处理：逐页检查全部悬浮小字、多行文字整体居中、页面中部重心与信息密度；模板字号可调整，同类角色保持一致，少数页例外保留实际渲染问题与复验依据。
 
 制作要求按[内容分离规则](references/local-delivery-quality.md#制作指令与成品内容分离)用于指导执行；成品讲述主题，交付前检查正文、图注、附录、母版、备注及图片内文字。
+
+所有主题和语言执行[正面解释优先写作规范](references/affirmative-first-writing.md)：围绕事实、机制和证据展开，写作与输出前检查整篇表达。发布会叙事按实际用途选择。
+
+
+装饰竖线、横线、色带和角标与实际参照对象一起检查位置、边缘及留白；封面留白例外不豁免对齐。Office格式在本机安装相应Microsoft Office应用时采用其原生排版和导出，失败先恢复Office路径。

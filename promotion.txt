@@ -1,0 +1,2 @@
+MyPPTSkill 2.0：专注PPT与Slides制作，把复杂内容讲得漂亮、排得整齐！支持PowerPoint和LaTeX Beamer，中英文、公式、代码和复杂图表都能清楚呈现。多模态AI逐页看图、放大细节、反复精调，追求强迫症级对齐与统一。21套模板，完整长稿直接看效果；需要讲稿时，Word或LaTeX格式独立选择。上游模板Skill更新，自适应保留定制规则。欢迎Star / Fork / 提出意见！
+https://github.com/Yifan0718/MyPPTSkill
